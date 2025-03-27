@@ -11,7 +11,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown} from 'lucide-react';
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
 
@@ -24,7 +25,8 @@ const Navbar = () => {
             <span className='text-[#00A897]'>V</span>text.ai
           </h1>
         </div>
-        <div className='flex flex-row justify-center gap-6 text-lg'> 
+
+        <div className='hidden md:flex flex-row justify-center gap-6 text-lg'> 
     
         <Link href='/'>
           <div className={`cursor-pointer py-1 ${
@@ -81,6 +83,10 @@ const Navbar = () => {
           </Link>
           
           <Button variant="custom" className='font-medium p-5'>LOGIN</Button>
+        </div>
+
+        <div className='md:hidden'>
+            <Sidebar/>
         </div>
         
       </div>
