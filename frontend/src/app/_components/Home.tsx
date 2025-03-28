@@ -7,6 +7,7 @@ import Link from 'next/link'
 import WatchFree from './Home/WatchFree'
 import AiSolution from './Home/AiSolution'
 import image from '@/assets/Tools.png'
+import Testimonials from './Home/Testimonials'
 
 const Home = () => {
   return(
@@ -42,6 +43,9 @@ const Home = () => {
         </div>
         <Image className='h-[480px]' src={image} alt='Tools pictures'/>
       </div>
+
+      {/* Testimonials */}
+      <Testimonials/>
 
     </div>
 

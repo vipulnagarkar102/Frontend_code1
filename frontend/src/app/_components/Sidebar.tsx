@@ -44,7 +44,7 @@ const Sidebar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className='md:hidden absolute top-[73px] h-[90vh] left-0 right-0 bg-[#04293a] z-50 flex flex-col justify-between py-10 gap-4 text-[26px] overflow-y-auto transition-all 
+        <div className='md:hidden absolute top-[73px] h-[90vh] left-0 right-0 bg-[#04293a] z-50 flex flex-col justify-between py-10 gap-4 text-[20px] overflow-y-auto transition-all 
         duration-300 
         ease-out'>
           
