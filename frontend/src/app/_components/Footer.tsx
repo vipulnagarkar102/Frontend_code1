@@ -5,15 +5,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
+    <footer className="bottom-0 min-w-screen bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
 
-      <div className="flex flex-wrap gap-6 p-4 justify-between items-center">
+      <div className="flex flex-wrap gap-6 p-4 justify-between">
 
         <div className='flex flex-col gap-8'>
-          <h1 className='text-[28px] font-extrabold'>
+          <h1 className='text-[35px] font-lato font-extrabold'>
             <span className='text-[#00A897]'>V</span>text.ai
           </h1>
-          <p className="text-[18px] leading-[24px]">Empowering Professionals with<br/> AI-Driven HealthTech Solutions</p>
+          <p className="font-lato text-[18px] leading-[30px]">Empowering Professionals with<br/> AI-Driven HealthTech Solutions</p>
 
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2">
@@ -26,17 +26,13 @@ const Footer = () => {
         </div>
 
         <div> 
-          <div className="flex flex-row gap-4 text-[15px] font-semibold leading-[100%] tracking-[1%] my-4">
+          <div className="flex flex-col md:flex-row gap-4 text-[15px] font-poppins font-semibold leading-[100%] tracking-[1%] my-4">
             <Link href='/contact-us'>
               <div className='cursor-pointer'>Contact Us</div>
             </Link>
             
             <Link href='/help-and-support'>
               <div className='cursor-pointer'>Help and Support</div>
-            </Link>
-
-            <Link href='/blogs'>
-              <div className='cursor-pointer'>Blogs</div>
             </Link>
 
             <Link href='/terms-and-conditions'>
@@ -46,9 +42,9 @@ const Footer = () => {
         </div>
 
         <div className='flex flex-col gap-6'>
-          <div className="text-[24px] font-medium leading-[100%]">Subscribe for updates</div>
+          <div className="text-[24px] font-poppins font-medium leading-[100%]">Subscribe for updates</div>
 
-          <div className='text-[#FFFFFF80]'>Subscribe to get new updates</div>
+          <div className='text-[#FFFFFF80] font-lato'>Subscribe to get new updates</div>
 
           <div>
             <div className="flex bg-[#FFFFFF] rounded-md">
@@ -67,7 +63,7 @@ const Footer = () => {
       
 
       {/* Copyright Notice */}
-      <div className="border-t border-teal-700 mt-8 pt-4 text-right px-8 text-md">
+      <div className="border-t border-teal-700 mt-8 pt-4 text-right px-8 font-poppins text-[15px] text-[#FFFFFF]">
         © {currentYear} Curiouspods Learning Pvt. Ltd. All Rights Reserved
       </div>
     </footer>
