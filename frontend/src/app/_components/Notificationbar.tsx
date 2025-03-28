@@ -19,7 +19,7 @@ export default function NotificationBar() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-[#F4F4F4] text-[#000000] text-sm py-2 flex justify-center items-center z-50">
+    <div className="fixed top-0 left-0 w-full h-8 bg-[#F4F4F4] text-[#000000] text-sm py-2 flex justify-center items-center z-50">
       <p className="animate-fade">{notifications[currentIndex]}</p>
     </div>
   );

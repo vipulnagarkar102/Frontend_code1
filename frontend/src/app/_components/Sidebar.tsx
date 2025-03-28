@@ -32,7 +32,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div>
+    <div className='font-poppins'>
       <div className='md:hidden flex items-center'>
         <button
           onClick={toggleMenu}
@@ -141,7 +141,7 @@ const Sidebar = () => {
           <div className='w-full border border-[#FFFFFF80]'></div>
           
           <div className='pl-6 py-1'>
-            <Button variant="custom" className='font-medium w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
+            <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
           </div>
         </div>
       )}

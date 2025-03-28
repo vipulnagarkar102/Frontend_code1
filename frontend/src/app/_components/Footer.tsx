@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
+    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
 
       <div className="flex flex-wrap gap-6 p-4 justify-between items-center">
 
@@ -57,7 +57,7 @@ const Footer = () => {
                 placeholder="Enter Email Address"
                 className="text-gray-800 px-4 py-2 w-64 focus:outline-none"
               />
-              <button className="bg-teal-400 hover:bg-teal-500 text-white rounded-md px-4 py-2">
+              <button className="bg-teal-400 cursor-pointer hover:bg-teal-500 text-white rounded-md px-4 py-2">
                 →
               </button>
             </div>
