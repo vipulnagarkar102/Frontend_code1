@@ -13,7 +13,7 @@ const AiSolution = () => {
         <p className='font-semibold font-poppins text-[40px] text-center text-[#003F5C]'>AI Solutions That Deliver Results</p>
     
         {/* Highest rated AI Solutions:  */}
-        <div className='mt-10 flex flex-col lg:flex-row gap-6 lg:mr-64'>
+        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
             <div className='w-[30%]'>
             <AiSolutionCard 
                 highlightedText='HIGHEST RATED'
@@ -46,7 +46,7 @@ const AiSolution = () => {
 
         {/* Trending AI Solutions:  */}
 
-        <div className='mt-10 flex flex-col lg:flex-row gap-6 lg:mr-64'>
+        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
             <div className='w-[30%]'>
                 <AiSolutionCard 
                 highlightedText='TRENDING'
@@ -79,7 +79,7 @@ const AiSolution = () => {
 
         {/* AI That Works: */}
 
-        <div className='mt-10 flex flex-col lg:flex-row gap-6 lg:mr-64'>
+        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
             <div className='w-[30%]'>
                 <AiSolutionCard 
                     highlightedText='AI THAT'

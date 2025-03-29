@@ -24,7 +24,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ rating, heading, subtext, imageSrc }) => {
   return (
-    <div className="flex flex-col justify-between w-[270px] h-[400px] md:w-[320px] md:h-[420px] gap-4 p-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
+    <div className="flex flex-col justify-between w-[270px] h-[400px] md:w-[300px] md:h-[420px] gap-4 p-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
       {/* ⭐ Star Rating Component */}
       <StarRating rating={rating} />
       <p className="font-poppins text-[24px] font-medium">{heading}</p>
