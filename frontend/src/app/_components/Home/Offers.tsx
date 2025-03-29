@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Offers = () => {
   return (
-    <div className='mt-30'>
+    <div className='mt-30 max-w-screen'>
         <div className='flex justify-center items-center'>
             <ArrowDown className="w-[32px] h-[32px] text-[#003F5C]" />
         </div>

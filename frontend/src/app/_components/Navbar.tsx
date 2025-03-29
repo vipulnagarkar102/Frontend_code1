@@ -19,7 +19,7 @@ const Navbar = () => {
   const pathname = usePathname(); // Current route path
 
   return (
-      <div className='w-full fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-[#FFFFFF] flex flex-row justify-between items-center'>
+      <div className='w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-[#FFFFFF] flex flex-row justify-between items-center'>
         <div>
           <h1 className='ml-4 text-[28px] font-extrabold font-lato'>
             <span className='text-[#00A897]'>V</span>text.ai
