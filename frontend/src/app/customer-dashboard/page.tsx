@@ -3,15 +3,14 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FiBookOpen, FiSmartphone, FiThumbsUp, FiGrid } from 'react-icons/fi';
-import Sidebar from '../customerdashboard/sidebar'
+import Sidebar from './sidebar'
 
 const Dashboard = () => {
   const menuItems = [
-    { name: 'Dashboard', path: '/' },
-    { name: 'MY Profile', path: '/my-profile' },
-    { name: 'Enrolled Courses', path: '/courses' },
-    { name: 'My Orders', path: '/order-history' },
-    { name: 'Settings', path: '/settings' },
+    { name: 'Dashboard', path: '/customer-dashboard' },
+    { name: 'MY Profile', path: '/customer-dashboard/my-videos' },
+    { name: 'My Orders', path: '/customer-dashboard/order-history' },
+    { name: 'Settings', path: '/customer-dashboard/settings' },
   ];
 
   const stats = [
@@ -25,7 +24,7 @@ const Dashboard = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       {/* Sidebar */}
-      <div className="w-64 bg-[#003F5C] text-white p-5 hidden md:block h-screen fixed top-0 left-0">
+      <div className="w-64 bg-[#003F5C] text-white p-5 hidden md:block h-screen fixed top-26 left-0">
         <ul>
           {menuItems.map((item, index) => (
             <li key={index} className={`p-3 ${index === 0 ? 'bg-white text-blue-900 rounded-lg' : ''}`}>
@@ -36,7 +35,7 @@ const Dashboard = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 p-6 overflow-auto h-screen w-full md:ml-64">
+      <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full md:ml-64">
         <h2 className="text-2xl font-bold">Welcome Back, User</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {stats.map((stat, index) => (

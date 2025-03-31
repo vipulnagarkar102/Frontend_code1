@@ -20,9 +20,9 @@ const WatchFree = () => {
       <div className='xl:h-[400px] bg-[#E0F7FA] max-w-screen flex flex-row'>
 
         
-        <div className='max-w-screen flex gap-6 my-6 xl:my-0 flex-wrap lg:mx-auto items-center justify-center text-[#003F5C]'>
+        <div className='pl-12 max-w-screen flex gap-6 my-6 xl:my-0 flex-wrap mx-auto items-center justify-center text-[#003F5C]'>
 
-          <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 rounded-[10px] border-dashed lg:w-[583px] lg:h-[334px]'>
+          <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 rounded-[10px] border-dashed lg:w-[540] lg:h-[334px]'>
             <p className='font-lato text-[24px]'>Predicting Fibrosis Stages in NAFLD <br/> Using Advanced AI Models</p>
             <p className='font-poppins text-[40px]'>Health Tech AI Insight</p>
             <Link href='/'>
@@ -30,7 +30,7 @@ const WatchFree = () => {
             </Link>
           </div>
 
-          <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 border-dashed lg:w-[583px] lg:h-[334px] rounded-[10px]'>
+          <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 border-dashed lg:w-[540px] lg:h-[334px] rounded-[10px]'>
             <p className='font-lato text-[24px]'>Revolutionizing DevSecOps: AI and <br/> Generative AI in Action</p>
             <p className='font-poppins text-[40px]'>Emerging Tech Insights</p>
             <Link href='/'>

@@ -1,9 +1,9 @@
 'use client';
 
-import Sidebar from '../customerdashboard/sidebar';
+import Sidebar from '../sidebar';
 import Image from 'next/image';
 
-const MyVideos = () => {
+const Page = () => {
   const videos = [
     { title: 'Video Name', progress: '0%', rating: 3, action: 'START LEARNING', image: '/video1.jpg' },
     { title: 'Video Name', progress: '40%', rating: 5, action: 'CONTINUE LEARNING', image: '/video2.jpg' },
@@ -11,7 +11,7 @@ const MyVideos = () => {
   ];
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 mt-26">
       <Sidebar />
 
       <div className="flex-1 p-6 overflow-auto h-screen w-full md:ml-64">
@@ -45,4 +45,4 @@ const MyVideos = () => {
   );
 };
 
-export default MyVideos;
+export default Page;
