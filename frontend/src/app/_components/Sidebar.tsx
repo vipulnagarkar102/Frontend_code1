@@ -139,6 +139,16 @@ const Sidebar = () => {
           </Link>
 
           <div className='w-full border border-[#FFFFFF80]'></div>
+
+          <Link href='/customer-dashboard' onClick={toggleMenu}>
+            <div className={`cursor-pointer py-1 pl-6 ${
+              pathname === '/blogs' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+            } hover:text-teal-300 transition`}>
+              Dashboard
+            </div>
+          </Link>
+
+          <div className='w-full border border-[#FFFFFF80]'></div>
           
           <div className='pl-6 py-1'>
             <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
