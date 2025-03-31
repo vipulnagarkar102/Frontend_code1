@@ -6,7 +6,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/' },
     { name: 'MY Profile', path: '/my-profile' },
-    { name: 'Enrolled Courses', path: '/courses' },
+    { name: 'Enrolled Courses', path: '/myvideos' },
     { name: 'My Orders', path: '/order-history' },
     { name: 'Settings', path: '/settings' },
   ];
