@@ -24,15 +24,6 @@ const Dashboard = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       {/* Sidebar */}
-      <div className="w-64 bg-[#003F5C] text-white p-5 hidden md:block h-screen fixed top-26 left-0">
-        <ul>
-          {menuItems.map((item, index) => (
-            <li key={index} className={`p-3 ${index === 0 ? 'bg-white text-blue-900 rounded-lg' : ''}`}>
-              <Link href={item.path}>{item.name}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
 
       {/* Main Content */}
       <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full md:ml-64">
