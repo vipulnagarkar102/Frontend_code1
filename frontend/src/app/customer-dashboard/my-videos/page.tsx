@@ -1,6 +1,6 @@
 'use client';
 
-import Sidebar from '../sidebar';
+import Sidebar from '../sidebar'
 import Image from 'next/image';
 
 const Page = () => {

@@ -2,6 +2,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import Link from "next/link";
+import Image from '../../assets/vtexlogo.png';
 import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
@@ -19,7 +20,7 @@ const Navbar = () => {
   const pathname = usePathname(); // Current route path
 
   return (
-      <div className='w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-[#FFFFFF] flex flex-row justify-between items-center'>
+      <div className=' border-b-1 border-[#0C5070] w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-[#FFFFFF] flex flex-row justify-between items-center'>
         <div>
           <h1 className='ml-4 text-[28px] font-extrabold font-lato'>
             <span className='text-[#00A897]'>V</span>text.ai
