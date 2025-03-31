@@ -14,21 +14,21 @@ const Home = () => {
   return(
     <div>
       <div className='relative top-[104px] inset-0 z-0 overflow-hidden h-[240px] md:h-[450px] w-screen'>
-  <Image
-    src={HeroImage}
-    alt='Hero Image'
-    layout='fill' // Use layout='fill' to make the image cover the entire div
-    objectFit='cover' // Important for responsiveness
-  />
+      <Image
+        src={HeroImage}
+        alt='Hero Image'
+        layout='fill' // Use layout='fill' to make the image cover the entire div
+        objectFit='cover' // Important for responsiveness
+      />
 
-  <div className="absolute inset-0 flex items-center">
-    <div className="w-1/2 flex justify-start items-center pl-4 md:pl-8 lg:pl-12">
-      <div className="text-[#FFFFFF] font-lato font-extrabold text-[15px] leading-[25px] md:leading-[60px] md:text-[36px] lg:text-[50px] tracking-[2%]">
-        Empowering Enterprises <br /> and Healthcare with <br /> Transformative AI Learning
+      <div className="absolute inset-0 flex items-center">
+          <div className="w-1/2 flex justify-start items-center pl-4 md:pl-8 lg:pl-12">
+            <div className="text-[#FFFFFF] font-lato font-extrabold text-[15px] leading-[25px] md:leading-[60px] md:text-[36px] lg:text-[50px] tracking-[2%]">
+              Empowering Enterprises <br /> and Healthcare with <br /> Transformative AI Learning
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
       {/* What We Offers */}
       <Offers/>
@@ -50,7 +50,7 @@ const Home = () => {
       {/* Testimonials */}
       <Testimonials/>
 
-
+      <Footer/>
     </div>
 
   )

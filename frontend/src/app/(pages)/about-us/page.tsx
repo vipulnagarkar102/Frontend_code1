@@ -8,7 +8,6 @@ import Footer from '@/app/_components/Footer'
 
 const AboutUs = () => {
   return (
-    <>
     <div className='text-[#003F5C]'>
       <div className='flex flex-col md:flex-row gap-10 mt-36 md:mt-50 h-fit items-center justify-center px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-28 p-4'>
         
@@ -158,8 +157,8 @@ const AboutUs = () => {
         </div>
 
       </div>
+      <Footer/>
     </div>
-    </>
   )
 }
 
