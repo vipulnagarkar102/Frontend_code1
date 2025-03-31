@@ -81,6 +81,13 @@ const Navbar = () => {
               Blogs
             </div>
           </Link>
+          <Link href='/customerdashboard'>
+            <div className={`cursor-pointer py-1 ${
+              pathname === '/CustomerDashboard' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+            } hover:text-teal-300 transition`}>
+              Dashboard
+            </div>
+          </Link>
           
           <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
         </div>
