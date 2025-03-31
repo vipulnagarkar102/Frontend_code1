@@ -6,6 +6,7 @@ import Navbar from "./_components/Navbar";
 import NotificationBar from "./_components/Notificationbar";
 
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
