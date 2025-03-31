@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FiBookOpen, FiSmartphone, FiThumbsUp, FiGrid } from 'react-icons/fi';
+import Sidebar from '../customerdashboard/sidebar'
 
 const Dashboard = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/' },
     { name: 'MY Profile', path: '/my-profile' },
-    { name: 'Enrolled Courses', path: '/my-videos' },
+    { name: 'Enrolled Courses', path: '/courses' },
     { name: 'My Orders', path: '/order-history' },
     { name: 'Settings', path: '/settings' },
   ];
@@ -22,8 +23,9 @@ const Dashboard = () => {
 
   return (
     <div className="flex min-h-screen">
+      <Sidebar />
       {/* Sidebar */}
-      <div className="w-64 bg-blue-900 text-white p-5 hidden md:block h-screen fixed top-0 left-0">
+      <div className="w-64 bg-[#003F5C] text-white p-5 hidden md:block h-screen fixed top-0 left-0">
         <ul>
           {menuItems.map((item, index) => (
             <li key={index} className={`p-3 ${index === 0 ? 'bg-white text-blue-900 rounded-lg' : ''}`}>
@@ -44,7 +46,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-semibold">{stat.count}</h3>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-gray-600 ">{stat.label}</p>
               </div>
             </div>
           ))}
@@ -55,3 +57,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+
+
