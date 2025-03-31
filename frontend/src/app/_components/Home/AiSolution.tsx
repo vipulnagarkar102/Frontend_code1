@@ -13,101 +13,78 @@ const AiSolution = () => {
         <p className='font-semibold font-poppins text-[40px] text-center text-[#003F5C]'>AI Solutions That Deliver Results</p>
     
         {/* Highest rated AI Solutions:  */}
-        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
-            <div className='w-[30%]'>
-            <AiSolutionCard 
-                highlightedText='HIGHEST RATED'
-                mainText='AI SOLUTIONS:'
-                subText='That Deliver Results'
-            />
-            </div>
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
         
-            <div className='lg:w-[60%] mx-auto'>
-            <Carousel className='h-[300px] w-[280px] md:w-[600px] lg:w-[920px]'
-             plugins={[
-                Autoplay({
-                  delay: 2000,
-                }),
-              ]}
-            >
-                <CarouselContent>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
+                <Carousel
+                    className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
+                    plugins={[
+                    Autoplay({
+                        delay: 2000, // Auto-scroll every 2 sec
+                    }),
+                    ]}
+                >
+                <CarouselContent className=''>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><HighRatedCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><HighRatedCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><HighRatedCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><HighRatedCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><HighRatedCard/></CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel>
 
-            </div>
         </div>
+        
 
         {/* Trending AI Solutions:  */}
 
-        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
-            <div className='w-[30%]'>
-                <AiSolutionCard 
-                highlightedText='TRENDING'
-                mainText='AI SOLUTIONS:'
-                subText='What’s Changing the Game'
-                />
-            </div>
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
         
-            <div className='lg:w-[60%] mx-auto'>
-            <Carousel className='h-[300px] w-[280px] md:w-[600px] lg:w-[920px]'
-             plugins={[
-                Autoplay({
-                  delay: 2000,
-                }),
-              ]}
-            >
-                <CarouselContent>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
+                <Carousel
+                    className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
+                    plugins={[
+                    Autoplay({
+                        delay: 2000, // Auto-scroll every 2 sec
+                    }),
+                    ]}
+                >
+                <CarouselContent className=''>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><TrendingCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><TrendingCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><TrendingCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><TrendingCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><TrendingCard/></CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel>
 
-            </div>
         </div>
 
         {/* AI That Works: */}
 
-        <div className='mt-10 flex flex-col [@media(min-width:1510px)]:flex-row gap-6 xl:mr-64'>
-            <div className='w-[30%]'>
-                <AiSolutionCard 
-                    highlightedText='AI THAT'
-                    mainText='WORKS: '
-                    subText='Top Reviewed Solutions You Should Know'
-                />
-            </div>
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
         
-            <div className='lg:w-[60%] mx-auto'>
-            <Carousel className='h-[300px] w-[280px] md:w-[600px] lg:w-[920px]'
-             plugins={[
-                Autoplay({
-                  delay: 2000,
-                }),
-              ]}
-            >
-                <CarouselContent>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
-                    <CarouselItem className="md:basis-1/2 lg:basis-1/3"><HighRatedCard/></CarouselItem>
+                <Carousel
+                    className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
+                    plugins={[
+                    Autoplay({
+                        delay: 2000, // Auto-scroll every 2 sec
+                    }),
+                    ]}
+                >
+                <CarouselContent className=''>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><WorksCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><WorksCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><WorksCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><WorksCard/></CarouselItem>
+                    <CarouselItem className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center"><WorksCard/></CarouselItem>
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
             </Carousel>
 
-            </div>
         </div>
 
         
