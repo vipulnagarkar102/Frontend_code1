@@ -11,9 +11,8 @@ const Courses = () => {
   ];
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gray-100">
       <Sidebar />
-    
 
       <div className="flex-1 p-6 overflow-auto h-screen w-full md:ml-64">
         <h2 className="text-2xl font-bold">My Videos</h2>
