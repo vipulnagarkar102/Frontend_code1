@@ -37,7 +37,6 @@ export default function RootLayout({
         <div className="min-h-screen bg-[#FFFFFF] flex text-black font-bold text-[24px]">
         {children}
         </div>
-        {/* <Footer/> */}
       </body>
     </html>
   );
