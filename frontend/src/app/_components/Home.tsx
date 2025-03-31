@@ -8,6 +8,7 @@ import WatchFree from './Home/WatchFree'
 import AiSolution from './Home/AiSolution'
 import image from '@/assets/Tools.png'
 import Testimonials from './Home/Testimonials'
+import Footer from './Footer'
 
 const Home = () => {
   return(
@@ -48,6 +49,7 @@ const Home = () => {
 
       {/* Testimonials */}
       <Testimonials/>
+
 
     </div>
 

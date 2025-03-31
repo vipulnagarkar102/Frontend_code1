@@ -20,7 +20,7 @@ const WatchFree = () => {
       <div className='xl:h-[400px] bg-[#E0F7FA] max-w-screen flex flex-row'>
 
         
-        <div className='pl-12 max-w-screen flex gap-6 my-6 xl:my-0 flex-wrap mx-auto items-center justify-center text-[#003F5C]'>
+        <div className='md:pl-12 max-w-screen flex gap-6 my-6 xl:my-0 flex-wrap mx-auto items-center justify-center text-[#003F5C]'>
 
           <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 rounded-[10px] border-dashed lg:w-[540] lg:h-[334px]'>
             <p className='font-lato text-[24px]'>Predicting Fibrosis Stages in NAFLD <br/> Using Advanced AI Models</p>

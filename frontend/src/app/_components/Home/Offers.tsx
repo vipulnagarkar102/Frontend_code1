@@ -32,7 +32,7 @@ const Offers = () => {
 
                         {/* Description */}
                         <div>
-                                <p className="font-lato font-[400px] leading-[24px] text-[18px]">Explore AI-powered healthcare solutions—from diagnostics to precision therapies—enhancing efficiency, accuracy, and personalized care</p>
+                                <p className="font-lato font-medium leading-[24px] text-[18px]">Explore AI-powered healthcare solutions—from diagnostics to precision therapies—enhancing efficiency, accuracy, and personalized care</p>
                         </div>
 
                         {/* Button */}
@@ -59,7 +59,7 @@ const Offers = () => {
 
                         {/* Description */}
                         <div>
-                                <p className="font-lato font-[400px] leading-[24px] text-[18px]">Stay ahead with AI-driven solutions in emerging tech, security, and process optimization. Explore real-world use cases and hands-on applications to drive innovation and excellence</p>
+                                <p className="font-lato font-medium leading-[24px] text-[18px]">Stay ahead with AI-driven solutions in emerging tech, security, and process optimization. Explore real-world use cases and hands-on applications to drive innovation and excellence</p>
                         </div>
 
                         {/* Button */}
@@ -86,7 +86,7 @@ const Offers = () => {
 
                         {/* Description */}
                         <div>
-                                <p className="font-lato font-[400px] leading-[24px] text-[18px]">Vtex FlexPicks lets you buy individual Emerging Tech and HealthTech AI videos—no subscription needed. Get expert insights on demand!</p>
+                                <p className="font-lato font-medium leading-[24px] text-[18px]">Vtex FlexPicks lets you buy individual Emerging Tech and HealthTech AI videos—no subscription needed. Get expert insights on demand!</p>
                         </div>
 
                         {/* Button */}
@@ -113,7 +113,7 @@ const Offers = () => {
 
                         {/* Description */}
                         <div>
-                                <p className="font-lato font-[400px] leading-[24px] text-[18px]">Accelerate workforce growth with a white-labeled platform for AI-driven learning in Emerging Tech and HealthTech.</p>
+                                <p className="font-lato font-medium leading-[24px] text-[18px]">Accelerate workforce growth with a white-labeled platform for AI-driven learning in Emerging Tech and HealthTech.</p>
                         </div>
 
                         {/* Button */}
