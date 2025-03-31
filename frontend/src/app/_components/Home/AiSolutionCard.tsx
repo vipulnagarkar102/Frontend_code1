@@ -8,9 +8,9 @@ interface AiSolutionCardProps {
 
 const AiSolutionCard: React.FC<AiSolutionCardProps> = ({ highlightedText, mainText, subText }) => {
   return (
-    <div className="bg-[#003F5C] w-[310px] h-[300px] rounded-r-xl font-semibold flex flex-col justify-center gap-4 p-6 text-white">
-      <p className="font-poppins text-[32px]">
-        <span className="text-[#FFB74D]">{highlightedText}</span><br />
+    <div className="text-[#003F5C] mt-20 font-semibold text-center px-4">
+      <p className="font-poppins text-[42px] leading-[100%] mb-4">
+        <span className="text-[#FFB74D]">{highlightedText}</span>
         {mainText}
       </p>
       <p className="font-lato text-[24px]">{subText}</p>

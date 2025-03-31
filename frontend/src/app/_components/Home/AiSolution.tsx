@@ -10,10 +10,14 @@ import Autoplay from "embla-carousel-autoplay"
 const AiSolution = () => {
   return (
     <div className='my-10'>
-        <p className='font-semibold font-poppins text-[40px] text-center text-[#003F5C]'>AI Solutions That Deliver Results</p>
     
         {/* Highest rated AI Solutions:  */}
-        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
+        <AiSolutionCard 
+                highlightedText='Highest Rated '
+                mainText='AI Solutions'
+                subText='That Deliver Results'
+        />
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5'>
         
                 <Carousel
                     className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
@@ -39,7 +43,13 @@ const AiSolution = () => {
 
         {/* Trending AI Solutions:  */}
 
-        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
+        <AiSolutionCard 
+                highlightedText='Trending '
+                mainText='AI Solutions'
+                subText='What’s Changing the Game'
+        />
+
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5'>
         
                 <Carousel
                     className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
@@ -64,7 +74,13 @@ const AiSolution = () => {
 
         {/* AI That Works: */}
 
-        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
+        <AiSolutionCard 
+                    highlightedText='AI '
+                    mainText='That Works'
+                    subText='Top Reviewed Solutions You Should Know'
+        />
+
+        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5'>
         
                 <Carousel
                     className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
