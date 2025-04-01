@@ -1,0 +1,103 @@
+[
+    {
+      "id": "vid-1",
+      "title": "Introduction to Vtex.ai",
+      "progress": 40,
+      "rating": 4.0,         
+      "enrolledDate": "March 23, 2025",
+      "totalEnrolled": 152,
+      "lastUpdatedDate": "April 10, 2025",
+      "description": "This introductory video gives you a comprehensive overview of the Vtex.ai platform, its core features, and how it can revolutionize your workflow. Learn the basics and get started quickly.",
+      "ratingCounts": [10, 25, 30, 75, 50],
+      "reviews": [
+        {
+          "id": "rev-1a",
+          "userName": "Alex Johnson",
+          "rating": 5,
+          "text": "Simply dummy text of the printing and typesetting industry. Excellent introduction!",
+          "timestamp": "1 min ago"
+        },
+        {
+          "id": "rev-1b",
+          "userName": "Maria Garcia",
+          "rating": 4,
+          "text": "Very helpful to get started. Some advanced concepts could be touched upon earlier maybe.",
+          "timestamp": "2 days ago"
+        }
+      ]
+    },
+    {
+      "id": "vid-2",
+      "title": "Advanced AI Techniques",
+      "progress": 85,
+      "rating": 4.8,    
+      "enrolledDate": "January 15, 2025",
+      "totalEnrolled": 380,
+      "lastUpdatedDate": "May 01, 2025",
+      "description": "Dive deep into advanced artificial intelligence techniques. This module covers neural networks, deep learning, and practical applications with real-world case studies.",
+      "ratingCounts": [1, 3, 10, 95, 271],
+      "reviews": [
+        {
+          "id": "rev-2a",
+          "userName": "Chen Wei",
+          "rating": 5,
+          "text": "Absolutely fantastic content. Clear explanations and very practical examples. Highly recommended!",
+          "timestamp": "5 hours ago"
+        },
+        {
+          "id": "rev-2b",
+          "userName": "Sam Peterson",
+          "rating": 5,
+          "text": "One of the best courses on advanced AI I've taken.",
+          "timestamp": "1 week ago"
+        }
+      ]
+    },
+    {
+      "id": "vid-3",
+      "title": "Machine Learning Fundamentals",
+      "progress": 0,
+      "rating": 4.3,           
+      "enrolledDate": "May 10, 2025",
+      "totalEnrolled": 95,
+      "lastUpdatedDate": "May 10, 2025",
+      "description": "Start your journey into machine learning. Understand core concepts, algorithms like regression and classification, and build your first models.",
+      "ratingCounts": [3, 8, 15, 40, 29],
+      "reviews": [
+        {
+          "id": "rev-3a",
+          "userName": "Fatima Khan",
+          "rating": 4,
+          "text": "Good starting point for ML. Covers the basics well.",
+          "timestamp": "1 day ago"
+        }
+      ]
+    },
+    {
+      "id": "vid-4",                                  
+      "title": "Deploying Vtex.ai Models",         
+      "progress": 100,                                 
+      "rating": 4.6,                                   
+      "enrolledDate": "February 01, 2025",      
+      "totalEnrolled": 215,                    
+      "lastUpdatedDate": "April 20, 2025",     
+      "description": "Learn the best practices for deploying your trained Vtex.ai models into production environments. Covers scaling, monitoring, and integration.",
+      "ratingCounts": [1, 4, 15, 90, 105],           
+      "reviews": [                                     
+        {
+          "id": "rev-4a",
+          "userName": "Kenji Tanaka",
+          "rating": 5,
+          "text": "Excellent walkthrough of the deployment process. Very clear and concise.",
+          "timestamp": "1 week ago"
+        },
+         {
+          "id": "rev-4b",
+          "userName": "Priya Sharma",
+          "rating": 4,
+          "text": "Helped me get my first model deployed successfully!",
+          "timestamp": "3 days ago"
+        }
+      ]
+    }
+  ]

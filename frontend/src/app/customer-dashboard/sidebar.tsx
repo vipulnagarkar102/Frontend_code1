@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className="text-lg font-normal w-64 bg-[#003F5C] text-white p-5 hidden md:block h-screen fixed top-26 left-0">
       <ul>
         {menuItems.map((item, index) => (
-          <li key={index} className={`hover:bg-[#064867] hover:text-[#ffffff] hover:rounded-lg p-3 ${index === 0 ? 'bg-white font-semibold text-lg text-[#003F5C] rounded-lg' : ''}`}>
+          <li key={index} className={`hover:bg-[#064867] cursor-pointer hover:text-[#ffffff] hover:rounded-lg p-3 ${index === 0 ? 'bg-white font-semibold text-lg text-[#003F5C] rounded-lg' : ''}`}>
             <Link href={item.path}>{item.name}</Link>
           </li>
         ))}
