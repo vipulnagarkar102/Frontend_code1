@@ -8,6 +8,7 @@ const Sidebar = () => {
     { name: 'Profile', path: '/customer-dashboard/my-profile' },
     { name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
     { name: 'Orders', path: '/customer-dashboard/my-orders' },
+    { name: 'Reviews', path: '/customer-dashboard/my-reviews' },
     { name: 'Settings', path: '/customer-dashboard/settings' },
   ];
 
