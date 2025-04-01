@@ -34,7 +34,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
   );
 
   return (
-    <div className="flex min-h-screen bg-gray-100 mt-26">
+    <div className="flex w-full min-h-screen bg-gray-100 mt-26">
       <Sidebar />
       <div className="p-6 w-full ml-64">
       <h2 className="text-2xl font-semibold mb-5">My Orders</h2>
@@ -54,9 +54,9 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
           <input type="text" className="border p-2 rounded-lg font-medium text-lg text-[#003F5C]" placeholder="Search by status" onChange={handleSearch} />
         </div>
 
-        <table className="w-full bg-white shadow-lg rounded-lg">
+        <table className="w-full bg-white shadow-lg rounded-lg text-left ">
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray-200  font-bold text-lg">
               <th className="p-3">Order ID</th>
               <th className="p-3">Name</th>
               <th className="p-3">Date</th>
@@ -67,17 +67,19 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
           </thead>
           <tbody>
             {filteredOrders.map((order: Order) => (
-              <tr key={order.id} className="border-t">
+              <tr key={order.id} className="border-t font-normal text-base">
                 <td className="p-3">#{order.id}</td>
                 <td className="p-3">{order.name}</td>
                 <td className="p-3">{order.date}</td>
                 <td className="p-3">${order.price}</td>
                 <td className="p-3">
-                  <span className="bg-yellow-300 px-2 py-1 rounded">{order.status}</span>
+                  <span className="bg-[#FFB74D] px-2 py-1 rounded text-[#ffffff]">{order.status}</span>
                 </td>
-                <td className="p-3">
-                  <button className="border p-2 rounded">Download</button>
-                </td>
+                <td className="p-3 w-1/6">
+                    <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 cursor-pointer">
+                      Download
+                    </button>
+                  </td>
               </tr>
             ))}
           </tbody>
@@ -89,6 +91,9 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
 
 // Dummy data for props
 const dummyOrders: Order[] = [
+  { id: '24092', name: 'Arabic For Beginners', date: 'March 31, 2025', price: '64.98', status: 'On Hold', filterType: 'monthly' },
+  { id: '24086', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' },
+  { id: '24072', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' },
   { id: '24092', name: 'Arabic For Beginners', date: 'March 31, 2025', price: '64.98', status: 'On Hold', filterType: 'monthly' },
   { id: '24086', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' },
   { id: '24072', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' },
