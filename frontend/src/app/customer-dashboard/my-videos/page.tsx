@@ -1,7 +1,7 @@
 'use client';
 
 import Sidebar from '../sidebar';
-import VideoCard from '../my-videos/_components/VideoCard';
+import VideoCard from './_components/VideoCard';
 import vid1 from '@/assets/Rectangle 25.png'
 
 const Page = () => {

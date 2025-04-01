@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Sidebar = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/customer-dashboard' },
-    { name: 'Profile', path: '/profile' },
+    { name: 'Profile', path: '/customer-dashboard/my-profile' },
     { name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
     { name: 'Orders', path: '/customer-dashboard/order-history' },
     { name: 'Settings', path: '/customer-dashboard/settings' },
