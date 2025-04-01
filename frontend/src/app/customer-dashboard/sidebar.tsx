@@ -7,7 +7,7 @@ const Sidebar = () => {
     { name: 'Dashboard', path: '/customer-dashboard' },
     { name: 'Profile', path: '/customer-dashboard/my-profile' },
     { name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
-    { name: 'Orders', path: '/customer-dashboard/order-history' },
+    { name: 'Orders', path: '/customer-dashboard/my-orders' },
     { name: 'Settings', path: '/customer-dashboard/settings' },
   ];
 
