@@ -12,7 +12,7 @@ const Page = () => {
       <div className="flex-1 p-12 pt-7 overflow-auto h-screen w-full md:ml-64">
         <h2 className="text-2xl font-semibold">My Videos</h2>
         <div className="flex space-x-6 mt-4 text-[#00A5CF]">
-          <span className="font-medium cursor-pointer text-lg">All Videos(10)</span>
+          <span className=" font-medium cursor-pointer text-lg">All Videos(10)</span>
           <span className="font-medium cursor-pointer text-lg text-[#003F5C]">Active Videos(04)</span>
           <span className=" font-medium cursor-pointer text-lg text-[#003F5C]">Completed Videos(06)</span>
         </div>
