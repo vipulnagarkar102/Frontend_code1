@@ -60,17 +60,17 @@ export default function ReviewList() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26">
       <Sidebar />
       <div className="p-6 w-full md:ml-64">
         <h2 className="text-2xl font-semibold mb-5">Reviews</h2>
 
-        <div className="flex gap-4 border-b overflow-x-auto">
+        {/* <div className="flex gap-4 border-b overflow-x-auto">
           <button className="text-lg font-medium text-gray-500">Received (15)</button>
           <button className="text-lg font-medium text-blue-600 border-b-2 border-blue-600">
             Given (35)
           </button>
-        </div>
+        </div> */}
 
         <div className="mt-4">
           {reviews.map((review) => (
