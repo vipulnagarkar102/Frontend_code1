@@ -44,7 +44,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, progress, rating, image })
       <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
         <div className="bg-[#00A5CF] h-2.5 rounded-full" style={{ width: `${progress}%` }}></div>
       </div>
-      <button className={`w-full mt-3 py-2 rounded-lg text-base font-normal ${getButtonStyles()}`}>
+      <button className={`w-full mt-4 py-2 rounded-lg text-base font-normal ${getButtonStyles()}`}>
         {getActionText()}
       </button>
     </div>
