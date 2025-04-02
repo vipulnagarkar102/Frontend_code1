@@ -78,11 +78,11 @@ export default function ReviewList() {
               <div className="flex justify-between items-center">
                 <h3 className="font-bold text-lg ">Course: {review.course}</h3>
                 <div className="flex gap-3">
-                  <button onClick={() => openEditModal(review)} className="text-blue-600">
-                    ✏️ Edit
+                  <button onClick={() => openEditModal(review)} className=" cursor-pointer text-[#00A5CF] font-normal text-base">
+                    Edit
                   </button>
-                  <button onClick={() => openDeleteModal(review)} className="text-red-600">
-                    🗑️ Delete
+                  <button onClick={() => openDeleteModal(review)} className="cursor-pointer text-red-600 font-normal text-base">
+                    Delete
                   </button>
                 </div>
               </div>
@@ -99,20 +99,20 @@ export default function ReviewList() {
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
               <h2 className="text-xl font-semibold">Edit Comment</h2>
               <textarea
-                className="w-full border p-2 rounded mt-2"
+                className="w-full border p-2 rounded mt-2 font-normal text-base"
                 value={editedComment}
                 onChange={(e) => setEditedComment(e.target.value)}
               />
-              <div className="flex justify-end gap-2 mt-4">
+              <div className="flex justify-end gap-2 mt-4 ">
                 <button
                   onClick={() => setIsModalOpen(false)}
-                  className="bg-gray-500 text-white px-4 py-2 rounded"
+                  className="border border-[#00A5CF] p-2 rounded bg-[#ffffff] text-[#00A5CF] transition duration-200 font-normal text-base cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleSave}
-                  className="bg-blue-600 text-white px-4 py-2 rounded"
+                  className="ml-3 border border-[#00A5CF] p-2 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-base cursor-pointer"
                 >
                   Save
                 </button>
