@@ -6,11 +6,11 @@ import videos from '@/app/data/videos.json';
 
 const Page = () => {
   return (
-    <div className="flex min-h-screen min-w-screen bg-gray-100 mt-26 text-[#003F5C]">
+    <div className="flex min-h-screen min-w-screen bg-gray-100 mt-22 text-[#003F5C]">
       <Sidebar />
       
       <div className="flex-1 p-6 md:p-12 overflow-auto h-screen w-full md:ml-64">
-        <h2 className="text-[32px] font-poppins font-semibold">My Videos</h2>
+      <h2 className="text-2xl font-semibold mb-5">Videos</h2>
         
         <div className="flex space-x-6 mt-4 font-poppins text-[18px] font-medium text-[#00A5CF]">
           <span className="font-semibold cursor-pointer">All Videos({videos.length})</span>

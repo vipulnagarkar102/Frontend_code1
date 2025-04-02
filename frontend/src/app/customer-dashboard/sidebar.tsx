@@ -9,6 +9,9 @@ const Sidebar = () => {
     { name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
     { name: 'Orders', path: '/customer-dashboard/my-orders' },
     { name: 'Reviews', path: '/customer-dashboard/my-reviews' },
+    { name: 'Pay Per Code', path: '/customer-dashboard/my-reviews' },
+    { name: 'Buy Commercial License', path: '/customer-dashboard/my-reviews' },
+    { name: 'Consult Us', path: '/customer-dashboard/my-reviews' },
     { name: 'Settings', path: '/customer-dashboard/settings' },
   ];
 
