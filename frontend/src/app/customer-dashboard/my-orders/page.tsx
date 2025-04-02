@@ -92,11 +92,11 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
 // Dummy data for props
 const dummyOrders: Order[] = [
   { id: '24092', name: 'Arabic For Beginners', date: 'March 31, 2025', price: '64.98', status: 'On Hold', filterType: 'monthly' },
-  { id: '24086', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' },
-  { id: '24072', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' },
-  { id: '24092', name: 'Arabic For Beginners', date: 'March 31, 2025', price: '64.98', status: 'On Hold', filterType: 'monthly' },
-  { id: '24086', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' },
-  { id: '24072', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' },
+  { id: '24088', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' },
+  { id: '24074', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' },
+  { id: '24093', name: 'Arabic For Beginners', date: 'March 31, 2025', price: '64.98', status: 'On Hold', filterType: 'monthly' }, // Duplicate ID
+  { id: '24086', name: 'Freelance Content Writing', date: 'March 31, 2025', price: '74.99', status: 'On Hold', filterType: 'monthly' }, // Duplicate ID
+  { id: '24072', name: 'New Course', date: 'March 31, 2025', price: '87.98', status: 'On Hold', filterType: 'monthly' }, // Duplicate ID
 ];
 
 export default function OrderPage() {

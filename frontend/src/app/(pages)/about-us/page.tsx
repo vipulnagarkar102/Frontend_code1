@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import HeroImage from '@/assets/Hero.png'
+import HeroImage from '@/assets/about-us.png'
 import { PlugIcon, ThumbsUp } from 'lucide-react'
 import { GiOpenBook } from 'react-icons/gi'
 import { BsPeople } from 'react-icons/bs'
