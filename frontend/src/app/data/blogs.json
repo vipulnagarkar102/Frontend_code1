@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "title": "The Future of Digital Healthcare",
+      "uploadDate": "2025-04-01",
+      "thumbnail": "/images/blog1.jpg",
+      "description": "Discover how AI and digital innovations are shaping the future of healthcare."
+    },
+    {
+      "id": 2,
+      "title": "Best Practices for Regulatory Compliance",
+      "uploadDate": "2025-03-25",
+      "thumbnail": "/images/blog2.jpg",
+      "description": "Learn essential compliance strategies for healthcare professionals."
+    },
+    {
+      "id": 3,
+      "title": "Enhancing Patient Engagement",
+      "uploadDate": "2025-03-20",
+      "thumbnail": "/images/blog3.jpg",
+      "description": "Explore new ways to improve patient interactions through technology."
+    }
+  ]
+  
