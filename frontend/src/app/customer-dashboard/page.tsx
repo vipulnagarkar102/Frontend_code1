@@ -22,8 +22,8 @@ const Dashboard = () => {
 
   return (
     <div className="flex min-h-screen">
-      <Sidebar />
       {/* Sidebar */}
+      <Sidebar />
 
       {/* Main Content */}
       <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full md:ml-64">
