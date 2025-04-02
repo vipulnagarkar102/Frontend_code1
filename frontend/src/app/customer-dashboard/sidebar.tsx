@@ -12,8 +12,8 @@ const Sidebar = () => {
     { id: 3, name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
     { id: 4, name: 'Orders', path: '/customer-dashboard/my-orders' },
     { id: 5, name: 'Reviews', path: '/customer-dashboard/my-reviews' },
-    { id: 6, name: 'Pay Per Code', path: '/customer-dashboard/my-pay-per-code' },
-    { id: 7, name: 'Buy Commercial License', path: '/customer-dashboard/my-commercial-license' },
+    { id: 6, name: 'Pay Per Code', path: '/customer-dashboard/pay-per-code' },
+    { id: 7, name: 'Buy Commercial License', path: '/customer-dashboard/commercial-license' },
     { id: 8, name: 'Consult Us', path: '/customer-dashboard/consult-us' },
     { id: 9, name: 'Settings', path: '/customer-dashboard/settings' },
   ];
