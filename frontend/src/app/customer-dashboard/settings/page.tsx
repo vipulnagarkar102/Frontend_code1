@@ -127,37 +127,37 @@ const Settings = ({ user }) => {
           </div>
         ) : (
           <div className="mt-6">
-            <label>
+            <label className="font-bold text-base">
               Current Password
               <input
                 type="password"
                 name="currentPassword"
                 value={passwords.currentPassword}
                 onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3"
+                className="border p-2 rounded w-full mb-3 font-normal text-base"
               />
             </label>
-            <label>
+            <label className="font-bold text-base">
               New Password
               <input
                 type="password"
                 name="newPassword"
                 value={passwords.newPassword}
                 onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3"
+                className="border p-2 rounded w-full mb-3 font-normal text-base"
               />
             </label>
-            <label>
+            <label className="font-bold text-base">
               Retype New Password
               <input
                 type="password"
                 name="confirmPassword"
                 value={passwords.confirmPassword}
                 onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3"
+                className="border p-2 rounded w-full mb-3 font-normal text-base"
               />
             </label>
-            <button className="bg-red-600 text-white px-4 py-2 rounded">
+            <button className="border p-2 rounded bg-red-600 text-white transition duration-200 font-normal text-base mt-5">
               Reset Password
             </button>
           </div>
