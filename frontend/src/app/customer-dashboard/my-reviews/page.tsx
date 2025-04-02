@@ -76,7 +76,7 @@ export default function ReviewList() {
           {reviews.map((review) => (
             <div key={review.id} className="bg-white p-4 rounded-lg shadow mb-4 relative">
               <div className="flex justify-between items-center">
-                <h3 className="font-semibold text-lg">Course: {review.course}</h3>
+                <h3 className="font-bold text-lg ">Course: {review.course}</h3>
                 <div className="flex gap-3">
                   <button onClick={() => openEditModal(review)} className="text-blue-600">
                     ✏️ Edit
@@ -89,7 +89,7 @@ export default function ReviewList() {
               <div className="flex items-center my-2">
                 <StarRating rating={review.rating} />
               </div>
-              <p className="text-gray-600">{review.comment}</p>
+              <p className="font-normal text-base mt-5">{review.comment}</p>
             </div>
           ))}
         </div>

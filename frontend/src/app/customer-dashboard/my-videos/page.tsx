@@ -1,20 +1,25 @@
 'use client';
 
 import Sidebar from '../sidebar';
-import VideoCard from '../my-videos/_components/VideoCard';
-import vid1 from '@/assets/Rectangle 25.png'
+import VideoCard from './_components/VideoCard';
+import videos from '@/app/data/videos.json';
 
 const Page = () => {
   return (
     <div className="flex min-h-screen min-w-screen bg-gray-100 mt-26 text-[#003F5C]">
       <Sidebar />
-
-      <div className="flex-1 p-12 overflow-auto h-screen w-full md:ml-64">
-        <h2 className="text-2xl font-bold">My Videos</h2>
-        <div className="flex space-x-6 mt-4 text-blue-600">
-          <span className="font-semibold cursor-pointer">All Videos(10)</span>
-          <span className="cursor-pointer">Active Videos(04)</span>
-          <span className="cursor-pointer">Completed Videos(06)</span>
+      
+      <div className="flex-1 p-6 md:p-12 overflow-auto h-screen w-full md:ml-64">
+        <h2 className="text-[32px] font-poppins font-semibold">My Videos</h2>
+        
+        <div className="flex space-x-6 mt-4 font-poppins text-[18px] font-medium text-[#00A5CF]">
+          <span className="font-semibold cursor-pointer">All Videos({videos.length})</span>
+          <span className="cursor-pointer">
+            Active Videos({videos.filter(v => v.progress > 0 && v.progress < 100).length})
+          </span>
+          <span className="cursor-pointer">
+            Completed Videos({videos.filter(v => v.progress === 100).length})
+          </span>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
