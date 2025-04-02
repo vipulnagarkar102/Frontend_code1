@@ -125,17 +125,17 @@ export default function ReviewList() {
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
               <h2 className="text-xl font-semibold">Confirm Deletion</h2>
-              <p className="text-gray-600 mt-2">Are you sure you want to delete this review?</p>
-              <div className="flex justify-end gap-2 mt-4">
+              <p className="text-gray-600 mt-2 font-normal text-base">Are you sure you want to delete this review?</p>
+              <div className="flex justify-end gap-2 mt-8">
                 <button
                   onClick={() => setIsDeleteModalOpen(false)}
-                  className="bg-gray-500 text-white px-4 py-2 rounded"
+                  className="border border-[#00A5CF] p-2 rounded bg-[#ffffff] text-[#00A5CF] transition duration-200 font-normal text-base cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleDelete}
-                  className="bg-red-600 text-white px-4 py-2 rounded"
+                  className="ml-3 border border-red-500 p-2 rounded bg-red-500 text-white transition duration-200 font-normal text-base cursor-pointer"
                 >
                   Delete
                 </button>
