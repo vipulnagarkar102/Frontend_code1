@@ -36,14 +36,14 @@ const Settings = ({ user }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26">
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26 ">
       <Sidebar />
       <div className="p-6 w-full md:ml-64">
-        <h2 className="text-2xl font-bold">Settings</h2>
-        <div className="flex gap-6 mt-4 border-b">
+      <h2 className="text-2xl font-semibold mb-5">Settings</h2>
+        <div className="flex gap-6 mt-4 border-b font-poppins text-[18px] font-medium text-[#003F5C] cursor-pointer">
           <button
             className={`pb-2 ${
-              activeTab === "profile" ? "border-b-2 border-blue-600" : ""
+              activeTab === "profile" ? "border-b-2 border-[#00A5CF] text-[#00A5CF]" : ""
             }`}
             onClick={() => setActiveTab("profile")}
           >
@@ -51,7 +51,7 @@ const Settings = ({ user }) => {
           </button>
           <button
             className={`pb-2 ${
-              activeTab === "password" ? "border-b-2 border-blue-600" : ""
+              activeTab === "password" ? "border-b-2 border-[#00A5CF] text-[#00A5CF]" : ""
             }`}
             onClick={() => setActiveTab("password")}
           >
@@ -70,58 +70,58 @@ const Settings = ({ user }) => {
                 className="rounded-full object-cover"
               />
             </div> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4  ">
+              <label className="font-bold text-base ">
                 First Name
                 <input
                   type="text"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full"
+                  className="border p-2 rounded w-full font-normal text-base "
                 />
               </label>
-              <label>
+              <label className="font-bold text-base ">
                 Last Name
                 <input
                   type="text"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full"
+                  className="border p-2 rounded w-full font-normal text-base"
                 />
-              </label>
-              <label>
+              </label >
+              <label className="font-bold text-base ">
                 Username
                 <input
                   type="text"
                   name="username"
                   value={formData.username}
                   disabled
-                  className="border p-2 rounded w-full bg-gray-100"
+                  className="border p-2 rounded w-full bg-gray-100 font-normal text-base"
                 />
               </label>
-              <label>
+              <label className="font-bold text-base ">
                 Phone Number
                 <input
                   type="text"
                   name="phone"
                   value={formData.phone}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full"
+                  className="border p-2 rounded w-full font-normal text-base"
                 />
               </label>
-              <label className="col-span-2">
+              <label className="col-span-2 font-bold text-base">
                 Bio
                 <textarea
                   name="bio"
                   value={formData.bio}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full"
+                  className="border p-2 rounded w-full font-normal text-base"
                 />
               </label>
             </div>
-            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded">
+            <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-base mt-5">
               Update Profile
             </button>
           </div>

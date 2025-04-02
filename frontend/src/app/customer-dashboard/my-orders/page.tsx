@@ -76,7 +76,7 @@ const OrderHistory: React.FC<OrderHistoryProps> = ({ orders }) => {
                   <span className="bg-[#FFB74D] px-2 py-1 rounded text-[#ffffff]">{order.status}</span>
                 </td>
                 <td className="p-3 w-1/6">
-                    <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 cursor-pointer">
+                    <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 cursor-pointer ">
                       Download
                     </button>
                   </td>
