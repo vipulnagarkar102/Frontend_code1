@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import blogsData from "../../data/blogs.json";
+import HeroImage from '../../../assets/blogpage.png'
 
 type Blog = {
   id: number;
@@ -26,17 +27,18 @@ const BlogPage = () => {
       <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="md:w-1/2">
           <h2 className="text-3xl font-bold">Insights & Updates</h2>
-          <p className="text-gray-600 mt-2">
+          <p className="font-lato font-medium text-[22px] leading-[120%] tracking-[0%] mt-5">
             Stay up-to-date on hot industry topics, clinical best practices, regulatory news, and the latest in digital healthcare innovation.
           </p>
         </div>
         <div className="md:w-1/2 flex justify-end">
-          <Image src="/images/insights-banner.jpg" width={400} height={200} alt="Insights" className="rounded-lg" />
+          <Image src={HeroImage}
+          alt='Hero Image' width={600} height={200} className="rounded-lg" />
         </div>
       </div>
 
       {/* Blog Section */}
-      <h3 className="text-2xl font-bold text-center mt-8">Latest News & Articles</h3>
+      <h3 className="font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center mt-25 mb-15">Latest News & Articles</h3>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         {blogs.map((blog) => (
           <div key={blog.id} className="border rounded-lg p-4 shadow-md bg-white">
