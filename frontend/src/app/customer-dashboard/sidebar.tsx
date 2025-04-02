@@ -5,9 +5,13 @@ import Link from 'next/link';
 const Sidebar = () => {
   const menuItems = [
     { name: 'Dashboard', path: '/customer-dashboard' },
-    { name: 'Profile', path: '/profile' },
+    { name: 'Profile', path: '/customer-dashboard/my-profile' },
     { name: 'Enrolled Courses', path: '/customer-dashboard/my-videos' },
-    { name: 'Orders', path: '/customer-dashboard/order-history' },
+    { name: 'Orders', path: '/customer-dashboard/my-orders' },
+    { name: 'Reviews', path: '/customer-dashboard/my-reviews' },
+    { name: 'Pay Per Code', path: '/customer-dashboard/my-reviews' },
+    { name: 'Buy Commercial License', path: '/customer-dashboard/my-reviews' },
+    { name: 'Consult Us', path: '/customer-dashboard/my-reviews' },
     { name: 'Settings', path: '/customer-dashboard/settings' },
   ];
 
