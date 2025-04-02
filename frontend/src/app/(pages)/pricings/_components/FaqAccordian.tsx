@@ -10,7 +10,7 @@ interface FaqItem {
 }
 
 const FaqAccordion: React.FC = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(1); // Start with the second item open
+  const [openIndex, setOpenIndex] = useState<number | null>();
 
   const faqData: FaqItem[] = [
     {
