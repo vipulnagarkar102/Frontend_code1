@@ -1,0 +1,32 @@
+[
+    {
+      "id": "vital-healthcare-solutions",
+      "heading": "Vital Healthcare Solutions",
+      "subtext": "Vtex.ai delivers AI-driven solutions for health and life sciences, providing innovative insights and advanced services to meet critical industry needs.",
+      "imageSrc": "/images/blog1.jpg"
+    },
+    {
+      "id": "best-program",
+      "heading": "Best program",
+      "subtext": "Vtex.ai equips organizations with cutting-edge resources to drive innovation and efficiency. From Python demo code and best tutorials.",
+      "imageSrc": "/images/blog2.jpg"
+    },
+    {
+      "id": "easy-to-customize",
+      "heading": "Easy to Customize",
+      "subtext": "Vtex.ai equips organizations with cutting-edge resources to drive innovation and efficiency. From Python demo code and best tutorials.",
+      "imageSrc": "/images/blog3.jpg"
+    },
+    {
+      "id": "ai-solutions",
+      "heading": "AI Solutions",
+      "subtext": "Comprehensive AI solutions tailored to your business needs with cutting-edge technology.",
+      "imageSrc": "/images/blog4.jpg"
+    },
+    {
+      "id": "python-tutorials",
+      "heading": "Python Tutorials",
+      "subtext": "Learn Python with our comprehensive tutorials and demo codes for all skill levels.",
+      "imageSrc": "/images/blog5.jpg"
+    }
+]
