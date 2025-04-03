@@ -5,7 +5,7 @@ import UpsellImage2 from '@/assets/upsell2.png'
 import UpsellImage5 from '@/assets/upsell5.png'
 import PlanFeatures from '../../customer-dashboard/_components/Features'
 import { Button } from '@/components/ui/button'
-import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, Globe, Laptop, Monitor, Package, Settings, ThumbsUp } from 'lucide-react'
+import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, CheckCircle,Lightbulb,Globe, Laptop, Monitor, Package, Settings,UsersRound, ThumbsUp, } from 'lucide-react'
 import FeatureCard from '../../customer-dashboard/_components/FeatureCard'
 import Footer from '@/app/_components/Footer'
 
@@ -18,12 +18,12 @@ const Partners = () => {
       description: "Empower your growth journey—achieve reliable results, increase revenue, and expand into new markets with impactful, on-demand AI and tech insights."
     },
     {
-      icon: <Package size={24} color="white" />,
+      icon: <UsersRound size={24} color="white" />,
       title: "Partner with the Experts",
       description: "Step into a trusted partnership—enhance your sales and marketing efforts with our support, and equip your team with expert, hands-on training in AI and tech."
     },
     {
-      icon: <FileText size={24} color="white" />,
+      icon: <Lightbulb size={24} color="white" />,
       title: "Drive Innovation Effortlessly",
       description: "Our cutting-edge hands-on practical demos give you a competitive advantage. Leverage them to deliver unique services and custom integrations that drive market growth."
     },
@@ -32,35 +32,61 @@ const Partners = () => {
   const features2 = [
     {
       icon: <Monitor size={24} color="white" />,
-      title: "Strategic Advisory",
+      title: "Healthcare Partnership",
       description: "Ongoing guidance on AI adoption, architecture, and scaling"
     },
     {
       icon: <Laptop size={24} color="white" />,
-      title: "Implementation Support",
+      title: "Sales Partnership ",
       description: "Continuous assistance in deploying and optimizing AI solutions"
     },
     {
       icon: <Globe size={24} color="white" />,
-      title: "AI Partnership",
+      title: "Technology Partnership ",
       description: "Long-term collaboration for innovation, governance, and growth"
     },
     {
       icon: <Settings size={24} color="white" />,
-      title: "Architecture Review",
+      title: "Corporate Training and eLearning Partnership ",
       description: "Expert assessments to enhance efficiency, security, and performance"
-    },
-    {
-      icon: <ThumbsUp size={24} color="white" />,
-      title: "Best Practices",
-      description: "Regular AI model and workflow optimization for better outcomes"
-    },
-    {
-      icon: <BarChart2 size={24} color="white" />,
-      title: "Maturity Assessment",
-      description: "Evaluating AI systems for scalability, reliability, and compliance"
     }
   ];
+
+  const partnerships = [
+    {
+      title: "Healthcare Partnership",
+      points: [
+        "Educational or Research Content Provider",
+        "HealthTech Solutioning Using AI Technology",
+        "Product Co-Development and Pilots",
+      ],
+    },
+    {
+      title: "Sales Partnership",
+      points: [
+        "Keynote and Speaker Collaborations",
+        "Client Proposals and Workshop Partnerships",
+        "AI Hackathons and Competitions",
+      ],
+    },
+    {
+      title: "Technology Partnership",
+      points: [
+        "LMS (Learning Management System Integrations)",
+        "White labeling solutioning and licensing",
+        "Enterprise Software Integration",
+      ],
+    },
+    {
+      title: "Corporate Training and eLearning Partnership",
+      points: [
+        "Instructor-Led Sessions",
+        "Team-Based Workshops",
+        "Corporate or Industry Event-Driven Training",
+      ],
+    },
+  ];
+  
 
 
 
@@ -93,7 +119,7 @@ const Partners = () => {
         <p className='font-extrabold text-[36px] md:text-[50px] mb-4'>Achieve More, Together</p>
       </div>
       {/* Feature Cards */}
-      <div className="md:mt-10 mt-16 mx-auto px-10 place-items-center grid grid-cols-1 md:grid-cols-2 [@media(min-width:1200px)]:grid-cols-3 gap-6">
+      <div className="md:mt-10 mt-16 mb-16 mx-auto px-10 place-items-center grid grid-cols-1 md:grid-cols-2 [@media(min-width:1200px)]:grid-cols-3 gap-6">
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
@@ -103,7 +129,7 @@ const Partners = () => {
           />
         ))}
       </div>
-      <div className='bg-[#E0F7FA] my-16 max-w-screen p-4'>
+      <div className='bg-[#E0F7FA]  max-w-screen p-4 pb-20'>
         <div className='flex flex-col md:flex-row-reverse gap-6 mt-20 h-fit items-center justify-center px-6 p-4'>
 
           {/* left div */}
@@ -140,16 +166,22 @@ const Partners = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="md:my-10 my-16 mx-auto px-10 place-items-center grid grid-cols-1 md:grid-cols-2 [@media(min-width:1200px)]:grid-cols-3 gap-6">
-          {features2.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))}
-        </div>
+        <div className="bg-blue-50 py-12 px-4 md:px-12 lg:px-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {partnerships.map((partnership, index) => (
+          <div key={index} className="bg-white p-6 rounded-xl shadow-md">
+            <h3 className="text-lg font-semibold mb-4">{partnership.title}</h3>
+            <ul className="space-y-2">
+              {partnership.points.map((point, idx) => (
+                <li key={idx} className="flex items-center gap-2 text-gray-700">
+                  <CheckCircle className="text-green-500" size={18} /> {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
       </div>
 
       <Footer />
