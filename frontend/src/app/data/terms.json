@@ -1,64 +1,110 @@
 [
-    {
-      "icon": "🔒",
-      "title": "Terms of use Premables ",
-      "description": "Read our terms and conditions for using this service.",
-      "link": "/terms-and-conditions"
-    },
-    {
-      "icon": "🔒",
-      "title": "User Aggrements",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Payment Terms and Conditions ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Trade Mark Takedown Notice Form",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Third Party Affiliates Terms and Conditions",
-      "description": "Read our terms and conditions for using this service.",
-      "link": "/terms-and-conditions"
-    },
-    {
-      "icon": "🔒",
-      "title": "Refund Policies ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Privacy Policies ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Cookies Policies ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Intelletual Property Policy  and Procedures ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    },
-    {
-      "icon": "🔒",
-      "title": "Copyright Takedown Notice Form ",
-      "description": "Your privacy matters. Learn how we handle your data.",
-      "link": "/privacy-policy"
-    }
-    
-  ]
-  
+  {
+    "id": "terms-of-use-preamble",
+    "title": "Terms of use Premables ",
+    "description": ["This entire legal document shall be known as 'Terms of Use' and shall comprise of eight legal sub-documents, namely, (1) Terms of Use Preamble; (2) User Agreement; (3) Payment Terms and Conditions; (4) Third Party Affiliates Terms and Conditions; (5) Refund Policy; (6) Privacy Policy; (7) Cookie Policy; and (8) Intellectual Property Policy and Procedures; and may also comprise additionally, such other legal documents, as may be declared to become a part of it or as may be incorporated herein by reference, as updated from time to time. This Terms of Use provides the various terms and conditions pertaining to use/service; confers rights and obligations upon the parties bound by it; regulates the activities of the users; and protects the rights conferred by law of third parties affected by the actions/omissions of both parties in this behalf. This Terms of Use shall, unless it is declared to be void or unenforceable, either completely or in part, continue to govern the rights conferred (legal or contractual), and the various aspects of law and regulatory compliances in this behalf, as applicable. This Terms of Use shall be deemed as the primary document forming the basis of contractual relations between the parties bound by it unless the parties hereto have entered into any separate agreement which excludes the applicability of any provisions herein or has special provisions inserted therein to address the relevant issues. In case any or all of the provisions in such other separate agreement directly conflict with any or all of the corresponding provisions contained herein, such provisions set forth in such separate agreement shall, to that extent, take precedence and prevail over such corresponding provisions contained herein."],
+    "icon": "FileText"
+  },
+  {
+    "id": "user-agreements",
+    "title": "User Agreements",
+    "description": ["Details about the agreement between you and our platform."],
+    "icon": "Users"
+  },
+  {
+    "id": "payment-terms-and-conditions",
+    "title": "Payment Terms and Conditions",
+    "description": [
+    "This Payment Terms and Conditions was last updated on {insert date here}.",
+    "This Payment Terms and Conditions was brought into effect on {insert date and time here}.",
+    "1. Introduction:",
+    "This legal sub-document shall be known as \"Payment Terms and Conditions\" and shall form part of the User Agreement. When User grants his consent to the User Agreement, he shall also grant his consent to this Payment Terms and Conditions.",
+    "Key terms used and not defined herein but defined in the User Agreement or other legal sub-documents contained within the Terms of Use shall, unless they be repugnant to the subject or context, bear the meanings conveyed in those legal sub-documents, to the extent permissible by law.",
+    "2. What Vtex provides and to whom:",
+    "Vtex operates an online platform that provides a range of products, services, and digital content, including but not limited to video-based educational materials. These materials are offered through various subscription plans, such as \"Emerging Tech Insights\" and \"Healthcare AI Insights.\" The recorded video sessions are primarily intended for software engineers with prior experience in AI-related tools, Python programming language, and healthcare professionals with a healthcare background who have some exposure to AI and Python programming language. The content provided includes educational material, demonstrations, and high-level guidance on AI use cases.",
+    "While the content is designed to be informative and beneficial, Vtex does not make any guarantees or warranties regarding the effectiveness, accuracy, or outcomes of applying the methods, approaches, demo code, or structures presented in the videos. Users should be aware that the demonstrations featured in the videos are based on sample data, partially implemented AI models, and basic structures. These are intended for educational purposes only and may not be suitable for direct use in building operational products, enterprise-scale solutions, or deployable AI models. Consequently, Vtex cannot guarantee that using the content will result in successful business outcomes or fully functional AI solutions for end customers.",
+    "Vtex provides its products, services, and digital content exclusively to potential customers who meet the following qualifications:",
+    ". Software engineers seeking to learn about AI use cases and their applications.",
+    ". Healthcare professionals interested in understanding AI use cases within healthcare settings.",
+    ". Digital engineering service organizations aiming to train their engineers on selected AI use cases.",
+    "1. Subscription Fees and Billing Policy:",
+    "By subscribing to any of Vtex's plans, including but not limited to \"Emerging Tech Insights\" and \"Healthcare AI Insights,\" the user agrees to pay the applicable monthly subscription fee as specified at the time of purchase. Subscription fees are billed on a recurring basis, and payment is due in full at the beginning of each subscription period.",
+    "All fees are non-refundable, except as required by applicable law, and are subject to change upon notice provided by Vtex. Any such fee changes will take effect at the start of the next subscription period following the notice of the change. Continued use of the subscription after the fee change constitutes the user's acceptance of the new fees.",
+    "The user is responsible for ensuring that payment information is current and accurate. If Vtex is unable to charge the designated payment method for any reason, the user's subscription may be suspended or terminated at the company's discretion. Vtex reserves the right to seek any amounts owed through appropriate collection methods, including charging any other payment methods on file or pursuing legal action.",
+    "The user may cancel their subscription at any time through their account settings or by contacting Vtex's customer support. Upon cancellation, the user will retain access to the subscribed plan until the end of the current billing period. However, no refunds will be issued for the remaining days of the subscription period in which the cancellation occurs. The cancellation will take effect at the start of the next billing cycle.",
+    "2. Subscription Offerings and Ongoing Content Availability:",
+    "Vtex offers a variety of subscription plans tailored to meet the specific needs of its users. Each plan provides access to a curated selection of digital content, including recorded video sessions, educational materials, and demonstrations, designed to enhance the user's knowledge and expertise in specific areas. The current plans available include, but are not limited to:",
+    "Emerging Tech Insights: This plan is designed for software engineers and technology enthusiasts who seek to expand their understanding of AI use cases and applications in the field of emerging technologies. The content provided under this plan covers a broad spectrum of AI-related topics, offering high-level guidance and practical demonstrations.",
+    "Healthcare AI Insights: Tailored for healthcare professionals, this plan focuses on the application of AI within healthcare settings. The content is structured to help users gain insights into how AI can be integrated into clinical practices, improve patient care, and optimize healthcare operations.",
+    "Vtex will regularly publish new educational videos, which users will be able to access according to their subscribed plan. The topics, subjects, or content of these new videos will be determined at the sole discretion of Vtex, based on emerging trends, user needs, and the company's educational objectives. Users should be aware that the content offered is intended for educational purposes only and may not be suitable for direct implementation in commercial or operational environments without further customization and development.",
+    "In addition to above two plans, Vtex also offers the Trial Access Plan.",
+    "Trial Access Plan: Users can access a selection of educational videos without registration. This plan provides limited content, with topics determined at the sole discretion of Vtex, which may be updated periodically.",
+    "Additionally, Vtex reserves the right to introduce additional plans in the future, such as those focusing on Finance AI Insights or other specialized areas. Users will be notified of any new offerings as they become available.",
+    "3. Rights of Vtex and unauthorised activities by User:",
+    "Access to the digital content posted upon the Site is expressly conditioned on timely payment of the then applicable fee(s) for the Site Services in the amount set forth during online checkout or in a Sales Order, unless User is accessing the digital content upon the Site via a free trial access plan or other no fee arrangement. Vtex reserves the right to increase or decrease any fee at any time; however, to the extent User has paid his fee(s) in advance, the increase or decrease will not become effective for his subscription until the end of his subscription period.",
+    "4. Payment methods: The Site facilitates the sale of digital content, including products and videos, which users may purchase through various online payment methods. Users are advised to adhere to security guidelines for internet usage prior to engaging in any online payment transactions. For instance, Vtex may utilize Razorpay® as its payment service provider to process payments from international customers. Users are encouraged to employ Razorpay for all payment transactions. Users must ensure that their bank accounts and access channels are fully secured against potential security breaches. It is the user's responsibility to regularly review and follow Razorpay's security guidelines, as monitoring and addressing any vulnerabilities related to Razorpay fall outside the scope of Vtex's responsibilities. Vtex reserves the right to update the user's payment gateway information based on updates provided by the applicable payment service provider. By using the Site, the user authorizes Vtex to charge the applicable fees to the updated payment gateway without prior notice.",
+    "5. Authorisations: When User provides or adds any form of payment method to his account, his bank may reserve the funds necessary or place a small authorisation hold until the transaction is processed or the authorisation hold expires, but this is not the actual charge. The authorisation will be removed from your account according to the policies of such bank; and as such, to remove an authorisation, User may kindly contact such bank to clarify how long they hold authorisations for online orders.",
+    "6. Applicability of transaction fees: Depending on where User transacts with Vtex, the type of payment method used, and where his payment method was issued, User's transaction with Vtex may be subject to foreign exchange fees or differences in prices because of exchange rates and other geolocation specific pricing provided by Vtex. Vtex follows third party software's guidelines to support all payment methods, currencies, or locations for payment. Vtex may also enhance this gateway process in the future to add more locations, currencies and vendors or gateway without any prior intimation to User.",
+    "7. Invoices and collections: Invoices of products sold upon the Site are generated automatically, however, they are not sent to User automatically. User will receive payment confirmation from a payment gateway like Razorpay or PayPal, however, he can ask for invoice by sending Vtex a written request for the purpose. Vtex shall also be sending invoices by email to User, however, depending on workload, it may take anywhere between week to a several weeks.",
+    "8. Penalty upon non-payment and delayed payment: Vtex reserves the right to impose penalties for non-payment and delayed payment of monthly subscription fees. In the event of non-payment or delayed payment, Vtex may charge interest at a specified rate on the outstanding amount from the date of default or delay until the amount is paid in full. If a user's payment method fails or if the user's account is past due, Vtex may utilize alternative collection mechanisms to recover fees owed. This may include charging other payment methods on file or engaging collection agencies and legal counsel, with all associated fees and costs to be borne by the user. Notwithstanding any contrary provisions, the user's obligation to pay fees continues through the end of the applicable subscription period, regardless of whether the user cancels their subscription during that period. Late payments will incur an additional interest charge of 1% per week, plus applicable taxes, with interest compounding weekly. In the event that payment is not received within the specified time frame, or if Vtex is unable to renew the subscription due to inaccurate or outdated payment information, access to digital content on the Site may be suspended until payment is received. If access is reinstated following a suspension due to non-payment, no additional time will be added to the current subscription period.",
+    "9. Chargeback, excess use and reporting: In case User files a chargeback disputing charges made to payment method or payment gateway by Vtex and the chargeback is granted, User Account will be deactivated. Vtex shall perform weekly and monthly reporting to reconcile collections, refunds, cancellations and renewals. User may be contacted in case Vtex needs certain data or needs more information to reconcile such reports. User is required to co-operate with Vtex and send details as requested in timely manner.",
+    "10. Marketing promotions and discounts:",
+    "Vtex may, from time to time, organise marketing campaigns or promotional activities in connection with increasing the sale of its products and services. During such campaigns or activities, Vtex may offer its products or services or both, at discounted prices or with gifts, offers or benefits in addition to the primary products or services being offered. User shall not be entitled to any claim or interest with regard to any unavailed or cancelled product. In case Vtex cancels such a campaign or activity the offer shall also stand cancelled and no claim shall be entertained with regard to the same.",
+    "Vtex may alter the prices of any products or services anytime however, any products, services or subscriptions agreed to be offered to users at a certain price shall not be affected by such subsequent revisions to prices.",
+    "11. Updation of this Payment Terms and Conditions:",
+    "Vtex shall review this Payment Terms and Conditions periodically and considering the changes in business practices, market trends, economy, technology, law, governmental policies, social and political outlook, or in pursuance of agreements entered into with third party affiliates, or changes thereto, in the future, may choose to update this Payment Terms and Conditions. Vtex may also choose to update this Payment Terms and Conditions in response to customer feedback or in consideration of needs of its users. In case during such process of updation, Vtex makes a substantial change to this Payment Terms and Conditions, it may notify User through his registered contact information such as email or may publish on the Site or may send a notification via mobile devices in order that User may learn about how such changes affect him or his interests. Vtex shall ensure from its end that such notifications are addressed and sent properly to User. However, in case of delay or failure to deliver the notification due to technical or other issues beyond its control, User shall not hold Vtex responsible for such delay or failure. Such updates to Payment Terms and Conditions shall apply from the effective date specified in the notice or upon the Site.",
+    "Vtex recommends and urges all its users to check the Vtex web site home page regularly for making themselves aware of the latest information regarding cookies. User's continued access to the Site and use of the Site Services subsequent to bringing such updates into effect shall be deemed as a grant of consent to the updated Payment Terms and Conditions.",
+    "In case User does not wish to consent to this Payment Terms and Conditions or any future updates thereof, he may choose to not access or discontinue his access to the Site and Site Services at any time. Such a discontinuation shall not affect any liability, loss, harm, damage or burden incurred due to any act/omission of User prior to the date of such discontinuation and such act/omission of User shall continue to remain subject to the Payment Terms and Conditions in force thereat.",
+    "12. Subscription Fees Updates:",
+    "The pricing for the purchase of a Vtex Plan is described on our pricing page. Vtex may change the price of a Vtex Plan from time to time and will communicate any price changes to User in advance and, if applicable, how to accept those changes however User is advised to check Vtex webpage periodically for updates. Price changes for Vtex Plan subscriptions will take effect at the start of the next subscription period following the date of the price change. If User do not agree with the price Vtex charges, he or she have the right to reject the change by canceling their subscription before the price change goes into effect. Please therefore make sure User read any such notification of price changes carefully.",
+    "13. Intellectual Property & Commercial Use Terms:",
+    "Customers with an active subscription to Vtex's video subscription platform may access and utilize the AI solution code provided within the video series strictly for personal learning purposes. However, mere subscription does not grant rights to develop, commercialize, or distribute any product or application derived from this code. Any attempt to publicly share, redistribute, or sublicense the code without prior written consent from Vtex is strictly prohibited.",
+    "If a customer wishes to build and commercialize a product utilizing Vtex's AI solution code, they must obtain a separate commercial license and pay applicable fees as determined by Vtex. Unauthorized commercialization or distribution of products incorporating Vtex's proprietary code will be considered a breach of these terms and may result in legal action. Customers must contact Vtex directly to discuss licensing requirements and associated terms before any commercial use.",
+    "14. Interpretation of this Payment Terms and Conditions:",
+    "This Payment Terms and Conditions, including any future updates thereof, is the authentic legal English version and shall be the primary version for all purposes, official or legal. Any version of this Payment Terms and Conditions (current or archived), or any simplified version thereof, provided in English or in a language other than English (whether using Latin script or otherwise) is only for the purpose of convenience of User. In the event of any inconsistency or conflict between provisions or lack of clarity with regards to interpretation with any other version of this Payment Terms and Conditions, this authentic legal English version solely shall prevail."
+  ],
+    "icon": "CreditCard"
+  },
+  {
+    "id": "trademark-takedown-notice-form",
+    "title": "Trade Mark Takedown Notice form",
+    "description": ["Request removal of content that infringes on your trademark."],
+    "icon": "Flag"
+  },
+  {
+    "id": "third-party-affiliation-terms-and-conditions",
+    "title": "Third Party Affiliation Terms and Conditions",
+    "description": ["Rules for third-party affiliates and partners working with us."],
+    "icon": "Coins"
+  },
+  {
+    "id": "refund-policies",
+    "title": "Refund Policies",
+    "description": ["Learn how refunds are processed and what qualifies for a refund."],
+    "icon": "RefreshCcw"
+  },
+  {
+    "id": "privacy-policies",
+    "title": "Privacy Policies",
+    "description": ["How we collect, use, and protect your personal information."],
+    "icon": "Shield"
+  },
+  {
+    "id": "cookies-policies",
+    "title": "Cookies Policies",
+    "description": ["Information about how we use cookies and similar technologies."],
+    "icon": "Cookie"
+  },
+  {
+    "id": "intellectual-property-policy-and-procedures",
+    "title": "Intellectual Property Policy and Procedures",
+    "description": ["Our policies regarding intellectual property rights and protections."],
+    "icon": "Briefcase"
+  },
+  {
+    "id": "copyright-takedown-notice-form",
+    "title": "Copyright Takedown Notice form",
+    "description": ["Request removal of content that infringes on your copyright."],
+    "icon": "Copyright"
+  }
+]
