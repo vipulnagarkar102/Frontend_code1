@@ -73,26 +73,31 @@ const Sidebar = () => {
             
             {showOfferingItems && (
               <div className='flex flex-col pl-6 mt-2 gap-1'>
-                <Link href='/first' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/first' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form-1' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form-1' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  First
+                  Form-1
                 </Link>
 
-                <Link href='/second' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/second' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form-2' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form-2' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Second
+                  Form-2
                 </Link>
-                <Link href='/third' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/third' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form-3' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form-3' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Third
+                  Form-3
                 </Link>
-                <Link href='/fourth' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/fourth' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form-4' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form-4' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Fourth
+                  Form-4
+                </Link>
+                <Link href='/form-5' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form-5' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                } hover:text-teal-300 transition`}>
+                  Form-5
                 </Link>
               </div>
             )}
