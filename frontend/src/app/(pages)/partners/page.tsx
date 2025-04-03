@@ -5,7 +5,7 @@ import UpsellImage2 from '@/assets/upsell2.png'
 import UpsellImage5 from '@/assets/upsell5.png'
 import PlanFeatures from '../../customer-dashboard/_components/Features'
 import { Button } from '@/components/ui/button'
-import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, CheckCircle,Lightbulb,Globe, Laptop, Monitor, Package, Settings,UsersRound, ThumbsUp, } from 'lucide-react'
+import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, CheckCircle, Lightbulb, Globe, Laptop, Monitor, Package, Settings, UsersRound, ThumbsUp, } from 'lucide-react'
 import FeatureCard from '../../customer-dashboard/_components/FeatureCard'
 import Footer from '@/app/_components/Footer'
 
@@ -86,7 +86,7 @@ const Partners = () => {
       ],
     },
   ];
-  
+
 
 
 
@@ -166,22 +166,22 @@ const Partners = () => {
         </div>
 
         {/* Feature Cards */}
-        <div className="bg-blue-50 py-12 px-4 md:px-12 lg:px-20">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {partnerships.map((partnership, index) => (
-          <div key={index} className="bg-white p-6 rounded-xl shadow-md">
-            <h3 className="text-lg font-semibold mb-4">{partnership.title}</h3>
-            <ul className="space-y-2">
-              {partnership.points.map((point, idx) => (
-                <li key={idx} className="flex items-center gap-2 text-gray-700">
-                  <CheckCircle className="text-green-500" size={18} /> {point}
-                </li>
-              ))}
-            </ul>
+        <div className=" py-12 px-4 md:px-15 lg:px-10 bg-[#E0F7FA]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#E0F7FA]">
+            {partnerships.map((partnership, index) => (
+              <div key={index} className="bg-white p-6 rounded-3xl ">
+                <h3 className="text-lg font-semibold mb-4 font-poppins font-semibold ">{partnership.title}</h3>
+                <ul className=" font-lato space-y-4 text-base font-normal">
+                  {partnership.points.map((point, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-gray-700 ">
+                      <CheckCircle className=" text-[#00A897] fill-[#00A897] text-white" size={20} /> {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
       </div>
 
       <Footer />
