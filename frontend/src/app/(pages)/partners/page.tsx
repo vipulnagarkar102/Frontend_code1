@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import UpsellImage from '@/assets/upsell4.png'
 import UpsellImage2 from '@/assets/upsell2.png'
-import UpsellImage3 from '@/assets/upsell3.png'
+import UpsellImage5 from '@/assets/upsell5.png'
 import PlanFeatures from '../../customer-dashboard/_components/Features'
 import { Button } from '@/components/ui/button'
 import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, Globe, Laptop, Monitor, Package, Settings, ThumbsUp } from 'lucide-react'
@@ -103,70 +103,38 @@ const Partners = () => {
           />
         ))}
       </div>
-
-      <div className='flex flex-col md:flex-row gap-6 mt-20 h-fit items-center justify-center px-6 p-4'>
-
-        {/* left div */}
-
-        <div className='md:w-[35%]'>
-          <Image
-            src={UpsellImage2}
-            alt='Hero Image'
-            // layout='fill' // Use layout='fill' to make the image cover the entire div
-            objectFit='cover' // Important for responsiveness
-            height={400}
-            width={437}
-          />
-        </div>
-
-        {/* right div */}
-        <div className='md:w-[60%] flex flex-col gap-10'>
-          <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'><span className='text-[#FFB74D]'>Monetize Our AI – </span>License, Sell, and Grow</p>
-          <p className='text-[22px] font-normal'>
-            Businesses can expand their offerings by purchasing a commercial license from us, allowing them to resell our AI solutions—featured in our video subscription—to their customers while leveraging our advanced AI ecosystem.
-          </p>
-          <div>
-            <Button className="font-lato py-4 px-6 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] flex items-center rounded">
-              CONTACT US
-              <span className="ml-2 rotate-225">
-                <ArrowDown size={20} />
-              </span>
-            </Button>
-          </div>
-        </div>
-
-      </div>
       <div className='bg-[#E0F7FA] my-16 max-w-screen p-4'>
         <div className='flex flex-col md:flex-row-reverse gap-6 mt-20 h-fit items-center justify-center px-6 p-4'>
 
           {/* left div */}
 
-          <div className='md:w-[35%]'>
-            <Image
-              src={UpsellImage3}
-              alt='Hero Image'
-              // layout='fill' // Use layout='fill' to make the image cover the entire div
-              objectFit='cover' // Important for responsiveness
-              height={400}
-              width={437}
-              className='rounded-4xl'
-            />
-          </div>
 
-          {/* right div */}
-          <div className='md:w-[60%] flex flex-col gap-10'>
-            <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Personalized <span className='text-[#FFB74D]'>AI Consulting</span> For Maximum Impact</p>
+          <div className='md:w-[60%] flex flex-col gap-10 ml-5'>
+            <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Ways to partner</p>
             <p className='text-[22px] font-normal'>
-              We offer expert AI consulting to help clients customize and integrate our solutions to meet their unique needs. From optimizing existing models to building tailored implementations, we ensure seamless deployment and maximum business impact.
+              Vtex.ai partners across healthcare, sales, technology, and corporate training to drive AI innovation. From enhancing patient care and sales performance to co-developing AI solutions and transforming learning, we empower organizations with intelligent, scalable AI-driven solutions. Partner with Vtex.ai to shape the future of AI.
             </p>
             <div>
-              <Button className="font-lato py-4 px-6 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] flex items-center rounded">
+              {/* <Button className="font-lato py-4 px-6 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] flex items-center rounded">
                 REQUEST FOR CONSULTATION
                 <span className="ml-2 rotate-225">
                   <ArrowDown size={20} />
                 </span>
-              </Button>
+              </Button> */}
             </div>
+          </div>
+
+          {/* right div */}
+          <div className='md:w-[35%]'>
+            <Image
+              src={UpsellImage5}
+              alt='Hero Image'
+              // layout='fill' // Use layout='fill' to make the image cover the entire div
+              objectFit='cover' // Important for responsiveness
+              height={400}
+              width={591}
+              className='rounded-4xl'
+            />
           </div>
 
         </div>
