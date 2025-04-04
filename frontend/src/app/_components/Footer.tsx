@@ -17,9 +17,9 @@ const Footer = () => {
 
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2 font-lato text-[18px]">
-            <a href="#" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">X</a>
-            <a href="#" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">in</a>
-            <a href="#" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">
+            <a href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">X</a>
+            <a href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">in</a>
+            <a href="https://www.youtube.com/@vtex_ai"  className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">
               yt
             </a>
           </div>
