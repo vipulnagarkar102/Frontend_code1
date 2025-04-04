@@ -47,7 +47,7 @@ const Navbar = () => {
                   <Link href = '/support-form'><DropdownMenuItem className='cursor-pointer'>Form-2</DropdownMenuItem></Link>
                   <Link href = '/consult-form'><DropdownMenuItem className='cursor-pointer'>Form-3</DropdownMenuItem></Link>
                   <Link href = '/license-form'><DropdownMenuItem className='cursor-pointer'>Form-4</DropdownMenuItem></Link>
-                  <Link href = '/form-5'><DropdownMenuItem className='cursor-pointer'>Form-5</DropdownMenuItem></Link>
+                  <Link href = '/enterprise-form'><DropdownMenuItem className='cursor-pointer'>Form-5</DropdownMenuItem></Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
