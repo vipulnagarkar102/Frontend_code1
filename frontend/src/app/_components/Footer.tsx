@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
+import { RiTwitterXFill } from "react-icons/ri";
+import { RiLinkedinLine  } from "react-icons/ri";
+import { RiYoutubeLine } from "react-icons/ri";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,10 +20,10 @@ const Footer = () => {
 
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2 font-lato text-[18px]">
-            <a href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">X</a>
-            <a href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">in</a>
+            <a href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiTwitterXFill size={24} color='black' /></a>
+            <a href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiLinkedinLine  size={24} color='black' /></a>
             <a href="https://www.youtube.com/@vtex_ai"  className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">
-              yt
+            <RiYoutubeLine  size={24} color='black' />
             </a>
           </div>
         </div>
