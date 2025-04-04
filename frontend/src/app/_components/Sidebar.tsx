@@ -73,28 +73,28 @@ const Sidebar = () => {
             
             {showOfferingItems && (
               <div className='flex flex-col pl-6 mt-2 gap-1'>
-                <Link href='/form-1' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                <Link href='/form/form-1' onClick={toggleMenu} className={`cursor-pointer py-1 ${
                   pathname === '/form-1' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
                   Form-1
                 </Link>
 
-                <Link href='/form-2' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                <Link href='/form/form-2' onClick={toggleMenu} className={`cursor-pointer py-1 ${
                   pathname === '/form-2' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
                   Form-2
                 </Link>
-                <Link href='/form-3' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                <Link href='/form/form-3' onClick={toggleMenu} className={`cursor-pointer py-1 ${
                   pathname === '/form-3' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
                   Form-3
                 </Link>
-                <Link href='/form-4' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                <Link href='/form/form-4' onClick={toggleMenu} className={`cursor-pointer py-1 ${
                   pathname === '/form-4' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
                   Form-4
                 </Link>
-                <Link href='/form-5' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                <Link href='/form/form-5' onClick={toggleMenu} className={`cursor-pointer py-1 ${
                   pathname === '/form-5' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
                   Form-5
