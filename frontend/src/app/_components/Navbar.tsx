@@ -43,11 +43,11 @@ const Navbar = () => {
                 Our Offering <span className='pl-[1px] pt-[4px] hover:text-teal-300 transition'><ChevronDown/></span>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
-                  <Link href = '/form-1'><DropdownMenuItem className='cursor-pointer'>Form-1</DropdownMenuItem></Link>
-                  <Link href = '/form-2'><DropdownMenuItem className='cursor-pointer'>Form-2</DropdownMenuItem></Link>
-                  <Link href = '/form-3'><DropdownMenuItem className='cursor-pointer'>Form-3</DropdownMenuItem></Link>
-                  <Link href = '/form-4'><DropdownMenuItem className='cursor-pointer'>Form-4</DropdownMenuItem></Link>
-                  <Link href = '/form-5'><DropdownMenuItem className='cursor-pointer'>Form-5</DropdownMenuItem></Link>
+                  <Link href = '/form/form-1'><DropdownMenuItem className='cursor-pointer'>Form-1</DropdownMenuItem></Link>
+                  <Link href = '/form/form-2'><DropdownMenuItem className='cursor-pointer'>Form-2</DropdownMenuItem></Link>
+                  <Link href = '/form/form-3'><DropdownMenuItem className='cursor-pointer'>Form-3</DropdownMenuItem></Link>
+                  <Link href = '/form/form-4'><DropdownMenuItem className='cursor-pointer'>Form-4</DropdownMenuItem></Link>
+                  <Link href = '/form/form-5'><DropdownMenuItem className='cursor-pointer'>Form-5</DropdownMenuItem></Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
