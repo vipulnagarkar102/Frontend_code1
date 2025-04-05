@@ -181,6 +181,9 @@ const Partners = () => {
               </div>
             ))}
           </div>
+          <div className= 'text-center mt-10'>
+            <Button className=' font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] '>CONTACT US<span className='rotate-225'><ArrowDown size={30} /></span></Button>
+          </div>
         </div>
       </div>
 
