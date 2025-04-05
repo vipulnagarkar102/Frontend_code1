@@ -109,7 +109,7 @@ const ContactUs = () => {
                 <p className='font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center'>Connect With Us</p>
 
                 <div className='mt-12 px-12 gap-10 grid grid-cols-1 lg:grid-cols-2 items-center justify-between'>
-                    <div className='rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
+                    <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
                             <ThumbsUp size={24} color='white' />
@@ -131,7 +131,7 @@ const ContactUs = () => {
 
                     </div>
 
-                    <div className='rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
+                    <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
                             <SquareUserRound size={24} color='white' />
