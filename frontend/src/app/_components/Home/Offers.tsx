@@ -16,7 +16,7 @@ const Offers = () => {
         <div className="mx-8 my-12 flex flex-wrap gap-10 items-center justify-center text-[#003F5C]">
 
 
-                <div className="w-[307px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#00A5CF]/30 via-[#00A5CF]/15 to-[#00A5CF]/5">
+                <div className="w-[290px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#00A5CF]/30 via-[#00A5CF]/15 to-[#00A5CF]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <HeartPulse size={30} color='#00A5CF'/>
@@ -43,7 +43,7 @@ const Offers = () => {
                                 </div>
                 </div>
 
-                <div className="w-[307px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#1FD2FF]/30 via-[#1FD2FF]/15 to-[#1FD2FF]/5">
+                <div className="w-[290px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#1FD2FF]/30 via-[#1FD2FF]/15 to-[#1FD2FF]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <Settings size={30} color='#1FD2FF'/>
@@ -70,7 +70,7 @@ const Offers = () => {
                                 </div>
                 </div>
 
-                <div className="w-[307px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#0093B8]/30 via-[#0093B8]/15 to-[#0093B8]/5">
+                <div className="w-[290px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#0093B8]/30 via-[#0093B8]/15 to-[#0093B8]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <BoxIcon size={30} color='#0093B8'/>
@@ -97,7 +97,7 @@ const Offers = () => {
                                 </div>
                 </div>
 
-                <div className="w-[307px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#70E2FF]/30 via-[#70E2FF]/15 to-[#70E2FF]/5">
+                <div className="w-[290px] h-[475px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-gradient-to-b from-[#70E2FF]/30 via-[#70E2FF]/15 to-[#70E2FF]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <Component size={30} color='#70E2FF'/>
