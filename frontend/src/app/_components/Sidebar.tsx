@@ -73,31 +73,31 @@ const Sidebar = () => {
             
             {showOfferingItems && (
               <div className='flex flex-col pl-6 mt-2 gap-1'>
-                <Link href='/form/form-1' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/form-1' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form/pay-per-code-form' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form/pay-per-code-form' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Form-1
+                  Pay per code
                 </Link>
 
-                <Link href='/form/form-2' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/form-2' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form/support-form' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form/support-form' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Form-2
+                  Support
                 </Link>
-                <Link href='/form/form-3' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/form-3' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form/consult-form' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form/consult-form' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Form-3
+                  Consult
                 </Link>
-                <Link href='/form/form-4' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/form-4' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form/license-form' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form/license-form' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Form-4
+                  License
                 </Link>
-                <Link href='/form/form-5' onClick={toggleMenu} className={`cursor-pointer py-1 ${
-                  pathname === '/form-5' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
+                <Link href='/form/enterprise-form' onClick={toggleMenu} className={`cursor-pointer py-1 ${
+                  pathname === '/form/enterprise-form' ? "text-teal-400 font-bold" : "text-[#bab4b4e6]"
                 } hover:text-teal-300 transition`}>
-                  Form-5
+                  Enterprise
                 </Link>
               </div>
             )}
@@ -140,6 +140,16 @@ const Sidebar = () => {
               pathname === '/blogs' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
               Blogs
+            </div>
+          </Link>
+
+          <div className='w-full border border-[#FFFFFF80]'></div>
+          
+          <Link href='/all-videos' onClick={toggleMenu}>
+            <div className={`cursor-pointer py-1 pl-6 ${
+              pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+            } hover:text-teal-300 transition`}>
+              All Videos
             </div>
           </Link>
 

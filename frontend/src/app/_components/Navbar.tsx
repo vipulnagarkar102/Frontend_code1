@@ -44,12 +44,11 @@ const Navbar = () => {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
 
-                  <Link href = '/pay-per-code-form'><DropdownMenuItem className='cursor-pointer'>Form-1</DropdownMenuItem></Link>
-                  <Link href = '/support-form'><DropdownMenuItem className='cursor-pointer'>Form-2</DropdownMenuItem></Link>
-                  <Link href = '/consult-form'><DropdownMenuItem className='cursor-pointer'>Form-3</DropdownMenuItem></Link>
-                  <Link href = '/license-form'><DropdownMenuItem className='cursor-pointer'>Form-4</DropdownMenuItem></Link>
-                  <Link href = '/enterprise-form'><DropdownMenuItem className='cursor-pointer'>Form-5</DropdownMenuItem></Link>
-                  <Link href = '/enterprise-form'><DropdownMenuItem className='cursor-pointer'>Form-6</DropdownMenuItem></Link>
+                  <Link href = '/form/pay-per-code-form'><DropdownMenuItem className='cursor-pointer'>Pay per code</DropdownMenuItem></Link>
+                  <Link href = '/form/support-form'><DropdownMenuItem className='cursor-pointer'>Support</DropdownMenuItem></Link>
+                  <Link href = '/form/consult-form'><DropdownMenuItem className='cursor-pointer'>Consult</DropdownMenuItem></Link>
+                  <Link href = '/form/license-form'><DropdownMenuItem className='cursor-pointer'>License</DropdownMenuItem></Link>
+                  <Link href = '/form/enterprise-form'><DropdownMenuItem className='cursor-pointer'>Enterprise</DropdownMenuItem></Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -85,6 +84,15 @@ const Navbar = () => {
               Blogs
             </div>
           </Link>
+
+          <Link href='/all-videos'>
+            <div className={`cursor-pointer py-1 ${
+              pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+            } hover:text-teal-300 transition`}>
+              All Videos
+            </div>
+          </Link>
+
           <Link href='/customer-dashboard'>
             <div className={`cursor-pointer py-1 ${
               pathname === '/CustomerDashboard' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
