@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import HeroImage from '@/assets/contactus.png'
-import { PlugIcon, ThumbsUp, SquareUserRound, CircleHelp } from 'lucide-react'
+import { PlugIcon, ThumbsUp, SquareUserRound, CircleHelp, MapPin } from 'lucide-react'
 import { GiOpenBook } from 'react-icons/gi'
 import { BsPeople } from 'react-icons/bs'
 import Footer from '@/app/_components/Footer'
@@ -126,7 +126,7 @@ const ContactUs = () => {
                         {/* Description */}
                         <div>
                             <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
-                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30}/></span></Button>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
                         </div>
 
                     </div>
@@ -148,10 +148,26 @@ const ContactUs = () => {
                         {/* Description */}
                         <div>
                             <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
-                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30}/></span></Button>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
                         </div>
-                        
+
                     </div>
+                </div>
+            </div>
+            <div className='bg-[#ffffff] py-15 px-20 '>
+                <p className='font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center'>Our Address</p>
+
+                <div className=' border rounded-[30px] mt-12 px-12 gap-10 grid grid-cols-1 lg:grid-cols-1 items-center justify-between'>
+                    <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 bg-[#FFFFFF]  items-center'>
+                        {/* Icon Container */}
+                        <div className="rounded-full mb-0 h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
+                            <MapPin size={24} color='white' />
+                        </div>
+                        <div>
+                            <p className=" text-center font-lato font-medium leading-[30px] text-[18px]">Pristine Square, 4th Floor, 401A Unit,<br/> Shankar Kalate Nagar Road,<br/> Wakad, Pune 411057<br/> Ph - 9607500086  </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <Footer />
