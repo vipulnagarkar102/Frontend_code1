@@ -11,7 +11,7 @@ import { ArrowDown, Check, HeartPulse } from 'lucide-react'
 const ContactUs = () => {
     return (
         <div className='text-[#003F5C]'>
-            <div className='flex flex-col md:flex-row gap-10 mt-36 md:mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-28 p-4 bg-[#003F5C]/10'>
+            <div className='flex flex-col md:flex-row gap-9 mt-36 md:mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-28 p-4 bg-[#003F5C]/10'>
 
                 {/* left div */}
                 <div className='md:w-[55%] mt-22 pb-20'>
