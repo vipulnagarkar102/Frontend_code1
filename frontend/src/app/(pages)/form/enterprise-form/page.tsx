@@ -4,11 +4,7 @@ import Image from 'next/image';
 import React, { useState } from "react";
 import HeroImage from '@/assets/enterprise.png';
 
-type EnterpriseFormProps = {
-  onSubmit: (formData: any) => void;
-};
-
-export default function EnterpriseForm({ onSubmit }: EnterpriseFormProps) {
+export default function EnterpriseForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +24,9 @@ export default function EnterpriseForm({ onSubmit }: EnterpriseFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (onSubmit) onSubmit(formData);
+    // Handle form submission here directly
+    console.log("Form submitted:", formData);
+    // Add your submission logic here
   };
 
   return (

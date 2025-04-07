@@ -1,36 +1,53 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import Image from "next/image";
 import Sidebar from "../sidebar";
 
-const Settings = ({ user }) => {
-  const [activeTab, setActiveTab] = useState("profile");
-  const [formData, setFormData] = useState({
+interface User {
+  firstName: string;
+  lastName: string;
+  username: string;
+  phone: string;
+  skill: string;
+  timezone: string;
+  bio: string;
+  displayName: string;
+  profilePic: string;
+  coverPhoto: string;
+}
+
+interface FormData extends Omit<User, 'skill' | 'timezone' | 'displayName' | 'coverPhoto'> {}
+
+interface Passwords {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+const Settings = ({ user }: { user: User }) => {
+  const [activeTab, setActiveTab] = useState<"profile" | "password">("profile");
+  const [formData, setFormData] = useState<FormData>({
     firstName: user.firstName,
     lastName: user.lastName,
     username: user.username,
     phone: user.phone,
-    skill: user.skill,
-    timezone: user.timezone,
     bio: user.bio,
-    displayName: user.displayName,
     profilePic: user.profilePic,
-    coverPhoto: user.coverPhoto,
   });
 
-  const [passwords, setPasswords] = useState({
+  const [passwords, setPasswords] = useState<Passwords>({
     currentPassword: "",
     newPassword: "",
     confirmPassword: "",
   });
 
-  const handleProfileChange = (e) => {
+  const handleProfileChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handlePasswordChange = (e) => {
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setPasswords((prev) => ({ ...prev, [name]: value }));
   };
@@ -39,7 +56,7 @@ const Settings = ({ user }) => {
     <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26 ">
       <Sidebar />
       <div className="p-6 w-full md:ml-64">
-      <h2 className="text-2xl font-semibold mb-5">Settings</h2>
+        <h2 className="text-2xl font-semibold mb-5">Settings</h2>
         <div className="flex gap-6 mt-4 border-b font-poppins text-[18px] font-medium text-[#003F5C] cursor-pointer">
           <button
             className={`pb-2 ${
@@ -60,17 +77,7 @@ const Settings = ({ user }) => {
         </div>
         {activeTab === "profile" ? (
           <div className="mt-6">
-            {/* Profile Picture */}
-            {/* <div className="relative w-32 h-32 mx-auto mb-4">
-              <Image
-                src={formData.profilePic}
-                alt="Profile Picture"
-                width={128}
-                height={128}
-                className="rounded-full object-cover"
-              />
-            </div> */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4  ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="font-bold text-base ">
                 First Name
                 <input
@@ -90,7 +97,7 @@ const Settings = ({ user }) => {
                   onChange={handleProfileChange}
                   className="border p-2 rounded w-full font-normal text-base"
                 />
-              </label >
+              </label>
               <label className="font-bold text-base ">
                 Username
                 <input
@@ -168,7 +175,7 @@ const Settings = ({ user }) => {
 };
 
 export default function SettingsPage() {
-  const dummyUser = {
+  const dummyUser: User = {
     firstName: "Sajid",
     lastName: "Ali",
     username: "student",

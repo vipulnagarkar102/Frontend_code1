@@ -15,7 +15,7 @@ type FormData = {
   urgency: string;
 };
 
-export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormData) => void }) {
+export default function SupportForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -35,7 +35,9 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (onSubmit) onSubmit(formData);
+    // Handle form submission here directly
+    console.log("Form submitted:", formData);
+    // Add your submission logic here
   };
 
   return (
@@ -58,10 +60,11 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
             <div>
               <label className="font-bold text-base">Name*</label>
               <input
-                title="name"
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
+                placeholder="Enter your full name"
                 className="border p-2 rounded w-full font-normal text-base"
               />
             </div>
@@ -70,11 +73,12 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
             <div>
               <label className="font-bold text-base">Email*</label>
               <input
-                title="email"
+                name="email"
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
                 required
+                placeholder="you@example.com"
                 className="border p-2 rounded w-full font-normal text-base"
               />
             </div>
@@ -100,11 +104,12 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
             <div>
               <label className="font-bold text-base">Phone Number*</label>
               <input
-                title="phone"
+                name="phone"
                 type="tel"
                 value={formData.phone}
                 onChange={handleChange}
                 required
+                placeholder="Enter your phone number"
                 className="border p-2 rounded w-full font-normal text-base"
               />
             </div>
@@ -113,9 +118,10 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
             <div className="col-span-1">
               <label className="font-bold text-base">Comment</label>
               <input
-                title="instructions"
+                name="instructions"
                 value={formData.instructions}
                 onChange={handleChange}
+                placeholder="Additional instructions (optional)"
                 className="border p-2 rounded w-full font-normal text-base"
               />
             </div>
@@ -167,10 +173,11 @@ export default function PayPerCodeForm({ onSubmit }: { onSubmit?: (data: FormDat
             <div>
               <label className="font-bold text-base">Enter Captcha*</label>
               <input
-                title="captcha"
+                name="captcha"
                 value={formData.captcha}
                 onChange={handleChange}
                 required
+                placeholder="Enter shown captcha"
                 className="mb-2 border p-2 rounded w-full font-normal text-base"
               />
               <div className="bg-gray-200 text-center px-1 py-1 rounded-md font-normal text-base">

@@ -4,11 +4,7 @@ import Image from 'next/image';
 import React, { useState } from "react";
 import HeroImage from '@/assets/consult.png';
 
-type ConsultFormProps = {
-  onSubmit: (formData: any) => void;
-};
-
-export default function ConsultForm({ onSubmit }: ConsultFormProps) {
+export default function ConsultForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +24,9 @@ export default function ConsultForm({ onSubmit }: ConsultFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (onSubmit) onSubmit(formData);
+    // Handle form submission here directly
+    console.log("Form submitted:", formData);
+    // Add your submission logic here
   };
 
   return (
@@ -73,7 +71,7 @@ export default function ConsultForm({ onSubmit }: ConsultFormProps) {
             <div>
               <label className="font-bold text-base">Country*</label>
               <select
-                title='country'
+                title="country"
                 value={formData.country}
                 onChange={handleChange}
                 required
@@ -110,7 +108,7 @@ export default function ConsultForm({ onSubmit }: ConsultFormProps) {
             <div>
               <label className="font-bold text-base">Urgency Level*</label>
               <select
-                title='urgency'
+                title="urgency"
                 value={formData.urgency}
                 onChange={handleChange}
                 required
