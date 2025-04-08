@@ -60,9 +60,9 @@ export default function ReviewList() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26">
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 mt-26">
       <Sidebar />
-      <div className="p-6 w-full md:ml-64">
+      <div className="p-6 w-full ml-16 md:ml-64">
         <h2 className="text-2xl font-semibold mb-5">Reviews</h2>
 
         {/* <div className="flex gap-4 border-b overflow-x-auto">
@@ -72,12 +72,18 @@ export default function ReviewList() {
           </button>
         </div> */}
 
-        <div className="mt-4">
+        <div className="mt-4 flex flex-wrap gap-10">
           {reviews.map((review) => (
-            <div key={review.id} className="bg-white p-4 rounded-lg shadow mb-4 relative">
+            <div key={review.id} className="bg-white p-4 rounded-lg shadow mb-4 relative w-64">
               <div className="flex justify-between items-center">
                 <h3 className="font-bold text-lg ">Course: {review.course}</h3>
-                <div className="flex gap-3">
+                
+              </div>
+              <div className="flex items-center my-2">
+                <StarRating rating={review.rating} />
+              </div>
+              <p className="font-normal text-base mt-5">{review.comment}</p>
+              <div className="flex gap-3">
                   <button onClick={() => openEditModal(review)} className=" cursor-pointer text-[#00A5CF] font-normal text-base">
                     Edit
                   </button>
@@ -85,12 +91,8 @@ export default function ReviewList() {
                     Delete
                   </button>
                 </div>
-              </div>
-              <div className="flex items-center my-2">
-                <StarRating rating={review.rating} />
-              </div>
-              <p className="font-normal text-base mt-5">{review.comment}</p>
             </div>
+            
           ))}
         </div>
 
@@ -99,6 +101,7 @@ export default function ReviewList() {
             <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
               <h2 className="text-xl font-semibold">Edit Comment</h2>
               <textarea
+                aria-label="comments"
                 className="w-full border p-2 rounded mt-2 font-normal text-base"
                 value={editedComment}
                 onChange={(e) => setEditedComment(e.target.value)}
