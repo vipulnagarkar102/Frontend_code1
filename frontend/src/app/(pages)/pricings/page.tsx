@@ -10,8 +10,8 @@ import Footer from '@/app/_components/Footer'
 const Pricings = () => {
   return (
     <div className='mt-26 font-lato text-[#003F5C]'>
-      <div className='mt-10 m-4 text-center px-4 md:px-32'>
-        <p className='font-extrabold text-[36px] md:text-[50px] mb-4'>Flexible Plans, Instant Access – At<br/> a Price You Love!</p>
+      <div className='mt-10 m-4 text-center'>
+        <p className='font-extrabold text-[36px] md:text-[50px] mb-4 '>Flexible Plans, Instant Access – At<br/> a Price You Love!</p>
         <p className='font-normal text-[18px] md:text-[18px]'>We offer flexible plans designed for instant access to cutting-edge solutions. Explore the latest innovations with our Emerging Tech and HealthTech AI plans, or choose FlexPicks to unlock individual solutions on demand. For businesses, our Enterprise Plan provides seamless integration of digital assets into your workflow. With new solutions published regularly, you’ll always stay ahead of industry trends. Unlock Knowledge, Innovate Faster – Your Way!</p>
       </div>
 

@@ -153,7 +153,7 @@ const AboutUs = () => {
         
         <div className='md:w-[60%]'>
           <p className='font-poppins text-[40px] font-semibold leading-[55px] mb-6 md:text-left text-center'>Our Story</p>
-          <p className='font-lato font-medium leading-[120%] text-[22px] md:text-left text-center'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
+          <p className='font-lato font-medium leading-[120%]  text-[22px] md:text-left text-center'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
         </div>
 
       </div>
