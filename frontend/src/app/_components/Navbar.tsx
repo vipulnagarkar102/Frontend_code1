@@ -82,7 +82,7 @@ const Navbar = () => {
           </DropdownMenu>
         </div>
 
-        {/* <Link href='/all-videos'>
+        <Link href='/all-videos'>
           <div className={`cursor-pointer py-1 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
             All Videos
@@ -94,7 +94,7 @@ const Navbar = () => {
             } hover:text-teal-300 transition`}>
             Dashboard
           </div>
-        </Link> */}
+        </Link>
 
         <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
       </div>
