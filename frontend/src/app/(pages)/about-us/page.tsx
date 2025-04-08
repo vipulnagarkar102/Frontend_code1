@@ -13,7 +13,7 @@ const AboutUs = () => {
         
         {/* left div */}
         <div className='md:w-[60%]'>
-          <p className='font-lato font-extrabold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Bringing you the future of healthcare with emerging technologies and <span className='text-[#FFB74D]'>AI-driven solutions</span></p>
+          <p className='font-lato font-extrabold text-[36px] md:text-[50px] leading-[42px] md:leading-[55px] tracking-[1%] text-center md:text-left'>Bringing you the future of healthcare with emerging technologies and <span className='text-[#FFB74D]'>AI-driven solutions</span></p>
         </div>
 
         {/* right div */}
@@ -31,17 +31,17 @@ const AboutUs = () => {
 
       <div className='mt-24 mb-4 px-8 md:px-12 lg:px-24 xl:px-64 gap-6 flex flex-col items-center justify-center text-center'>
         <div>
-          <p className='font-poppins font-bold text-[40px] leading-[50px] tracking-[0%]'>Building innovative solutions is at the core of everything we do.</p>
+          <p className='font-poppins font-bold text-[32px] md:text-[50px] md:text-center leading-[42px] md:leading-[55px] tracking-[1%] text-center md:text-left'>Building innovative solutions is at the core of everything we do.</p>
         </div>
         <div>
-          <p className='font-lato font-medium text-[22px] leading-[120%] tracking-[0%]'>At VtexAI, we are driven by resilience and a passion for innovation, leveraging cutting-edge technology to transform patient care. We challenge conventional thinking, unlocking new possibilities to improve health outcomes worldwide. Our mission is clear: The VtexAI Collective—driving groundbreaking innovations for a healthier future.</p>
+          <p className='font-lato font-medium text-[22px] leading-[120%] tracking-[0%] md:text-center text-center'>At VtexAI, we are driven by resilience and a passion for innovation, leveraging cutting-edge technology to transform patient care. We challenge conventional thinking, unlocking new possibilities to improve health outcomes worldwide. Our mission is clear: The VtexAI Collective—driving groundbreaking innovations for a healthier future.</p>
         </div>
       </div>
 
       {/* Our values */}
 
       <div className='mt-20 bg-[#E0F7FA] py-10'>
-        <p className='font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center'>Our Core Values</p>
+        <p className='font-poppins font-bold text-[32px] md:text-[50px] leading-[100%] tracking-[0%] px-12 text-center md:text-center'>Our Core Values</p>
 
           <div className='mt-12 px-12 gap-10 grid grid-cols-1 lg:grid-cols-2 items-center justify-between'>
             <div className='rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
@@ -152,8 +152,8 @@ const AboutUs = () => {
         </div>
         
         <div className='md:w-[60%]'>
-          <p className='font-poppins text-[40px] font-semibold leading-[55px] mb-6'>Our Story</p>
-          <p className='font-lato font-medium leading-[120%] text-[22px]'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
+          <p className='font-poppins text-[40px] font-semibold leading-[55px] mb-6 md:text-left text-center'>Our Story</p>
+          <p className='font-lato font-medium leading-[120%] text-[22px] md:text-left text-center'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
         </div>
 
       </div>
