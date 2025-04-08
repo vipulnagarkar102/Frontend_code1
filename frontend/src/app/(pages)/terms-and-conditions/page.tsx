@@ -16,7 +16,7 @@ export default function TermsAndConditionsPage() {
         <div className="mb-8 text-center space-y-1">
           <h1 className="text-[50px] font-poppins font-semibold mb-4">Terms and Conditions</h1>
           <p className="text-[22px] font-normal">Please read this document carefully.</p>
-          <p className="text-[22px] font-normal">Last updated 01/05/2025</p>
+          <p className="text-[22px] font-normal">Last updated 01/04/2025</p>
         </div>
         
         {/* Cards Grid */}

@@ -7,6 +7,7 @@ import { BsPeople } from 'react-icons/bs'
 import Footer from '@/app/_components/Footer'
 import { Button } from '@/components/ui/button'
 import { ArrowDown, Check, HeartPulse } from 'lucide-react'
+import FaqAccordion from '../../(pages)/contact-us/components/FaqAccordian';
 
 const ContactUs = () => {
     return (
@@ -16,7 +17,7 @@ const ContactUs = () => {
                 {/* left div */}
                 <div className='md:w-[55%] mt-22 pb-20'>
                     <p className='font-lato font-extrabold text-[36px] md:text-[50px] leading-[55px] tracking-[1%] mb-5'>Get In Touch</p>
-                    <p className='font-lato font-medium text-[22px] leading-[120%] tracking-[0%]'>Partnering with Vtex empowers your business from day one—unlock new growth opportunities, enhance your offerings with exclusive content, and drive revenue across diverse markets. From reseller and channel partnerships to corporate training, Vtex is your pathway to differentiation and success.</p>
+                    <p className='font-lato font-medium text-[22px] leading-[120%] tracking-[0%]'>We're here to help! Whether you have questions about our services, need technical support, or want to share feedback, our team is ready to assist you. Please reach out to us through the communication channels listed below—we'll get back to you as soon as possible.</p>
                 </div>
 
                 {/* right div */}
@@ -36,71 +37,7 @@ const ContactUs = () => {
 
             <div className='bg-[#FFFFFF] py-15 px-15'>
                 <p className='font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center'>FAQ’s</p>
-
-                <div className='mt-12 px-12 gap-10 grid grid-cols-1 lg:grid-cols-3 items-center justify-between'>
-                    <div className='border rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
-                        {/* Icon Container */}
-                        <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
-                            <ThumbsUp size={24} color='white' />
-                        </div>
-
-                        {/* Heading */}
-                        <div>
-                            <p className="font-poppins text-[22px] font-semibold"
-                            >
-                                Getting Started
-                            </p>
-                        </div>
-
-                        {/* Description */}
-                        <div>
-                            <p className="font-lato font-medium leading-[24px] text-[18px]">Dedicated to offering premium, high-quality educational content that is tailored to the evolving needs of industries like healthcare and enterprise technology</p>
-                        </div>
-
-                    </div>
-
-                    <div className='border rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
-                        {/* Icon Container */}
-                        <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
-                            <SquareUserRound size={24} color='white' />
-                        </div>
-
-                        {/* Heading */}
-                        <div>
-                            <p className="font-poppins text-[22px] font-semibold"
-                            >
-                                Account Related
-                            </p>
-                        </div>
-
-                        {/* Description */}
-                        <div>
-                            <p className="font-lato font-medium leading-[24px] text-[18px]">Dedicated to offering premium, high-quality educational content that is tailored to the evolving needs of industries like healthcare and enterprise technology</p>
-                        </div>
-
-                    </div>
-
-                    <div className='border rounded-[30px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
-                        {/* Icon Container */}
-                        <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
-                            <CircleHelp size={24} color='white' />
-                        </div>
-
-                        {/* Heading */}
-                        <div>
-                            <p className="font-poppins text-[22px] font-semibold"
-                            >
-                                General FAQ’s
-                            </p>
-                        </div>
-
-                        {/* Description */}
-                        <div>
-                            <p className="font-lato font-medium leading-[24px] text-[18px]">Embracing the ever-changing landscape of technology and education, we champion lifelong learning to help professionals stay ahead in their fields.</p>
-                        </div>
-
-                    </div>
-                </div>
+                <FaqAccordion />
             </div>
 
             {/* Connect with us */}
@@ -108,7 +45,7 @@ const ContactUs = () => {
             <div className='bg-[#E0F7FA] py-15 px-20'>
                 <p className='font-poppins font-bold text-[40px] leading-[100%] tracking-[0%] text-center'>Connect With Us</p>
 
-                <div className='mt-12 px-12 gap-10 grid grid-cols-1 lg:grid-cols-2 items-center justify-between'>
+                <div className='mt-12 px-12 gap-8 grid grid-cols-1 lg:grid-cols-4 items-center justify-between'>
                     <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
@@ -126,7 +63,7 @@ const ContactUs = () => {
                         {/* Description */}
                         <div>
                             <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
-                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[12px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
                         </div>
 
                     </div>
@@ -141,14 +78,56 @@ const ContactUs = () => {
                         <div>
                             <p className="font-poppins text-[22px] font-semibold"
                             >
-                                Healthcare  AI Plan
+                                HealthTech AI Plan
                             </p>
                         </div>
 
                         {/* Description */}
                         <div>
                             <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
-                            <Button className='mt-5 font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[12px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
+                        </div>
+
+                    </div>
+                    <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
+                        {/* Icon Container */}
+                        <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
+                            <SquareUserRound size={24} color='white' />
+                        </div>
+
+                        {/* Heading */}
+                        <div>
+                            <p className="font-poppins text-[22px] font-semibold"
+                            >
+                                FlexPick<br></br> Plan
+                            </p>
+                        </div>
+
+                        {/* Description */}
+                        <div>
+                            <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[12px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
+                        </div>
+
+                    </div>
+                    <div className='rounded-[10px] flex flex-col justify-between p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px]'>
+                        {/* Icon Container */}
+                        <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
+                            <SquareUserRound size={24} color='white' />
+                        </div>
+
+                        {/* Heading */}
+                        <div>
+                            <p className="font-poppins text-[22px] font-semibold"
+                            >
+                                General <br></br>Support
+                            </p>
+                        </div>
+
+                        {/* Description */}
+                        <div>
+                            <p className="font-lato font-medium leading-[24px] text-[18px]">Need a helping hand? Our team is just a click away! We're here to make your experience smooth and enjoyable. </p>
+                            <Button className='mt-5 font-lato py-4 font-semibold text-[12px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>CONTACT FOR SUPPORT <span className='rotate-225'><ArrowDown size={30} /></span></Button>
                         </div>
 
                     </div>
@@ -164,7 +143,7 @@ const ContactUs = () => {
                             <MapPin size={24} color='white' />
                         </div>
                         <div>
-                            <p className=" text-center font-lato font-medium leading-[30px] text-[18px]">Pristine Square, 4th Floor, 401A Unit,<br/> Shankar Kalate Nagar Road,<br/> Wakad, Pune 411057<br/> Ph - 9607500086  </p>
+                            <p className=" text-center font-lato font-medium leading-[30px] text-[18px]">Pristine Square, 4th Floor, 401A Unit,<br /> Shankar Kalate Nagar Road,<br /> Wakad, Pune 411057<br /> Ph - 9607500086  </p>
                         </div>
                     </div>
 
