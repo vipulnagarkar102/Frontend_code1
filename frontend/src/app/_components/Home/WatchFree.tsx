@@ -24,7 +24,7 @@ const WatchFree = () => {
 
           <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 rounded-[10px] border-dashed lg:w-[540] lg:h-[334px]'>
             <p className='font-lato text-[24px]'>Predicting Fibrosis Stages in NAFLD <br/> Using Advanced AI Models</p>
-            <p className='font-poppins text-[40px]'>Health Tech AI Insight</p>
+            <p className='font-poppins text-[40px]'>HealthTech AI Plan</p>
             <Link href='/'>
             <Button variant='secondary' className='bg-[#00A5CF] text-white hover:text-black font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
             </Link>
@@ -32,7 +32,7 @@ const WatchFree = () => {
 
           <div className='flex flex-col justify-between gap-4 mx-4 bg-white px-6 py-12 border-2 border-dashed lg:w-[540px] lg:h-[334px] rounded-[10px]'>
             <p className='font-lato text-[24px]'>Revolutionizing DevSecOps: AI and <br/> Generative AI in Action</p>
-            <p className='font-poppins text-[40px]'>Emerging Tech Insights</p>
+            <p className='font-poppins text-[40px]'>Emerging Tech Plan</p>
             <Link href='/'>
             <Button variant='secondary' className='bg-[#00A5CF] text-white hover:text-black font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
             </Link>
