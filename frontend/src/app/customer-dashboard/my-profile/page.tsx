@@ -13,7 +13,9 @@ const Profile = () => {
     email: 'vipulnagarkar@gmail.com',
     phoneNumber: '+91 8565478569',
     occupation: 'Frontend Dev',
-    biography: 'Biography',
+    company: 'Company',
+    country: 'USA',
+    github: 'URL here'
   };
 
   return (
@@ -39,12 +41,18 @@ const Profile = () => {
           
           <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Phone Number:</div>
           <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.phoneNumber}</div>
+
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Country:</div>
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.country}</div>
           
           <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Skill/Occupation:</div>
           <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.occupation}</div>
           
-          <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Biography:</div>
-          <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.biography}</div>
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Company:</div>
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.company}</div>
+
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Github:</div>
+          <div className="font-medium cursor-pointer text-lg text-[#003F5C]/70">{user.github}</div>
         </div>
       </div>
     </div>
