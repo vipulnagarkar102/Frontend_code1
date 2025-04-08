@@ -15,7 +15,7 @@ export default function PayPerCodeForm() {
     method: "github",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -29,7 +29,7 @@ export default function PayPerCodeForm() {
 
   return (
     <div className="flex flex-col md:flex-row w-full mt-26">
-      {/* Left Side - Image */}
+      {/* Left Side - Image (Desktop only) */}
       <div className="hidden md:block md:w-2/5">
         <Image
           src={HeroImage}
@@ -38,30 +38,40 @@ export default function PayPerCodeForm() {
         />
       </div>
 
+      {/* Mobile Hero Image */}
+      <div className="md:hidden w-full h-48 relative mb-4">
+        <Image
+          src={HeroImage}
+          alt="Pay Per Code Image"
+          className="w-full h-full object-cover"
+          layout="fill"
+        />
+      </div>
+
       {/* Right Side - Form */}
-      <div className="w-full md:w-3/5 flex items-center justify-center p-6 bg-white">
-        <div className="bg-white p-8 rounded-lg w-full">
-          <h2 className="text-2xl font-semibold mb-5">Pay Per Code Request</h2>
+      <div className="w-full md:w-3/5 flex items-center justify-center p-4 md:p-6 bg-white">
+        <div className="bg-white p-4 md:p-8 rounded-lg w-full">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-5">Pay Per Code Request</h2>
           <form
             onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
           >
             {/* Name */}
-            <div>
-              <label className="font-bold text-base">Name*</label>
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">Name*</label>
               <input
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 required
                 placeholder="Enter your full name"
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base"
               />
             </div>
 
             {/* Email */}
-            <div>
-              <label className="font-bold text-base">Email*</label>
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">Email*</label>
               <input
                 name="email"
                 type="email"
@@ -69,19 +79,19 @@ export default function PayPerCodeForm() {
                 onChange={handleChange}
                 required
                 placeholder="you@example.com"
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base"
               />
             </div>
 
             {/* Country */}
-            <div>
-              <label className="font-bold text-base">Country*</label>
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">Country*</label>
               <select
                 title="country"
                 value={formData.country}
                 onChange={handleChange}
                 required
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base"
               >
                 <option value="">Select Country</option>
                 <option value="usa">USA</option>
@@ -91,8 +101,8 @@ export default function PayPerCodeForm() {
             </div>
 
             {/* Plan */}
-            <div>
-              <label className="font-bold text-base">
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">
                 Solution you wish to purchase*
               </label>
               <select
@@ -100,7 +110,7 @@ export default function PayPerCodeForm() {
                 value={formData.solution}
                 onChange={handleChange}
                 required
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base"
               >
                 <option value="">Select Plan</option>
                 <option value="basic">Basic Plan</option>
@@ -109,25 +119,26 @@ export default function PayPerCodeForm() {
             </div>
 
             {/* Instructions */}
-            <div className="col-span-1">
-              <label className="font-bold text-base">Special Instructions</label>
-              <input
+            <div className="col-span-full">
+              <label className="font-bold text-sm md:text-base block mb-1">Special Instructions</label>
+              <textarea
                 name="instructions"
                 value={formData.instructions}
                 onChange={handleChange}
                 placeholder="Additional instructions (optional)"
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base min-h-24"
+                rows={3}
               />
             </div>
 
             {/* Preferred method */}
-            <div>
-              <label className="font-bold text-base">
+            <div className="col-span-full">
+              <label className="font-bold text-sm md:text-base block mb-1">
                 Preferred method to obtain code*
               </label>
-              <div className="flex gap-6 mt-2">
+              <div className="flex flex-wrap gap-4 md:gap-6 mt-1">
                 {/* GitHub Radio */}
-                <label className="flex items-center gap-2 font-normal text-base cursor-pointer">
+                <label className="flex items-center gap-2 font-normal text-sm md:text-base cursor-pointer">
                   <input
                     type="radio"
                     name="method"
@@ -139,7 +150,7 @@ export default function PayPerCodeForm() {
                 </label>
 
                 {/* Email Radio */}
-                <label className="flex items-center gap-2 font-normal text-base cursor-pointer">
+                <label className="flex items-center gap-2 font-normal text-sm md:text-base cursor-pointer">
                   <input
                     type="radio"
                     name="method"
@@ -153,24 +164,24 @@ export default function PayPerCodeForm() {
             </div>
 
             {/* Captcha */}
-            <div>
-              <label className="font-bold text-base">Enter Captcha*</label>
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">Enter Captcha*</label>
               <input
                 name="captcha"
                 value={formData.captcha}
                 onChange={handleChange}
                 required
                 placeholder="Enter shown captcha"
-                className="mb-2 border p-2 rounded w-full font-normal text-base"
+                className="mb-2 border p-2 rounded w-full font-normal text-sm md:text-base"
               />
-              <div className="bg-gray-200 text-center px-1 py-1 rounded-md font-normal text-base">
+              <div className="bg-gray-200 text-center px-1 py-1 rounded-md font-normal text-sm md:text-base">
                 AB12CD
               </div>
             </div>
 
             {/* GitHub ID */}
-            <div>
-              <label className="font-bold text-base">
+            <div className="col-span-1">
+              <label className="font-bold text-sm md:text-base block mb-1">
                 Enter your GitHub Account ID*
               </label>
               <input
@@ -179,15 +190,15 @@ export default function PayPerCodeForm() {
                 onChange={handleChange}
                 required={formData.method === "github"}
                 placeholder="Your GitHub username"
-                className="border p-2 rounded w-full font-normal text-base"
+                className="border p-2 rounded w-full font-normal text-sm md:text-base"
               />
             </div>
 
             {/* Submit */}
-            <div className="col-span-2 text-right">
+            <div className="col-span-full md:col-span-2 text-center md:text-right mt-2">
               <button
                 type="submit"
-                className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-base"
+                className="border p-2 px-6 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-sm md:text-base w-full md:w-auto"
               >
                 Submit
               </button>

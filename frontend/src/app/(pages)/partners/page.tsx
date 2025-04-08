@@ -1,9 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import UpsellImage from '@/assets/upsell4.png'
-import UpsellImage2 from '@/assets/upsell2.png'
 import UpsellImage5 from '@/assets/upsell5.png'
-import PlanFeatures from '../../customer-dashboard/_components/Features'
 import { Button } from '@/components/ui/button'
 import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, CheckCircle, Lightbulb, Globe, Laptop, Monitor, Package, Settings, UsersRound, ThumbsUp, } from 'lucide-react'
 import FeatureCard from '../../customer-dashboard/_components/FeatureCard'
@@ -92,7 +90,7 @@ const Partners = () => {
 
   return (
     <div className='font-lato text-[#003F5C] '>
-      <div className=' bg-[#003F5C]/10 flex flex-col-reverse md:flex-row gap-10  md:mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 2xl:px-28 p-4'>
+      <div className=' bg-[#003F5C]/10 flex flex-col md:flex-row gap-10 mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 2xl:px-28 p-4'>
 
         {/* left div */}
 
@@ -102,7 +100,7 @@ const Partners = () => {
         </div>
 
         {/* right div */}
-        <div className='md:w-[45%] mt-20 mb-20'>
+        <div className='md:w-[45%] my-10 '>
           <Image
             src={UpsellImage}
             alt='Hero Image'
@@ -170,11 +168,11 @@ const Partners = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#E0F7FA]">
             {partnerships.map((partnership, index) => (
               <div key={index} className="bg-white p-6 rounded-3xl ">
-                <h3 className="text-lg font-semibold mb-4 font-poppins font-semibold ">{partnership.title}</h3>
+                <h3 className="text-lg font-semibold mb-4 font-poppins ">{partnership.title}</h3>
                 <ul className=" font-lato space-y-4 text-base font-normal">
                   {partnership.points.map((point, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-gray-700 ">
-                      <CheckCircle className=" text-[#00A897] fill-[#00A897] text-white" size={20} /> {point}
+                      <CheckCircle className=" text-white fill-[#00A897]" size={20} /> {point}
                     </li>
                   ))}
                 </ul>

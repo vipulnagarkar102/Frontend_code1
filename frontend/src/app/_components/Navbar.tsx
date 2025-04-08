@@ -27,7 +27,7 @@ const Navbar = () => {
         </h1>
       </div>
 
-      <div className='hidden md:flex flex-row justify-center gap-6 text-lg font-poppins'>
+      <div className='hidden lg:flex flex-row justify-center gap-6 text-lg font-poppins'>
 
         <Link href='/'>
           <div className={`cursor-pointer py-1 ${pathname === '/' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
@@ -99,7 +99,7 @@ const Navbar = () => {
         <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
       </div>
 
-      <div className='md:hidden'>
+      <div className='lg:hidden'>
         <Sidebar />
       </div>
 

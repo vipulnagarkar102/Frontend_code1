@@ -65,7 +65,7 @@ const FaqAccordion: React.FC = () => {
   };
 
   return (
-    <div className="max-w-screen mx-auto p-8 bg-[#E0F7FA] text-[#003F5C] my-20">
+    <div className="p-8 bg-[#E0F7FA] text-[#003F5C] my-20">
       <h2 className="text-center text-3xl font-bold mb-8 text-[#003F5C]">Pricing FAQ's</h2>
       
       <div className="space-y-4">

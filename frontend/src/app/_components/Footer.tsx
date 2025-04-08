@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 md:px-6">
+    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 sm:px-6">
 
       <div className="flex flex-wrap gap-10 p-4 md:px-6 justify-between">
 
@@ -34,9 +34,6 @@ const Footer = () => {
               <div className='cursor-pointer'>Contact Us</div>
             </Link>
             
-            <Link href='/help-and-support'>
-              <div className='cursor-pointer'>Help and Support</div>
-            </Link>
 
             <Link href='/terms-and-conditions'>
               <div className='cursor-pointer'>Terms & Conditions</div>
