@@ -26,7 +26,7 @@ const Dashboard = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full md:ml-64">
+      <div className="flex-1 mt-26 p-6 overflow-auto h-screen ml-16 md:ml-64">
         <h2 className="text-2xl font-bold">Welcome Back, User</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {stats.map((stat, index) => (

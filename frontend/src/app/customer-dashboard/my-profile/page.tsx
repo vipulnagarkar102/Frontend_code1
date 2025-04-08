@@ -17,9 +17,9 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex min-h-screen min-w-screen bg-gray-100 ">
+    <div className="flex min-h-screen w-full bg-gray-100 ">
       <Sidebar />
-      <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full md:ml-64 ">
+      <div className="flex-1 mt-26 p-6 overflow-auto h-screen w-full ml-16 md:ml-64 ">
       <h2 className="text-2xl font-semibold mb-5">My Profile</h2>
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="font-medium cursor-pointer text-lg text-[#003F5C]">Registration Date:</div>
