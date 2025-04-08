@@ -7,7 +7,7 @@ const WatchFree = () => {
   return (
     <div className='relative'>
       {/* for small screen */}
-        <div className='bg-[#00A5CF] xl:hidden max-w-screen'>
+        <div className='bg-[#00A5CF] xl:hidden'>
           <p className='font-poppins text-[32px] text-center font-semibold text-white'>START FOR FREE</p>
         </div>
 

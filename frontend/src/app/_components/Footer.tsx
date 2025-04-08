@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bottom-0 min-w-screen bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
+    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
 
       <div className="flex flex-wrap gap-10 p-4 px-6 justify-between">
 
@@ -20,9 +20,9 @@ const Footer = () => {
 
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2 font-lato text-[18px]">
-            <a href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiTwitterXFill size={24} color='black' /></a>
-            <a href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiLinkedinLine  size={24} color='black' /></a>
-            <a href="https://www.youtube.com/@vtex_ai"  className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">
+            <a title='social-links' href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiTwitterXFill size={24} color='black' /></a>
+            <a title='social-links' href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100"><RiLinkedinLine  size={24} color='black' /></a>
+            <a title='social-links' href="https://www.youtube.com/@vtex_ai"  className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 flex items-center justify-center hover:bg-gray-100">
             <RiYoutubeLine  size={24} color='black' />
             </a>
           </div>

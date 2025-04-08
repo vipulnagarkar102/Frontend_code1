@@ -2,8 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 import HeroImage from '@/assets/Hero.png'
 import Offers from './Home/Offers'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import WatchFree from './Home/WatchFree'
 import AiSolution from './Home/AiSolution'
 import image from '@/assets/Tools.png'
@@ -13,7 +11,7 @@ import Footer from './Footer'
 const Home = () => {
   return(
     <div>
-      <div className='relative top-[104px] inset-0 z-0 overflow-hidden h-[240px] md:h-[450px] w-screen'>
+      <div className='relative top-[104px] inset-0 z-0 overflow-hidden h-[240px] md:h-[450px]'>
       <Image
         src={HeroImage}
         alt='Hero Image'
