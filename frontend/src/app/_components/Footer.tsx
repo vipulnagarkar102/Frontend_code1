@@ -8,9 +8,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 px-6">
+    <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 md:px-6">
 
-      <div className="flex flex-wrap gap-10 p-4 px-6 justify-between">
+      <div className="flex flex-wrap gap-10 p-4 md:px-6 justify-between">
 
         <div className='flex flex-col gap-8'>
           <h1 className='text-[35px] font-lato font-extrabold'>
