@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 export default function TermsAndConditionsPage() {
   return (
+    <div className='w-full'>
     <div className="min-h-screen max-w-8xl mx-auto font-lato mt-26 text-[#003F5C]">
       <div className="p-6 md:p-10 md:mt-6 flex flex-col">
         {/* Header Section */}
@@ -49,7 +50,9 @@ export default function TermsAndConditionsPage() {
         </div>
       </div>
       
-      <Footer/>
+      
+    </div>
+    <Footer/>
     </div>
   );
 }

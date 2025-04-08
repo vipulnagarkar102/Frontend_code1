@@ -17,7 +17,7 @@ const AiSolution = () => {
                 mainText='AI Solutions'
                 subText='That Deliver Results'
         />
-        <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5'>
+        <div className='mx-auto flex items-center justify-center max-h-screen mt-5'>
         
                 <Carousel
                     className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
