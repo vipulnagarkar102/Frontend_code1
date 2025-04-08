@@ -11,7 +11,7 @@ import Footer from './Footer'
 const Home = () => {
   return(
     <div>
-      <div className='relative top-[104px] inset-0 z-0 overflow-hidden h-[240px] md:h-[450px]'>
+      <div className='relative top-[104px] inset-0 z-0 overflow-hidden h-[240px] md:h-[540px]'>
       <Image
         src={HeroImage}
         alt='Hero Image'

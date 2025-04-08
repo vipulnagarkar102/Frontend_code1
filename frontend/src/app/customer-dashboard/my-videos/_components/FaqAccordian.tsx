@@ -17,12 +17,6 @@ const faqData: FaqItem[] = [
       'Yes! We offer a free introductory video for visitors. This video allows you to experience the quality and focus of our content, helping you decide which plan best suits your needs.',
   },
   {
-    id: 2,
-    question: 'How does the subscription work?',
-    answer:
-      'Our subscription provides full access to all premium content. Billing occurs monthly or annually, depending on your chosen plan. You can manage or cancel your subscription anytime through your account settings.',
-  },
-  {
     id: 3,
     question: 'What kind of content is available?',
     answer:
