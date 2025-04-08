@@ -53,13 +53,13 @@ const Settings = ({ user }: { user: User }) => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 pt-26 ">
+    <div className="flex flex-col md:flex-row w-full min-h-screen bg-gray-100 mt-26">
       <Sidebar />
-      <div className="p-6 w-full md:ml-64">
+      <div className="p-4 md:p-6 w-full ml-16 md:ml-64">
         <h2 className="text-2xl font-semibold mb-5">Settings</h2>
-        <div className="flex gap-6 mt-4 border-b font-poppins text-[18px] font-medium text-[#003F5C] cursor-pointer">
+        <div className="flex gap-6 mt-4 border-b font-poppins text-[18px] font-medium text-[#003F5C] cursor-pointer overflow-x-auto">
           <button
-            className={`pb-2 ${
+            className={`pb-2 px-1 whitespace-nowrap ${
               activeTab === "profile" ? "border-b-2 border-[#00A5CF] text-[#00A5CF]" : ""
             }`}
             onClick={() => setActiveTab("profile")}
@@ -67,7 +67,7 @@ const Settings = ({ user }: { user: User }) => {
             Profile
           </button>
           <button
-            className={`pb-2 ${
+            className={`pb-2 px-1 whitespace-nowrap ${
               activeTab === "password" ? "border-b-2 border-[#00A5CF] text-[#00A5CF]" : ""
             }`}
             onClick={() => setActiveTab("password")}
@@ -78,93 +78,96 @@ const Settings = ({ user }: { user: User }) => {
         {activeTab === "profile" ? (
           <div className="mt-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <label className="font-bold text-base ">
+              <label className="font-bold text-base">
                 First Name
                 <input
                   type="text"
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full font-normal text-base "
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
                 />
               </label>
-              <label className="font-bold text-base ">
+              <label className="font-bold text-base">
                 Last Name
                 <input
                   type="text"
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full font-normal text-base"
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
                 />
               </label>
-              <label className="font-bold text-base ">
+              <label className="font-bold text-base">
                 Username
                 <input
                   type="text"
                   name="username"
                   value={formData.username}
                   disabled
-                  className="border p-2 rounded w-full bg-gray-100 font-normal text-base"
+                  className="border p-2 rounded w-full bg-gray-100 font-normal text-base mt-1"
                 />
               </label>
-              <label className="font-bold text-base ">
+              <label className="font-bold text-base">
                 Phone Number
                 <input
                   type="text"
                   name="phone"
                   value={formData.phone}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full font-normal text-base"
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
                 />
               </label>
-              <label className="col-span-2 font-bold text-base">
+              <label className="md:col-span-2 font-bold text-base">
                 Bio
                 <textarea
                   name="bio"
                   value={formData.bio}
                   onChange={handleProfileChange}
-                  className="border p-2 rounded w-full font-normal text-base"
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
+                  rows={4}
                 />
               </label>
             </div>
-            <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-base mt-5">
+            <button className="border p-2 rounded bg-[#00A5CF] text-white transition duration-200 font-normal text-base mt-5 px-6">
               Update Profile
             </button>
           </div>
         ) : (
           <div className="mt-6">
-            <label className="font-bold text-base">
-              Current Password
-              <input
-                type="password"
-                name="currentPassword"
-                value={passwords.currentPassword}
-                onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3 font-normal text-base"
-              />
-            </label>
-            <label className="font-bold text-base">
-              New Password
-              <input
-                type="password"
-                name="newPassword"
-                value={passwords.newPassword}
-                onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3 font-normal text-base"
-              />
-            </label>
-            <label className="font-bold text-base">
-              Retype New Password
-              <input
-                type="password"
-                name="confirmPassword"
-                value={passwords.confirmPassword}
-                onChange={handlePasswordChange}
-                className="border p-2 rounded w-full mb-3 font-normal text-base"
-              />
-            </label>
-            <button className="border p-2 rounded bg-red-600 text-white transition duration-200 font-normal text-base mt-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <label className="font-bold text-base md:col-span-2">
+                Current Password
+                <input
+                  type="password"
+                  name="currentPassword"
+                  value={passwords.currentPassword}
+                  onChange={handlePasswordChange}
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
+                />
+              </label>
+              <label className="font-bold text-base">
+                New Password
+                <input
+                  type="password"
+                  name="newPassword"
+                  value={passwords.newPassword}
+                  onChange={handlePasswordChange}
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
+                />
+              </label>
+              <label className="font-bold text-base">
+                Retype New Password
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  value={passwords.confirmPassword}
+                  onChange={handlePasswordChange}
+                  className="border p-2 rounded w-full font-normal text-base mt-1"
+                />
+              </label>
+            </div>
+            <button className="border p-2 rounded bg-red-600 text-white transition duration-200 font-normal text-base mt-5 px-6">
               Reset Password
             </button>
           </div>
