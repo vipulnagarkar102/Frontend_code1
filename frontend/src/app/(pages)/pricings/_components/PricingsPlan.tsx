@@ -9,7 +9,7 @@ interface PricingsPlanProps {
 
 const PricingsPlan: React.FC<PricingsPlanProps> = ({ title }) => {
   return (
-    <div className="w-[300px] h-[400px] rounded-[30px] text-[#003F5C] font-poppins font-semibold text-[32px] opacity-85 hover:opacity-100 flex flex-col justify-between p-8 gap-6 hover:scale-105 transition-transform duration-200 bg-[#FFFFFF] border border-[#00A5CF]/20 shadow-md">
+    <div className="w-[280px] h-[400px] rounded-[30px] text-[#003F5C] font-poppins font-semibold text-[32px] opacity-85 hover:opacity-100 flex flex-col justify-between p-8 gap-6 hover:scale-105 transition-transform duration-200 bg-[#FFFFFF] border border-[#00A5CF]/20 shadow-md">
 
       <div>
         <p className="pl-2 bg-gradient-to-r from-[#00A5CF]/30 via-[#00A5CF]/15 to-[#FFFFFF]/5"> 

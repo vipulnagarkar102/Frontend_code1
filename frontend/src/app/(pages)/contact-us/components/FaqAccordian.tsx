@@ -65,7 +65,7 @@ const FaqAccordion: React.FC = () => {
   };
 
   return (
-    <div className="max-w-screen mx-auto p-8 bg-[#ffffff] text-[#003F5C] my-20">
+    <div className="max-w-screen mx-auto p-4 md:p-8 bg-[#ffffff] text-[#003F5C] my-20">
     <div className="space-y-4">
         {faqData.map((item, index) => {
           const isOpen = openIndex === index;
@@ -82,7 +82,7 @@ const FaqAccordion: React.FC = () => {
                 onClick={() => handleToggle(index)}
                 className="flex justify-between items-center w-full text-left py-4 hover:cursor-pointer"
               >
-                <span className="text-[#003F5C] font-normal font-poppins text-[22px]">
+                <span className="text-[#003F5C] font-normal font-poppins text-[17px] sm:text-[22px]">
                   {item.question}
                 </span>
                 {isOpen ? (
@@ -98,7 +98,7 @@ const FaqAccordion: React.FC = () => {
                   ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
                 `}
               >
-                <div className="pb-2 text-[20px] font-lato font-normal">
+                <div className="pb-2 text-[15px] sm:text-[20px] font-lato font-normal">
                   <p>{item.answer}</p>
                 </div>
               </div>

@@ -14,7 +14,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   className = '' 
 }) => {
   return (
-    <div className={`rounded-[30px] flex flex-col justify-between p-6 md:p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px] w-[380px] shadow-sm ${className}`}>
+    <div className={`rounded-[30px] flex flex-col justify-between p-6 md:p-8 gap-6 hover:scale-105 duration-200 bg-[#FFFFFF] min-h-[260px] w-[360px] mx-2 shadow-sm ${className}`}>
       {/* Icon Container */}
       <div className="rounded-full h-11 w-11 bg-[#00A5CF] flex items-center justify-center">
         {icon}

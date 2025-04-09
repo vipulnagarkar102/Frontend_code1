@@ -15,7 +15,7 @@ interface VideoCardProps {
 
 const VideoCard = ({ title, thumbnail, tags, rating = 3 }: VideoCardProps) => {
   return (
-    <div className='flex flex-col w-[280px] min-h-[420px] justify-between gap-3 p-6 bg-gradient-to-b from-[#00A5CF]/30 via-[#FFFFFF]/30 to-[#00A5CF]/5 text-[#003F5C] rounded-2xl'>
+    <div className='flex flex-col w-[250px] min-h-[420px] justify-between gap-3 p-6 bg-gradient-to-b from-[#00A5CF]/30 via-[#FFFFFF]/30 to-[#00A5CF]/5 text-[#003F5C] rounded-2xl'>
       <div className="relative h-36 w-full">
         <Image 
           src={DummyImage} 
