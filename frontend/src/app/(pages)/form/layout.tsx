@@ -1,18 +1,14 @@
 import Footer from "@/app/_components/Footer";
 
-export default function RootLayout({
+export default function NestedLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <div>
-        {children}
-        <Footer/>
-        </div>
-      </body>
-    </html>
+    <div className="w-full">
+      <div className="">{children}</div>
+      <Footer/>
+    </div>
   );
 }

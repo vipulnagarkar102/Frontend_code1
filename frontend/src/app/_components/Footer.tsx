@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { RiTwitterXFill } from "react-icons/ri";
 import { RiLinkedinLine  } from "react-icons/ri";
 import { RiYoutubeLine } from "react-icons/ri";
 import vtexlogo from '@/assets/vtexlogo .png'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bottom-0 bg-[#003F5C] text-[#FFFFFF] py-8 sm:px-6">
@@ -73,7 +71,7 @@ const Footer = () => {
 
       {/* Copyright Notice */}
       <div className="border-t border-teal-700 mt-8 pt-4 text-center px-8 font-poppins font-medium text-[15px] text-[#FFFFFF]">
-        © {currentYear} Curiouspods Learning Pvt. Ltd. All Rights Reserved
+        © {new Date().getFullYear()} Curiouspods Learning Pvt. Ltd. All Rights Reserved
       </div>
     </footer>
   );

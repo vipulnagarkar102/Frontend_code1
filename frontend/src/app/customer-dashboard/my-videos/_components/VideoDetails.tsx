@@ -63,7 +63,7 @@ const VideoDetails: React.FC<VideoProps> = ({ video }) => {
             <h1 className="text-[32px] font-bold mb-2">{video.title}</h1>
             <StarRating rating={video.rating} />
           </div>
-          <span className="w-[150px] bg-[#FFB74D] text-[#FFFFFF] font-lato text-[20px] font-normal mr-2 mt-4 lg:mt-1 px-4 py-0.5 rounded-lg mb-2">
+          <span className="w-[120px] md:w-[150px] bg-[#FFB74D] text-[#FFFFFF] font-lato text-[15px] md:text-[20px] font-normal mr-2 mt-4 lg:mt-1 px-4 py-0.5 rounded-lg mb-2">
             FlexPick plan
           </span>
           <div className="mt-8 relative rounded-[30px] overflow-hidden w-full h-[240px] md:h-[340px] lg:h-[420px]">
