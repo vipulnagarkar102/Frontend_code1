@@ -16,7 +16,7 @@ const Pricings = () => {
       </div>
 
       <div className="mx-8 my-12 flex flex-wrap gap-10 items-center justify-center">
-        <div className="w-[300px] h-[400px] rounded-[30px] text-white font-poppins font-semibold text-[32px] bg-[#003F5C] flex flex-col justify-between p-8 gap-6 hover:scale-105 transition-transform duration-200 border border-[#00A5CF]/20 shadow-md">
+        <div className="w-[280px] h-[400px] rounded-[30px] text-white font-poppins font-semibold text-[32px] bg-[#003F5C] flex flex-col justify-between p-8 gap-6 hover:scale-105 transition-transform duration-200 border border-[#00A5CF]/20 shadow-md">
         
               <div>
                 <p className=""> 
@@ -40,14 +40,14 @@ const Pricings = () => {
 
       
 
-      <p className='mt-20 font-poppins font-normal text-[16px] px-12 md:px-42 text-center'>The prices listed above do not incorporate the taxes applicable based on your billing location. The total amount payable will be shown on the checkout page prior to finalizing your payment.</p>
+      <p className='mt-20 font-poppins font-normal text-[16px] px-4 sm:px-12 md:px-42 text-center'>The prices listed above do not incorporate the taxes applicable based on your billing location. The total amount payable will be shown on the checkout page prior to finalizing your payment.</p>
       
       <div className='mx-4'>
         <p className='font-poppins font-semibold text-[40px] mt-10 text-center p-4x'>Compare All Plan Features</p>
         <PlanFeatures/>
       </div>
 
-
+{/* 
       {/* Enterprise Plan */}
 
       <div className='mx-4'>

@@ -122,7 +122,7 @@ const PlanFeatures: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-[1360px] my-4 mx-auto font-poppins font-medium text-[18px] border-2 border-dashed border-gray-400 rounded-lg">
+    <div className="max-w-[1360px] my-4 mx-auto font-poppins font-medium text-[14px] sm:text-[18px] border-2 border-dashed border-gray-400 rounded-lg">
       {/* Desktop Version */}
       <div className="hidden lg:block overflow-x-auto">
         {/* Full table from the previous component */}
@@ -159,7 +159,7 @@ const PlanFeatures: React.FC = () => {
           {plans.map(plan => (
             <button
               key={plan.id}
-              className={`flex-1 py-3 px-4 text-sm font-medium text-center ${
+              className={`flex-1 py-3 px-2 sm:px-4 text-sm font-medium text-center ${
                 activePlan === plan.id 
                   ? "bg-[#003F5C] text-white" 
                   : "bg-gray-100 text-[#4C4243] hover:bg-gray-200"

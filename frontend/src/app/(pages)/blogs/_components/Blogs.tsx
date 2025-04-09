@@ -10,7 +10,7 @@ import Link from 'next/link';
 const Blogs = () => {
   return (
     <div className='my-10 mb-20'>
-        <div className='xl:w-[1400px] lg:w-[1000px] md:w-[800px] w-[360px] mx-auto flex items-center justify-center max-h-screen mt-10'>
+        <div className='xl:w-[1400px] lg:w-[1000px] md:w-[800px] w-[320px] mx-auto flex items-center justify-center max-h-screen mt-10'>
 
         <Carousel
             className="mt-10 w-[80%]"

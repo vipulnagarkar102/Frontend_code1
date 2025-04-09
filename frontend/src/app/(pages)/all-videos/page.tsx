@@ -64,7 +64,7 @@ const VideosPage = () => {
       <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5'>
         {filteredVideos.length > 0 ? (
           <Carousel
-            className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
+            className="mt-10 w-[250px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
             // plugins={[
             //   Autoplay({
             //     delay: 2000, // Auto-scroll every 2 sec
@@ -101,7 +101,7 @@ const VideosPage = () => {
       <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-5 mb-10'>
         {filteredVideos.length > 0 ? (
           <Carousel
-            className="mt-10 w-[280px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
+            className="mt-10 w-[250px] md:w-[600px] lg:w-[900px] xl:w-[1200px] xl:[@media(min-width:1400px)]:w-[1300px] ml-4 md:ml-0"
             // plugins={[
             //   Autoplay({
             //     delay: 2000, // Auto-scroll every 2 sec

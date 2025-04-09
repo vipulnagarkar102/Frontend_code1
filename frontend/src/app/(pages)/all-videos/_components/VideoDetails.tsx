@@ -30,7 +30,7 @@ const VideoDetailPage = ({ videoId }: VideoDetailPageProps) => {
 
 
   return (
-    <div className="container py-8 px-4 mt-30 flex flex-col items-center lg:flex-row justify-center gap-10 mx-auto text-[#003F5C] font-lato">
+    <div className="py-8 px-4 mt-30 flex flex-col items-center lg:flex-row justify-between md:px-12 gap-10 mx-auto text-[#003F5C] font-lato">
       <div className='lg:w-[60%] flex flex-col gap-4'>
         <div className='flex flex-row text-[20px] font-normal items-center gap-4'>
             <p className='bg-[#FFB74D] px-1 rounded-lg'>NAFLD</p>
@@ -61,7 +61,7 @@ const VideoDetailPage = ({ videoId }: VideoDetailPageProps) => {
       <div className='lg:w-[30%] flex flex-col items-center justify-center gap-4'>
         {/* Video Preview */}
 
-        <div className='flex flex-col w-[400px] min-h-[360px] justify-between gap-3 p-6 bg-gradient-to-b from-[#00A5CF]/30 via-[#FFFFFF]/30 to-[#00A5CF]/5 text-[#003F5C] rounded-2xl'>
+        <div className='flex flex-col w-[330px] sm:w-[400px] min-h-[360px] justify-between gap-3 p-6 bg-gradient-to-b from-[#00A5CF]/30 via-[#FFFFFF]/30 to-[#00A5CF]/5 text-[#003F5C] rounded-2xl'>
             <div className="relative h-36 w-full">
                 <Image 
                 src={DummyImage} 
