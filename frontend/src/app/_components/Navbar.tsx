@@ -76,7 +76,7 @@ const Navbar = () => {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger className='flex flex-row justify-center items-center border-none outline-0 cursor-pointer py-1'>
-              Help & Support <span className='pl-[1px] pt-[4px] hover:text-teal-300 transition'><ChevronDown /></span>
+              Contact Us <span className='pl-[1px] pt-[4px] hover:text-teal-300 transition'><ChevronDown /></span>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
 
