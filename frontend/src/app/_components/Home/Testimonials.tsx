@@ -12,7 +12,7 @@ const Testimonials = () => {
         <div className='max-w-screen mx-auto flex items-center justify-center max-h-screen mt-10'>
 
         <Carousel
-            className="mt-10 w-[280px] md:w-[670px] lg:w-[1000px] xl:w-[1260px] ml-4 md:ml-0"
+            className="mt-10 w-[280px] md:w-[670px] lg:w-[1000px] xl:w-[1260px] ml-4 md:ml-0 font-normal font-lato text-[18px]"
             plugins={[
             Autoplay({
                 delay: 2000, // Auto-scroll every 2 sec
