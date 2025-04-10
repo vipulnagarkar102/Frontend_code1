@@ -76,6 +76,7 @@ const Navbar = () => {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger className='flex flex-row justify-center items-center border-none outline-0 cursor-pointer py-1'>
+
               Contact Us <span className='pl-[1px] pt-[4px] hover:text-teal-300 transition'><ChevronDown /></span>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
@@ -89,7 +90,7 @@ const Navbar = () => {
           </DropdownMenu>
         </div>
 
-        <Link href='/all-videos'>
+        {/* <Link href='/all-videos'>
           <div className={`cursor-pointer py-1 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
             All Videos
@@ -101,9 +102,13 @@ const Navbar = () => {
             } hover:text-teal-300 transition`}>
             Dashboard
           </div>
+        </Link> */}
+        
+        <Link href='/'>
+            <div>
+               <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
+            </div>
         </Link>
-
-        <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
       </div>
 
       <div className='lg:hidden'>

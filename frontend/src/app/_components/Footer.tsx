@@ -37,10 +37,6 @@ const Footer = () => {
             <Link href='/contact-us'>
               <div className='cursor-pointer'>Contact Us</div>
             </Link>
-            
-            <Link href='/'>
-              <div className='cursor-pointer'>Help & Support</div>
-            </Link>
 
             <Link href='/terms-and-conditions'>
               <div className='cursor-pointer'>Terms & Conditions</div>

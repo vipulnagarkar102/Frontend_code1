@@ -74,15 +74,16 @@ const VideosPage = () => {
             <CarouselContent>
               {filteredVideos.map((video, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center">
-                    <Link href={`/all-videos/${video.id}`}>
+                    
                         <VideoCard
+                            videoId = {video.id}
                             title={video.title}
                             thumbnail={video.thumbnail}
                             tags={video.tags}
                             description={video.description}
                             rating={4} // You can set a default rating or add it to your JSON data
                         />
-                  </Link>
+                 
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -111,15 +112,16 @@ const VideosPage = () => {
             <CarouselContent>
               {filteredVideos.map((video, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4 flex justify-center">
-                    <Link href={`/all-videos/${video.id}`}>
+                    
                         <VideoCard
+                            videoId = {video.id}
                             title={video.title}
                             thumbnail={video.thumbnail}
                             tags={video.tags}
                             description={video.description}
                             rating={4} // You can set a default rating or add it to your JSON data
                         />
-                  </Link>
+                 
                 </CarouselItem>
               ))}
             </CarouselContent>

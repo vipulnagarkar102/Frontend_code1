@@ -103,7 +103,7 @@ const Sidebar = () => {
                 pathname.startsWith('/form') ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
               } transition`}
             >
-              Help & Support
+              Contact Us
               <span className={`ml-2 transition-transform ${showHelpSupportItems ? 'rotate-180' : ''}`}>
                 <ChevronDown size={20} />
               </span>
@@ -143,25 +143,25 @@ const Sidebar = () => {
           
           <div className='w-full border border-[#FFFFFF80]'></div>
           
-          <Link href='/all-videos' onClick={toggleMenu}>
+          {/* <Link href='/all-videos' onClick={toggleMenu}>
             <div className={`cursor-pointer py-1 pl-6 ${
               pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
               All Videos
             </div>
-          </Link>
+          </Link> */}
 
-          <div className='w-full border border-[#FFFFFF80]'></div>
+          {/* <div className='w-full border border-[#FFFFFF80]'></div> */}
 
-          <Link href='/customer-dashboard' onClick={toggleMenu}>
+          {/* <Link href='/customer-dashboard' onClick={toggleMenu}>
             <div className={`cursor-pointer py-1 pl-6 ${
               pathname === '/customer-dashboard' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
               Dashboard
             </div>
-          </Link>
+          </Link> */}
 
-          <div className='w-full border border-[#FFFFFF80]'></div>
+          {/* <div className='w-full border border-[#FFFFFF80]'></div> */}
           
           <div className='pl-6 py-1'>
             <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
