@@ -96,7 +96,7 @@ const Sidebar = () => {
 
           <div className='w-full border border-[#FFFFFF80]'></div>
           
-          <div className='flex flex-col pl-6'>
+          {/* <div className='flex flex-col pl-6'>
             <div 
               onClick={toggleHelpSupportItems}
               className={`cursor-pointer py-1 flex items-center ${
@@ -141,7 +141,7 @@ const Sidebar = () => {
             )}
           </div>
           
-          <div className='w-full border border-[#FFFFFF80]'></div>
+          <div className='w-full border border-[#FFFFFF80]'></div> */}
           
           {/* <Link href='/all-videos' onClick={toggleMenu}>
             <div className={`cursor-pointer py-1 pl-6 ${

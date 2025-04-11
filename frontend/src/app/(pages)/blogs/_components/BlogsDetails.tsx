@@ -12,9 +12,13 @@ interface Blog {
 export const BlogsDetails = ({ blogId }: { blogId: string }) => {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchBlog = async () => {
+      setLoading(true);
+      setError(false);
+      
       try {
         const res = await fetch(
           `https://vtexai.kinsta.cloud/wp-json/wp/v2/posts?slug=${blogId}&_embed`
@@ -22,6 +26,7 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
         const data = await res.json();
 
         if (data.length === 0) {
+          setError(true);
           throw new Error("Post not found");
         }
 
@@ -35,6 +40,7 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
         });
       } catch (error) {
         console.error("Error fetching blog:", error);
+        setError(true);
         setBlog(null);
       } finally {
         setLoading(false);
@@ -45,10 +51,15 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
   }, [blogId]);
 
   if (loading) {
-    return <p className="p-10">Loading...</p>;
+    return (
+      <div className="flex flex-col w-full items-center justify-center min-h-screen">
+        <div className="w-12 h-12 border-4 border-t-[#003F5C] border-r-transparent border-b-[#003F5C] border-l-transparent rounded-full animate-spin"></div>
+        <p className="mt-4 text-[20px] font-lato font-semibold text-[#003F5C]">Loading blog post...</p>
+      </div>
+    );
   }
 
-  if (!blog) {
+  if (error || !blog) {
     return (
       <div className="mt-30 flex flex-col justify-center items-center min-h-screen">
         <h1 className="text-2xl font-bold text-red-500">Blog Post Not Found</h1>
