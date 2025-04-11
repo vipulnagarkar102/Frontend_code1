@@ -12,7 +12,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
     <div className="flex flex-col py-8 w-[250px] h-[320px] md:w-[300px] md:h-[360px] gap-4 p-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
       
       <p
-        className="font-poppins text-[24px] font-medium line-clamp-2"
+        className="font-poppins text-[22px] md:text-[24px] font-medium line-clamp-2"
         dangerouslySetInnerHTML={{ __html: heading }}
       />
 
@@ -21,17 +21,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
         dangerouslySetInnerHTML={{ __html: subtext }}
       />
 
-      {/* {imageSrc && (
-        <div className="h-[60px] w-[60px] ml-auto rounded-full bg-white p-2">
-          <Image
-            src={imageSrc}
-            alt="blog image"
-            height={56}
-            width={56}
-            className="rounded-full object-cover"
-          />
-        </div>
-      )} */}
     </div>
   );
 };

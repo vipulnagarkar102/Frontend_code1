@@ -19,9 +19,11 @@ interface WPPost {
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState<WPPost[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlogs = async () => {
+      setLoading(true);
       try {
         const res = await fetch(
           'https://vtexai.kinsta.cloud/wp-json/wp/v2/posts?_embed&per_page=10'
@@ -30,6 +32,8 @@ const Blogs = () => {
         setBlogs(data);
       } catch (error) {
         console.error('Failed to fetch blogs:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -40,35 +44,42 @@ const Blogs = () => {
     <div className='my-10 mb-20'>
       <div className='xl:w-[1400px] lg:w-[1000px] md:w-[800px] w-[320px] mx-auto flex items-center justify-center max-h-screen mt-10'>
 
-        <Carousel
-          className="mt-10 w-[80%]"
-          plugins={[
-            Autoplay({ delay: 2000 }),
-          ]}
-        >
-          <CarouselContent>
-            {blogs.map((blog) => {
-              const imageSrc =
-                blog._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? '/default-thumb.jpg';
-              return (
-                <CarouselItem
-                  key={blog.id}
-                  className="md:basis-1/2 xl:basis-1/3 flex items-center justify-center"
-                >
-                  <Link href={`/blogs/${blog.slug}`}>
-                    <BlogCard
-                      heading={blog.title.rendered}
-                      subtext={blog.excerpt.rendered}
-                      imageSrc={imageSrc}
-                    />
-                  </Link>
-                </CarouselItem>
-              );
-            })}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {loading ? (
+          <div className="flex flex-col items-center justify-center w-full py-12">
+            <div className="w-12 h-12 border-4 border-t-[#003F5C] border-r-transparent border-b-[#003F5C] border-l-transparent rounded-full animate-spin"></div>
+            <p className="mt-4 text-[20px] font-lato font-semibold text-[#003F5C]">Loading...</p>
+          </div>
+        ) : (
+          <Carousel
+            className="mt-10 w-[80%]"
+            plugins={[
+              Autoplay({ delay: 2000 }),
+            ]}
+          >
+            <CarouselContent>
+              {blogs.map((blog) => {
+                const imageSrc =
+                  blog._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? '/default-thumb.jpg';
+                return (
+                  <CarouselItem
+                    key={blog.id}
+                    className="md:basis-1/2 xl:basis-1/3 flex items-center justify-center"
+                  >
+                    <Link href={`/blogs/${blog.slug}`}>
+                      <BlogCard
+                        heading={blog.title.rendered}
+                        subtext={blog.excerpt.rendered}
+                        imageSrc={imageSrc}
+                      />
+                    </Link>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        )}
 
       </div>
     </div>
