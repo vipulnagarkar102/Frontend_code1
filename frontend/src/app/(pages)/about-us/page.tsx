@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import HeroImage from '@/assets/about-us.png'
+import HeroImage from '@/assets/AboutUS.png'
+import storyImg from '@/assets/about-us.png'
 import { PlugIcon, ThumbsUp } from 'lucide-react'
 import { GiOpenBook } from 'react-icons/gi'
 import { BsPeople } from 'react-icons/bs'
@@ -31,10 +32,10 @@ const AboutUs = () => {
 
       <div className='mt-24 mb-4 px-8 md:px-12 lg:px-24 xl:px-64 gap-6 flex flex-col items-center justify-center text-center'>
         <div>
-          <p className='font-poppins font-bold text-[32px] md:text-[50px] md:text-center leading-[42px] md:leading-[55px] tracking-[1%] text-center md:text-left'>Building innovative solutions is at the core of everything we do.</p>
+          <p className='font-poppins font-bold text-[32px] md:text-[50px] md:text-center leading-[42px] md:leading-[55px] tracking-[1%] text-center '>Building innovative solutions is at the core of everything we do.</p>
         </div>
         <div>
-          <p className='font-lato font-medium text-[22px] leading-[120%] tracking-[0%] md:text-center text-center'>At VtexAI, we are driven by resilience and a passion for innovation, leveraging cutting-edge technology to transform patient care. We challenge conventional thinking, unlocking new possibilities to improve health outcomes worldwide. Our mission is clear: The VtexAI Collective—driving groundbreaking innovations for a healthier future.</p>
+          <p className='font-lato font-normal text-[20px] md:text-[22px] leading-[120%] tracking-[0%] md:text-center text-center'>At VtexAI, we are driven by resilience and a passion for innovation, leveraging cutting-edge technology to transform patient care. We challenge conventional thinking, unlocking new possibilities to improve health outcomes worldwide. Our mission is clear: The VtexAI Collective—driving groundbreaking innovations for a healthier future.</p>
         </div>
       </div>
 
@@ -138,22 +139,22 @@ const AboutUs = () => {
 
       {/* Our Story */}
 
-      <div className='flex flex-col md:flex-row gap-10 mt-16 mb-20 px-10 items-center justify-center'>
+      <div className='flex flex-col md:flex-row gap-8 mt-16 mb-20 px-10 md:ml-10 items-center justify-center'>
 
         <div className='md:w-[40%]'>
           <Image
-          src={HeroImage}
+          src={storyImg}
           alt='Hero Image'
           // layout='fill' // Use layout='fill' to make the image cover the entire div
           objectFit='cover' // Important for responsiveness
-          height={436}
-          width={693}
+          height={300}
+          width={403}
           />
         </div>
         
         <div className='md:w-[60%]'>
           <p className='font-poppins text-[40px] font-semibold leading-[55px] mb-6 md:text-left text-center'>Our Story</p>
-          <p className='font-lato font-medium leading-[120%]  text-[22px] md:text-left text-center'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
+          <p className='font-lato font-normal leading-[120%]  text-[20px] md:text-[22px] md:text-left text-center'>With 20+ years of digital transformation expertise, we’ve been the driving force behind Fortune 500 companies’ innovation. Born in EdTech, we harness cutting-edge technology to create powerful learning experiences that inspire and elevate.Recognized since 2017 as a top leader in transformative education, we blend deep industry insights with bold creativity—empowering learners not just to embrace the future, but to shape it.</p>
         </div>
 
       </div>

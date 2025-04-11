@@ -4,7 +4,7 @@ import HeroImage from '@/assets/Hero.png'
 import Offers from './Home/Offers'
 import WatchFree from './Home/WatchFree'
 import AiSolution from './Home/AiSolution'
-import image from '@/assets/Tools.png'
+import image from '@/assets/home.png'
 import Testimonials from './Home/Testimonials'
 import Footer from './Footer'
 
@@ -21,7 +21,7 @@ const Home = () => {
 
       <div className="absolute inset-0 flex items-center">
           <div className="w-1/2 flex justify-start items-center pl-4 md:pl-8 lg:pl-12">
-            <div className="text-[#FFFFFF] font-lato font-extrabold text-[22px] leading-[30px] md:leading-[70px] md:text-[36px] lg:text-[50px] tracking-[2%]">
+            <div className="text-[#FFFFFF] font-lato font-bold text-[22px] leading-[30px] md:leading-[70px] md:text-[36px] lg:text-[48px] tracking-[2%]">
               Empowering Enterprises  and Healthcare with  Transformative AI Learning
             </div>
           </div>
@@ -37,12 +37,14 @@ const Home = () => {
       {/* Ai Solution */}
       <AiSolution/>
 
-      <div className='bg-[#E0F7FA] max-w-screen mt-16 my-4 flex flex-col md:flex-row justify-between md:items-center px-4 md:px-8 py-6'>
-        <div className='flex flex-col gap-4 text-[#003F5C] md:w-1/2'>
+      <div className='bg-[#E0F7FA] max-w-screen mx-auto gap-8 mt-16 my-4 flex flex-col lg:flex-row justify-between md:items-center px-4 md:px-8 py-6'>
+        <div className='flex flex-col gap-4 text-[#003F5C] lg:w-1/2'>
         <p className='font-poppins font-semibold text-[24px] md:text-[40px]'>Supported Platforms, Tools and Technologies</p>
         <p className='font-lato font-normal text-[18px] md:text-[18px]'>At Vtex.ai, our solutions are designed for seamless integration and operational efficiency, leveraging the latest technologies in AI, software development, and API-driven architectures. Each solution is built for real-world application, ensuring users can easily deploy, customize, and scale their implementations with modern development frameworks and tools.</p>
         </div>
-        <Image className='h-[480px]' src={image} alt='Tools pictures'/>
+        <div>
+          <Image className='md:h-[350px]' src={image} alt='Tools pictures'/>
+        </div>
       </div>
 
       {/* Testimonials */}

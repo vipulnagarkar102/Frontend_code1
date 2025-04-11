@@ -11,11 +11,11 @@ const ContactUs = () => {
     return (
         <div className='text-[#003F5C]'>
             {/* Hero Section - Made more responsive */}
-            <div className='flex flex-col md:flex-row gap-4 md:gap-9 mt-20 md:mt-36 h-fit items-center justify-center px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-28 py-8 md:py-4 bg-[#003F5C]/10'>
+            <div className='flex flex-col md:flex-row gap-4 md:gap-9 mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 xl:px-24 2xl:px-28 py-8 md:py-4 bg-[#003F5C]/5'>
                 {/* left div */}
                 <div className='w-full md:w-[55%] mt-4 md:mt-22 pb-8 md:pb-20'>
                     <p className='font-lato font-extrabold text-[28px] sm:text-[36px] md:text-[50px] leading-tight md:leading-[55px] tracking-[1%] mb-3 md:mb-5'>Get In Touch</p>
-                    <p className='font-lato font-medium text-[16px] sm:text-[18px] md:text-[22px] leading-[22px] md:leading-[32px] tracking-[0%]'>We're here to help! Whether you have questions about our services, need technical support, or want to share feedback, our team is ready to assist you. Please reach out to us through the communication channels listed below—we'll get back to you as soon as possible.</p>
+                    <p className='font-lato font-medium text-[18px] md:text-[22px] leading-[22px] md:leading-[32px] tracking-[0%]'>We're here to help! Whether you have questions about our services, need technical support, or want to share feedback, our team is ready to assist you. Please reach out to us through the communication channels listed below—we'll get back to you as soon as possible.</p>
                 </div>
 
                 {/* right div */}

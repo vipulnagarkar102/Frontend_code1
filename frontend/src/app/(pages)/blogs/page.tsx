@@ -21,7 +21,7 @@ const page = () => {
 
           <div className='md:w-[60%]'>
             <p className='font-poppins text-[40px] font-semibold leading-[55px] mb-6'>Insights & Updates</p>
-            <p className='font-lato font-medium leading-[120%] text-[22px]'>Stay up-to-date on hot industry topics, clinical best practices, regulatory news, and the latest in digital healthcare innovation.</p>
+            <p className='font-lato font-medium leading-[120%] text-[20px] md:text-[22px]'>Stay up-to-date on hot industry topics, clinical best practices, regulatory news, and the latest in digital healthcare innovation.</p>
           </div> 
 
         </div>
