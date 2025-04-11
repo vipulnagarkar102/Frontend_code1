@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true, 
   },
+  images: {
+    domains: ['vtexai.kinsta.cloud'], // 👈 Add your WordPress image domain here
+  },
 };
 
 export default nextConfig;
