@@ -249,7 +249,7 @@ const FaqAccordion: React.FC = () => {
                 onClick={() => handleToggle(index)}
                 className="flex justify-between items-center w-full text-left py-4 hover:cursor-pointer"
               >
-                <span className="text-[#003F5C] font-normal font-poppins text-[17px] sm:text-[22px]">
+                <span className="text-[#003F5C] font-normal font-poppins text-[20px] md:text-[22px]">
                   {item.question}
                 </span>
                 {isOpen ? (
@@ -262,10 +262,10 @@ const FaqAccordion: React.FC = () => {
               {/* Answer Panel */}
               <div
                 className={`overflow-hidden transition-all duration-300 ease-in-out
-                  ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
+                  ${isOpen ? 'opacity-100' : 'max-h-0 opacity-0'}
                 `}
               >
-                <div className="pb-2 text-[15px] sm:text-[20px] font-lato font-normal">
+                <div className="pb-2 text-[18px] md:text-[20px] font-lato font-normal">
                 <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
                 </div>
               </div>
