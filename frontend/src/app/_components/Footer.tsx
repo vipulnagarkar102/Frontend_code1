@@ -20,7 +20,7 @@ const Footer = () => {
               width={120}
               className=''
             />
-          <p className="font-lato text-[18px] leading-[30px]">Empowering Professionals with<br/> AI-Driven HealthTech Solutions</p>
+          <p className="font-poppins font-semibold leading-[30px] tracking-[1%] text-[18px]">Empowering Professionals with<br/> AI-Driven HealthTech Solutions</p>
 
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2 font-lato text-[18px]">
@@ -33,13 +33,9 @@ const Footer = () => {
         </div>
 
         <div> 
-          <div className="flex flex-col md:flex-row gap-4 text-[15px] font-poppins font-semibold leading-[100%] tracking-[1%] my-4">
+          <div className="flex flex-col md:flex-row gap-4 text-[18px] font-poppins font-semibold leading-[100%] tracking-[1%] my-4">
             <Link href='/contact-us'>
               <div className='cursor-pointer'>Contact Us</div>
-            </Link>
-            
-            <Link href='/'>
-              <div className='cursor-pointer'>Help & Support</div>
             </Link>
 
             <Link href='/terms-and-conditions'>

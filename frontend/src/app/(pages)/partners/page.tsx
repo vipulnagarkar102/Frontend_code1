@@ -90,7 +90,7 @@ const Partners = () => {
 
   return (
     <div className='font-lato text-[#003F5C] '>
-      <div className=' bg-[#003F5C]/10 flex flex-col md:flex-row gap-10 mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 2xl:px-28 p-4'>
+      <div className='bg-[#003F5C]/5 flex flex-col md:flex-row gap-10 mt-26 h-fit items-center justify-center px-4 md:px-12 lg:px-16 2xl:px-28 p-4'>
 
         {/* left div */}
 
@@ -121,21 +121,21 @@ const Partners = () => {
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
-            icon={feature.icon}
+            icon={feature.icon} 
             title={feature.title}
             description={feature.description}
           />
         ))}
       </div>
       <div className='bg-[#E0F7FA]  max-w-screen p-4 pb-20'>
-        <div className='flex flex-col md:flex-row-reverse gap-6 mt-20 h-fit items-center justify-center px-6 p-4'>
+        <div className='flex flex-col md:flex-row-reverse gap-10 mt-20 h-fit items-center justify-center px-6 p-4'>
 
           {/* left div */}
 
 
-          <div className='md:w-[60%] flex flex-col gap-10 ml-5'>
+          <div className='md:w-[60%] flex flex-col gap-10'>
             <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Ways to partner</p>
-            <p className='text-[22px] font-normal'>
+            <p className='text-[18px] md:text-[20px] font-normal'>
               Vtex.ai partners across healthcare, sales, technology, and corporate training to drive AI innovation. From enhancing patient care and sales performance to co-developing AI solutions and transforming learning, we empower organizations with intelligent, scalable AI-driven solutions. Partner with Vtex.ai to shape the future of AI.
             </p>
             <div>
@@ -168,8 +168,8 @@ const Partners = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#E0F7FA]">
             {partnerships.map((partnership, index) => (
               <div key={index} className="bg-white p-6 rounded-3xl ">
-                <h3 className="text-lg font-semibold mb-4 font-poppins ">{partnership.title}</h3>
-                <ul className=" font-lato space-y-4 text-base font-normal">
+                <h3 className="text-[20px] md:text-[22px] font-semibold mb-4 font-poppins ">{partnership.title}</h3>
+                <ul className=" font-lato space-y-4 text-[16px] md:text-[18px] font-normal">
                   {partnership.points.map((point, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-gray-700 ">
                       <CheckCircle className=" text-white fill-[#00A897]" size={20} /> {point}

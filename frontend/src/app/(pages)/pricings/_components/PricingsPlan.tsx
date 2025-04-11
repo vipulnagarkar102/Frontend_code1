@@ -22,7 +22,7 @@ const PricingsPlan: React.FC<PricingsPlanProps> = ({ title }) => {
         </p>
       </div>
       <div>
-      <Button className='font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100% '>START SUBSCRIPTION <span className='rotate-225'><ArrowDown size={30}/></span></Button>
+      <Button className='font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] '>START SUBSCRIPTION <span className='rotate-225'><ArrowDown size={30}/></span></Button>
       </div>
     </div>
   );

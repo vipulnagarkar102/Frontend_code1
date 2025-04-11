@@ -26,7 +26,7 @@ const WatchFree = () => {
             <p className='font-lato text-[24px]'>Predicting Fibrosis Stages in NAFLD <br/> Using Advanced AI Models</p>
             <p className='font-poppins text-[40px]'>HealthTech AI Plan</p>
             <Link href='/'>
-            <Button variant='secondary' className='bg-[#00A5CF] text-white hover:text-black font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
+            <Button variant='secondary' className='bg-[#00A5CF] text-white hover:scale-105 duration-150 hover:bg-[#00A5CF] font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
             </Link>
           </div>
 
@@ -34,7 +34,7 @@ const WatchFree = () => {
             <p className='font-lato text-[24px]'>Revolutionizing DevSecOps: AI and <br/> Generative AI in Action</p>
             <p className='font-poppins text-[40px]'>Emerging Tech Plan</p>
             <Link href='/'>
-            <Button variant='secondary' className='bg-[#00A5CF] text-white hover:text-black font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
+            <Button variant='secondary' className='bg-[#00A5CF] text-white hover:scale-105 duration-105 hover:bg-[#00A5CF] font-lato font-semibold text-[16px] cursor-pointer'>WATCH NOW<span className='rotate-225'><ArrowDown size={30}/></span></Button>
             </Link>
           </div>
 

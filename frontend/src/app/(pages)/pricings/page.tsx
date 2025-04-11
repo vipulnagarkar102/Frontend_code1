@@ -63,7 +63,7 @@ const Pricings = () => {
 
           <div className='flex flex-col md:flex-row gap-10 md:gap-16 mt-12'>
             <div className='md:w-1/2'>
-              <p className="mb-6 font-lato text-[20px] font-normal">
+              <p className="mb-6 font-lato text-[18px] md:text-[20px] font-normal">
               Designed for high-growth businesses and teams, our Enterprise Plan offers custom pricing, enterprise-grade features, advanced integrations, and dedicated support to help you scale seamlessly. Whether you’re expanding your online education platform or integrating digital assets into your ecosystem, Vtex.ai provides the flexibility and tools you need. Schedule a call with our team to explore how we can tailor a solution that accelerates your success. 
               Let’s innovate and grow—together!
               </p>
