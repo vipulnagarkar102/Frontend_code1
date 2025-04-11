@@ -73,22 +73,6 @@ const Navbar = () => {
             Blogs
           </div>
         </Link>
-        <div>
-          <DropdownMenu>
-            <DropdownMenuTrigger className='flex flex-row justify-center items-center border-none outline-0 cursor-pointer py-1'>
-
-              Contact Us <span className='pl-[1px] pt-[4px] hover:text-teal-300 transition'><ChevronDown /></span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-
-              <Link href='/form/pay-per-code-form'><DropdownMenuItem className='cursor-pointer'>Pay per code</DropdownMenuItem></Link>
-              <Link href='/form/support-form'><DropdownMenuItem className='cursor-pointer'>Support</DropdownMenuItem></Link>
-              <Link href='/form/consult-form'><DropdownMenuItem className='cursor-pointer'>Consult</DropdownMenuItem></Link>
-              <Link href='/form/license-form'><DropdownMenuItem className='cursor-pointer'>License</DropdownMenuItem></Link>
-              <Link href='/form/enterprise-form'><DropdownMenuItem className='cursor-pointer'>Enterprise</DropdownMenuItem></Link>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
 
         {/* <Link href='/all-videos'>
           <div className={`cursor-pointer py-1 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
