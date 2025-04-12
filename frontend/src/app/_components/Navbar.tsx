@@ -88,7 +88,7 @@ const Navbar = () => {
           </div>
         </Link> */}
         
-        <Link href='/'>
+        <Link href='/auth/login'>
             <div>
                <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
             </div>
