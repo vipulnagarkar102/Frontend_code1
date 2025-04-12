@@ -163,10 +163,13 @@ const Sidebar = () => {
 
           {/* <div className='w-full border border-[#FFFFFF80]'></div> */}
           
-          <div className='pl-6 py-1'>
-            <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
-          </div>
+          <Link href='/auth/login'>
+            <div className='pl-6 py-1'>
+              <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
+            </div>
+          </Link>
         </div>
+
       )}
     </div>
   )
