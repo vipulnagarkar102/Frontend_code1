@@ -1,9 +1,9 @@
 import { create } from 'zustand';
-import { AuthState, RegisterPayload, LoginPayload, User, RegisterResponse, VerifyEmailResponse, LoginResponse, LogoutResponse, ResendOtpResponse } from './authTypes'; // Import ResendOtpResponse
+import { AuthState, RegisterPayload, LoginPayload, User, RegisterResponse, VerifyEmailResponse, LoginResponse, LogoutResponse, ResendOtpResponse } from './authTypes';
 import apiClient from '../services/apiClient';
 
 const getErrorMessage = (error: any): string => {
-  // ... (getErrorMessage function remains the same)
+    // ... (getErrorMessage function remains the same)
   if (error.response && error.response.data) {
     if (error.response.data.message) {
       return error.response.data.message;
@@ -18,6 +18,25 @@ const getErrorMessage = (error: any): string => {
   return error.message || 'An unknown error occurred';
 };
 
+// Helper function to clear auth state (used in logout and init failure)
+const clearAuthState = (set: (updater: (state: AuthState) => Partial<AuthState>) => void) => {
+    localStorage.removeItem('authToken');
+    delete apiClient.defaults.headers.common['Authorization'];
+    set(state => ({
+        user: null,
+        token: null,
+        isAuthenticated: false,
+        isLoading: false, // Reset loading states as well
+        isResendingOtp: false,
+        error: null,
+        userIdForVerification: null,
+        requiresVerification: false,
+        // Keep isAuthInitialized true after first attempt
+        isAuthInitialized: true,
+    }));
+     console.log('Auth state cleared.');
+};
+
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   // Initial State
@@ -25,16 +44,14 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   token: null,
   isAuthenticated: false,
   isLoading: false,
-  isResendingOtp: false, // Added initial state
+  isResendingOtp: false,
   error: null,
   userIdForVerification: null,
   requiresVerification: false,
   isAuthInitialized: false,
 
-  // --- Actions ---
 
   register: async (payload: RegisterPayload) => {
-    // Reset all loading states
     set({ isLoading: true, isResendingOtp: false, error: null, requiresVerification: false, userIdForVerification: null });
     try {
       const response = await apiClient.post<RegisterResponse>('/users/createUser', payload);
@@ -46,6 +63,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       });
     } catch (error: any) {
       const errorMessage = getErrorMessage(error);
+      console.error("Registration API Error:", error.response?.status, errorMessage);
       set({ isLoading: false, error: errorMessage });
       throw new Error(errorMessage);
     }
@@ -58,8 +76,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ isLoading: false, isResendingOtp: false, error: errorMsg, requiresVerification: false });
       return false;
     }
-
-    set({ isLoading: true, isResendingOtp: false, error: null }); // Ensure isResendingOtp is false
+    set({ isLoading: true, isResendingOtp: false, error: null });
     try {
       await apiClient.post<VerifyEmailResponse>('/users/verify-email', { userId, otpCode });
       set({
@@ -70,22 +87,19 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       return true;
     } catch (error: any) {
       const errorMessage = getErrorMessage(error);
+       console.error("Verify Email API Error:", error.response?.status, errorMessage);
       set({ isLoading: false, error: errorMessage });
       return false;
     }
   },
 
-  // --- NEW Resend OTP Action ---
   resendOtp: async (): Promise<{ success: boolean; message: string; remaining?: number }> => {
     const userId = get().userIdForVerification;
     if (!userId) {
       const errorMsg = "User ID not found. Cannot resend OTP.";
-       // Set error state directly, but don't change loading state here
        set({ error: errorMsg });
        return { success: false, message: errorMsg };
     }
-
-    // Set specific loading state for resend
     set({ isResendingOtp: true, error: null });
     try {
         const response = await apiClient.post<ResendOtpResponse>('/users/resend-otp', { userId });
@@ -97,83 +111,99 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         };
     } catch (error: any) {
         const errorMessage = getErrorMessage(error);
-        set({ isResendingOtp: false, error: errorMessage }); // Set general error state
-        return { success: false, message: errorMessage }; // Return specific message from error
+        console.error("Resend OTP API Error:", error.response?.status, errorMessage);
+        set({ isResendingOtp: false, error: errorMessage });
+        return { success: false, message: errorMessage };
     }
   },
-  // --- End of Resend OTP Action ---
-
 
   login: async (payload: LoginPayload) => {
-    // Reset relevant states
     set({ isLoading: true, isResendingOtp: false, error: null, requiresVerification: false, userIdForVerification: null });
     try {
       const response = await apiClient.post<LoginResponse>('/auth/login', payload);
       const { data: user, token } = response.data;
       localStorage.setItem('authToken', token);
+      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       set({
         user,
         token,
         isAuthenticated: true,
         isLoading: false,
         error: null,
+        isAuthInitialized: true, // Mark as initialized on successful login
       });
-      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
     } catch (error: any) {
       const errorMessage = getErrorMessage(error);
-      localStorage.removeItem('authToken');
-      set({
-        user: null,
-        token: null,
-        isAuthenticated: false,
-        isLoading: false,
-        error: errorMessage,
-      });
-       throw new Error(errorMessage);
+      console.error("Login API Error:", error.response?.status, errorMessage);
+
+      clearAuthState(set); // Clear state fully on login failure
+      set({ error: errorMessage }); // Set the specific error message
+      throw new Error(errorMessage);
     }
   },
 
+  // Logout Action
   logout: async () => {
     const currentToken = get().token;
-    // Reset relevant states
-    set({ isLoading: true, isResendingOtp: false, error: null });
+    console.log("Initiating logout...");
     try {
         if (currentToken) {
-            await apiClient.post<LogoutResponse>('/auth/logout');
+            // Call backend logout fire-and-forget (don't wait or depend on success)
+             apiClient.post<LogoutResponse>('/auth/logout').catch(err => {
+                 console.warn("Backend logout call failed:", err.message);
+             });
         }
     } catch (error: any) {
-        const errorMessage = getErrorMessage(error);
-        console.error("Backend logout failed (frontend will still log out):", errorMessage);
+        console.error("Error during logout request setup:", error);
     } finally {
-        localStorage.removeItem('authToken');
-        delete apiClient.defaults.headers.common['Authorization'];
-        set({
-            user: null,
-            token: null,
-            isAuthenticated: false,
-            isLoading: false,
-            error: null,
-            userIdForVerification: null,
-            requiresVerification: false,
-            isResendingOtp: false, // Ensure reset here too
-        });
+        
+        clearAuthState(set);
     }
   },
 
-  initializeAuth: () => {
-     set({ isResendingOtp: false }); // Ensure reset on init
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      try {
-        set({ token, isAuthenticated: true, isAuthInitialized: true });
+  initializeAuth: async () => {
+     if (get().isAuthInitialized) {
+       // console.log("Auth already initialized.");
+       return;
+     }
+     console.log("Initializing authentication...");
+
+     const token = localStorage.getItem('authToken');
+
+     if (token) {
+        console.log("Token found in storage. Verifying...");
         apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      } catch (error) {
-        localStorage.removeItem('authToken');
-        set({ token: null, isAuthenticated: false, isAuthInitialized: true, user: null });
-      }
-    } else {
-      set({ isAuthInitialized: true });
-    }
+        try {
+            // Attempt to fetch user profile to validate the token
+            const response = await apiClient.get<{status: string; data: User}>('/users/getUserProfile'); // Adjust endpoint if needed
+            const user = response.data.data;
+
+            if (user && user.status === 'active') {
+                console.log("Token verified, user profile fetched:", user);
+                set({
+                    user,
+                    token,
+                    isAuthenticated: true,
+                    isAuthInitialized: true,
+                    isLoading: false, // Ensure loading is false
+                    error: null
+                });
+            } else {
+                 // User found but not active, or unexpected response
+                 console.warn("Token valid but user not active or profile data invalid. Logging out.");
+                 clearAuthState(set); // Clear state
+            }
+        } catch (error: any) {
+            // Token is invalid (expired, wrong signature, etc.) or API failed
+            const errorMessage = getErrorMessage(error);
+            console.warn("Token verification failed:", error.response?.status, errorMessage);
+            clearAuthState(set); // Clear state
+        }
+     } else {
+        console.log("No token found in storage.");
+        // Ensure state is clear and mark as initialized
+        clearAuthState(set);
+     }
   },
 
   clearError: () => {

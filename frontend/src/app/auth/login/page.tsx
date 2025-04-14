@@ -17,21 +17,20 @@ const Login = () => {
   });
 
   // Get store state and actions
-  const { login, isLoading, error: storeError, isAuthenticated, clearError } = useAuthStore();
+  const { login, isLoading, error: storeError, isAuthenticated,isAuthInitialized, clearError } = useAuthStore();
   const router = useRouter();
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
   const [showPassword, setShowPassword] = useState(false);
 
-  // Redirect if already logged in
+  
   useEffect(() => {
-    if (isAuthenticated) {
-      console.log('Already authenticated, redirecting to dashboard...');
-      router.push('/customer-dashboard'); // Redirect to dashboard
-    }
-     // Clear errors when component mounts or isAuthenticated changes
-     clearError();
-  }, [isAuthenticated, router, clearError]);
+      // Only redirect if auth check is complete AND user is authenticated
+      if (isAuthInitialized && isAuthenticated) {
+        console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+        router.push('/customer-dashboard');
+      }
+    }, [isAuthenticated, isAuthInitialized, router]);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -100,7 +99,7 @@ const Login = () => {
       <div className="w-full lg:w-3/5 flex items-center justify-center p-6">
         <div className="w-full max-w-[600px] bg-white rounded-xl shadow-lg p-8">
         <div className="mb-8">
-            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome Back! 👋</h1>
+            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome to Vtex.AI! 👋</h1>
           </div>
 
           {/* Display Store Error */}

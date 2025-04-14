@@ -41,13 +41,22 @@ const VerifyEmail = () => {
 
   useEffect(() => {
     if (!userIdForVerification && !isLoading && !isResendingOtp) {
-      console.warn('No user ID found for verification. Maybe redirect?');
-      // Optional: Redirect if needed
-      // router.push('/auth/signup');
+      console.warn('No user ID found for verification. Redirecting to sign-up page...');
+       router.push('/auth/sign-up');
     }
     // Clear general errors when component mounts or state changes relevantly
     clearError();
   }, [userIdForVerification, isLoading, isResendingOtp, router, clearError]);
+
+  const { isAuthenticated, isAuthInitialized } = useAuthStore(); // Get isAuthInitialized as well
+
+  useEffect(() => {
+    // Only redirect if auth check is complete AND user is authenticated
+    if (isAuthInitialized && isAuthenticated) {
+      console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+      router.push('/customer-dashboard');
+    }
+  }, [isAuthenticated, isAuthInitialized, router]);
 
 
   const handleOtpChange = (e: React.ChangeEvent<HTMLInputElement>) => {
