@@ -99,7 +99,7 @@ const Login = () => {
       <div className="w-full lg:w-3/5 flex items-center justify-center p-6">
         <div className="w-full max-w-[600px] bg-white rounded-xl shadow-lg p-8">
         <div className="mb-8">
-            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome Back! 👋</h1>
+            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome to Vtex.AI! 👋</h1>
           </div>
 
           {/* Display Store Error */}
