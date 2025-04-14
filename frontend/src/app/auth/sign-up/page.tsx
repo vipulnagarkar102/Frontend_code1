@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -35,8 +35,19 @@ const SignUp = () => {
   });
 
   // Get store actions and state
-  const { register, isLoading, error: storeError, clearError } = useAuthStore();
+  const { register, isLoading, error: storeError,isAuthInitialized,isAuthenticated, clearError } = useAuthStore();
   const router = useRouter();
+
+
+useEffect(() => {
+    // Only redirect if auth check is complete AND user is authenticated
+    if (isAuthInitialized && isAuthenticated) {
+      console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+      router.push('/customer-dashboard');
+    }
+  }, [isAuthenticated, isAuthInitialized, router]);
+
+  
 
   const [showPassword, setShowPassword] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
@@ -47,6 +58,7 @@ const SignUp = () => {
     const { name, value } = e.target;
     clearError(); // Clear store error on input change
     setFormErrors({}); // Clear local errors on input change
+
 
     if (name.includes('.')) {
       const [parent, child] = name.split('.') as ['address', string]; // Only address is nested text input

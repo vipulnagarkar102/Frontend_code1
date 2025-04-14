@@ -17,21 +17,20 @@ const Login = () => {
   });
 
   // Get store state and actions
-  const { login, isLoading, error: storeError, isAuthenticated, clearError } = useAuthStore();
+  const { login, isLoading, error: storeError, isAuthenticated,isAuthInitialized, clearError } = useAuthStore();
   const router = useRouter();
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
   const [showPassword, setShowPassword] = useState(false);
 
-  // Redirect if already logged in
+  
   useEffect(() => {
-    if (isAuthenticated) {
-      console.log('Already authenticated, redirecting to dashboard...');
-      router.push('/customer-dashboard'); // Redirect to dashboard
-    }
-     // Clear errors when component mounts or isAuthenticated changes
-     clearError();
-  }, [isAuthenticated, router, clearError]);
+      // Only redirect if auth check is complete AND user is authenticated
+      if (isAuthInitialized && isAuthenticated) {
+        console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+        router.push('/customer-dashboard');
+      }
+    }, [isAuthenticated, isAuthInitialized, router]);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

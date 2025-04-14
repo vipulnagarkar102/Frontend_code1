@@ -1,17 +1,44 @@
 'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
 import { FiBookOpen, FiSmartphone, FiThumbsUp, FiGrid } from 'react-icons/fi';
 import Sidebar from './sidebar'
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/store/authStore';
+import { useUserStore } from '@/store/userStore';
 
 const Dashboard = () => {
-  const menuItems = [
-    { name: 'Dashboard', path: '/customer-dashboard' },
-    { name: 'MY Profile', path: '/customer-dashboard/my-videos' },
-    { name: 'My Orders', path: '/customer-dashboard/order-history' },
-    { name: 'Settings', path: '/customer-dashboard/settings' },
-  ];
+
+  const router = useRouter();
+  const { isAuthenticated, isAuthInitialized, initializeAuth } = useAuthStore();
+  const { profile, isLoadingProfile, getUserProfile, error: userProfileError } = useUserStore();
+
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]);
+
+  // Protection Effect: Redirect if not authenticated after initialization
+  useEffect(() => {
+    // Don't run checks until auth initialization is complete
+    if (!isAuthInitialized) {
+      return;
+    }
+
+    // If initialized but NOT authenticated, redirect to login
+    if (!isAuthenticated) {
+      console.log("Dashboard: Not authenticated, redirecting to login...");
+      router.replace('/auth/login');
+      return; // Stop further execution in this effect
+    }
+
+    // If authenticated AND profile data is not yet loaded, fetch it
+    if (isAuthenticated && !profile && !isLoadingProfile && !userProfileError) {
+       console.log("Dashboard: Authenticated, fetching user profile...");
+       getUserProfile();
+    }
+
+  }, [isAuthenticated, isAuthInitialized, profile, isLoadingProfile, userProfileError, getUserProfile, router]);
+
+  
 
   const stats = [
     { icon: <FiBookOpen size={24} />, count: 14, label: 'Enrolled Videos' },
@@ -20,6 +47,36 @@ const Dashboard = () => {
     { icon: <FiGrid size={24} />, count: 10, label: 'Quiz Attempts' },
   ];
 
+  if (!isAuthInitialized || (isAuthenticated && (!profile || isLoadingProfile) && !userProfileError)) {
+      return (
+        <div className="flex min-h-screen w-full bg-gray-100">
+          <Sidebar/>
+          <div className="flex ml-16 md:ml-64 flex-col w-full items-center justify-center min-h-screen">
+            <div className="w-12 h-12 border-4 border-t-[#003F5C] border-r-transparent border-b-[#003F5C] border-l-transparent rounded-full animate-spin"></div>
+              <p className="mt-4 text-[20px] font-lato font-semibold text-[#003F5C]">Loading...</p>
+            </div>
+        </div>
+      );
+  }
+
+  // --- Handle Profile Fetch Error ---
+   // If auth is initialized and user is authenticated, but there was an error fetching the profile
+   if (isAuthInitialized && isAuthenticated && userProfileError && !profile) {
+    return (
+       <div className="flex min-h-screen bg-gray-100">
+          <Sidebar />
+          <main className="flex-1 pt-[72px] p-6 md:ml-64 overflow-y-auto">
+             <h2 className="text-2xl font-bold text-red-600 mb-6">Error Loading Profile</h2>
+             <p className="text-red-500">Could not load your profile data. Please try refreshing the page or contact support.</p>
+             <p className="text-sm text-gray-500 mt-2">Error details: {userProfileError}</p>
+          </main>
+       </div>
+    )
+ }
+
+
+  const userName = profile?.first_name || 'User'; // Replace with actual user name retrieval logic
+
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
@@ -27,7 +84,7 @@ const Dashboard = () => {
 
       {/* Main Content */}
       <div className="flex-1 mt-26 p-6 overflow-auto h-screen ml-16 md:ml-64">
-        <h2 className="text-2xl font-bold">Welcome Back, User</h2>
+        <h2 className="text-2xl font-bold">Welcome Back,{userName}</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {stats.map((stat, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow flex items-center gap-4">

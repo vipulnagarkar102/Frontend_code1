@@ -1,41 +1,50 @@
 "use client";
-import React from 'react'
-import { Button } from '@/components/ui/button'
+import React, { useEffect } from 'react';
+import { Button } from '@/components/ui/button';
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { ChevronDown } from 'lucide-react';
-import Sidebar from './Sidebar';
-import vtexlogo from '@/assets/vtexlogo .png'
+import { usePathname, useRouter } from "next/navigation"; 
+import Sidebar from './Sidebar'; 
+import vtexlogo from '@/assets/vtexlogo .png'; 
 import Image from 'next/image';
+import { useAuthStore } from '@/store/authStore';
 
 const Navbar = () => {
+  const pathname = usePathname(); 
+  const router = useRouter(); 
 
-  const pathname = usePathname(); // Current route path
+  // Get state and actions from the Zustand store
+  const { isAuthenticated, isAuthInitialized, initializeAuth, logout } = useAuthStore();
+
+
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]);
+
+  const handleLogout = async () => {
+    await logout(); 
+    router.push('/auth/login');
+  };
 
   return (
-    <div className=' border-b-1 border-[#0C5070] w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-white flex flex-row justify-between items-center'>
+    <div className='border-b-1 border-[#0C5070] w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-white flex flex-row justify-between items-center'>
+      {/* Logo */}
       <div>
-        <div className='ml-2 md:ml-4'> 
-        <Image
+        <Link href={isAuthenticated ? "/customer-dashboard" : "/"}> {/* Link logo to dashboard if logged in */}
+          <div className='ml-2 md:ml-4 cursor-pointer'>
+            <Image
               src={vtexlogo}
               alt='Vtex.AI'
               height={20}
               width={65}
-              className=''
             />
-        </div>
+          </div>
+        </Link>
       </div>
 
-      <div className='hidden lg:flex flex-row justify-center gap-6 text-lg font-poppins'>
+      {/* Desktop Navigation */}
+      <div className='hidden lg:flex flex-row justify-center items-center gap-6 text-lg font-poppins'>
 
+        {/* Public Links */}
         <Link href='/'>
           <div className={`cursor-pointer py-1 ${pathname === '/' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
@@ -48,24 +57,17 @@ const Navbar = () => {
             Our offerings
           </div>
         </Link>
-
-
-
         <Link href='/about-us'>
           <div className={`cursor-pointer py-1 ${pathname === '/about-us' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
             About Us
           </div>
         </Link>
-
-
-
         <Link href='/partners'>
           <div className={`cursor-pointer py-1 ${pathname === '/partners' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
             } hover:text-teal-300 transition`}>
             Partners
           </div>
-
         </Link>
         <Link href='/blogs'>
           <div className={`cursor-pointer py-1 ${pathname === '/blogs' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
@@ -74,33 +76,56 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* <Link href='/all-videos'>
-          <div className={`cursor-pointer py-1 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
-            } hover:text-teal-300 transition`}>
-            All Videos
-          </div>
-        </Link>
+        {/* Protected Links - Show only if authenticated */}
+        {isAuthenticated && (
+          <>
+            <Link href='/all-videos'>
+              <div className={`cursor-pointer py-1 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+                } hover:text-teal-300 transition`}>
+                All Videos
+              </div>
+            </Link>
 
-        <Link href='/customer-dashboard'>
-          <div className={`cursor-pointer py-1 ${pathname === '/CustomerDashboard' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
-            } hover:text-teal-300 transition`}>
-            Dashboard
-          </div>
-        </Link> */}
-        
-        <Link href='/auth/login'>
-            <div>
-               <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
-            </div>
-        </Link>
+            <Link href='/customer-dashboard'>
+              {/* Ensure correct path checking */}
+              <div className={`cursor-pointer py-1 ${pathname === '/customer-dashboard' ? "text-teal-400 font-bold" : "text-[#FFFFFF]"
+                } hover:text-teal-300 transition`}>
+                Dashboard
+              </div>
+            </Link>
+          </>
+        )}
+
+        {/* Authentication Buttons - Conditional rendering */}
+        <div className='ml-4'> 
+          {!isAuthInitialized ? (
+            // Optional: Show a loading state while checking auth
+            <Button variant="custom" disabled className='font-medium p-5'>Loading...</Button>
+          ) : isAuthenticated ? (
+            // Show Logout button if authenticated
+            <Button
+              variant="custom"
+              onClick={handleLogout}
+              className='font-medium p-5 cursor-pointer bg-red-600 hover:bg-red-700' // Example styling for logout
+            >
+              LOGOUT
+            </Button>
+          ) : (
+            // Show Login button if not authenticated
+            <Link href='/auth/login'>
+              <Button variant="custom" className='font-medium p-5 cursor-pointer'>LOGIN</Button>
+            </Link>
+          )}
+        </div>
       </div>
 
+      {/* Mobile Navigation Trigger */}
       <div className='lg:hidden'>
-        <Sidebar />
+        <Sidebar isAuthenticated={isAuthenticated} isAuthInitialized={isAuthInitialized} />
       </div>
 
     </div>
   )
 }
 
-export default Navbar
+export default Navbar;
