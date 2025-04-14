@@ -45,7 +45,7 @@ export const useUserStore = create<UserState>((set, get) => ({
     updateUserProfile: async (payload: UpdateProfilePayload): Promise<boolean> => {
         set({ isUpdatingProfile: true, error: null });
         try {
-            const response = await apiClient.put<UpdateProfileResponse>('/users/user/update', payload);
+            const response = await apiClient.put<UpdateProfileResponse>('/users/updateUser', payload);
             // Optimistically update the profile state with the changes
             const currentProfile = get().profile;
             if (currentProfile) {
