@@ -29,7 +29,6 @@ const page = () => {
         <p className='font-semibold px-4 font-poppins text-[40px] mt-10 md:mt-16 text-center'>Latest News & Articles</p>
 
         <Blogs/>
-        <Footer/>
     </div>
   )
 }
