@@ -26,7 +26,7 @@ const Blogs = () => {
       setLoading(true);
       try {
         const res = await fetch(
-          'https://vtexai.kinsta.cloud/wp-json/wp/v2/posts?_embed&per_page=10'
+          'https://h2p.c25.myftpupload.com/wp-json/wp/v2/posts?_embed&per_page=10'
         );
         const data = await res.json();
         setBlogs(data);

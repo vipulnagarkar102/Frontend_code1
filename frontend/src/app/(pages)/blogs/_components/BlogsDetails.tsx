@@ -21,7 +21,7 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
       
       try {
         const res = await fetch(
-          `https://vtexai.kinsta.cloud/wp-json/wp/v2/posts?slug=${blogId}&_embed`
+          `https://h2p.c25.myftpupload.com/wp-json/wp/v2/posts?slug=${blogId}&_embed`
         );
         const data = await res.json();
 
