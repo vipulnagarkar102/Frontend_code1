@@ -26,7 +26,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='border-b-1 border-[#0C5070] w-screen fixed top-8 z-50 px-8 h-[72px] bg-[#003F5C] text-white flex flex-row justify-between items-center'>
+    <div className='border-b-1 border-[#0C5070] w-screen fixed top-8 z-50 px-8 h-[72px] [@media(min-width:1750px)]:h-[90px] bg-[#003F5C] text-white flex flex-row justify-between items-center'>
       {/* Logo */}
       <div>
         <Link href={isAuthenticated ? "/customer-dashboard" : "/"}> {/* Link logo to dashboard if logged in */}
@@ -42,7 +42,7 @@ const Navbar = () => {
       </div>
 
       {/* Desktop Navigation */}
-      <div className='hidden lg:flex flex-row justify-center items-center gap-6 text-lg font-poppins'>
+      <div className='hidden lg:flex flex-row justify-center items-center gap-6 text-lg [@media(min-width:1750px)]:text-[24px] font-poppins'>
 
         {/* Public Links */}
         <Link href='/'>

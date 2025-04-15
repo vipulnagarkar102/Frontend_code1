@@ -3,10 +3,8 @@ import React from "react";
 import { Star } from "lucide-react";
 
 interface TestimonialCardProps {
-    rating: number;
-    heading: string;
-    subtext: string;
     imageSrc: string | StaticImageData; // ✅ Allow both string & StaticImageData
+    description: string;
   }
 
 const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
@@ -22,16 +20,14 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
   );
 };
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ rating, heading, subtext, imageSrc }) => {
+const TestimonialCard: React.FC<TestimonialCardProps> = ({imageSrc,description }) => {
   return (
-    <div className="flex flex-col justify-between w-[270px] h-[400px] md:w-[300px] md:h-[420px] gap-4 p-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
-      {/* ⭐ Star Rating Component */}
-      <StarRating rating={rating} />
-      <p className="font-poppins text-[24px] font-medium">{heading}</p>
-      <p className="font-lato text-[16px] md:text-[18px]">{subtext}</p>
-      <div className="h-[60px] w-[60px] rounded-full bg-white p-2">
-        <Image src={imageSrc} alt="testimonial image" height={56} width={56} className="rounded-full"/>
+    <div className="flex flex-col w-[270px] h-[440px] md:w-[300px] md:h-[460px] [@media(min-width:1800px)]:h-[640px]  [@media(min-width:1600px)]:w-[320px] [@media(min-width:1750px)]:w-[360px] [@media(min-width:2000px)]:w-[420px] gap-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
+      <div className=" bg-gray-100 p-2">
+        <Image width={500} height={200} src={imageSrc} alt="testimonial image" className="object-content"/>
       </div>
+      <p className="p-4 font-lato font-normal text-[16px] md:text-[18px]  [@media(min-width:1800px)]:text-[26px]">{description}</p>
+      
     </div>
   );
 };
