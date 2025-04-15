@@ -104,7 +104,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated, isAuthInitialized })
             <>
               <Link href='/all-videos' onClick={handleLinkClick}>
                 <div className={`cursor-pointer py-2 pl-6 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]" } hover:text-teal-300 transition`}>
-                  All Videos
+                  
+                  FlexPick Plan
                 </div>
               </Link>
               <div className='w-full border-t border-[#FFFFFF80]'></div>
@@ -119,10 +120,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated, isAuthInitialized })
           )}
 
           {/* Authentication Buttons - Conditional rendering */}
-          <div className='pl-6 py-4 mt-auto'> {/* Push auth button towards bottom */}
+          <div className='pl-6 py-4'> {/* Push auth button towards bottom */}
              {!isAuthInitialized ? (
                  // Optional: Show a loading state
-                 <Button variant="custom" disabled className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>Loading...</Button>
+                 <Button variant="custom" disabled className='font-medium font-lato cursor-pointer w-fit text-[20px] p-5 mb-12'>Loading...</Button>
              ) : isAuthenticated ? (
                  // Show Logout button if authenticated
                  <Button
@@ -135,7 +136,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated, isAuthInitialized })
              ) : (
                  // Show Login button if not authenticated
                  <Link href='/auth/login' onClick={handleLinkClick}>
-                    <Button variant="custom" className='font-medium cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
+                    <Button variant="custom" className='font-medium font-lato cursor-pointer w-fit text-[20px] p-5 mb-12'>LOGIN</Button>
                  </Link>
              )}
           </div>
