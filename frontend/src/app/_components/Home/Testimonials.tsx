@@ -40,7 +40,7 @@ const Testimonials = () => {
   return (
     <div className='my-10'>
       <p className='font-poppins font-semibold text-[30px] md:text-[40px] text-center text-[#003F5C]'>
-        Trusted by Global Leaders
+        Certifications, Accreditations & Expert Testimonials
       </p>
 
       <div className='max-w-screen-xl mx-auto flex items-center justify-center mt-10'>
@@ -58,20 +58,21 @@ const Testimonials = () => {
                 key={index}
                 className="basis-full md:basis-1/3 px-3 py-4"
               >
-                <div className="flex flex-col justify-between items-center bg-white rounded-xl overflow-hidden w-full max-w-[500px] h-[380px] md:h-[400px] mx-auto">
-                  {/* Image with border + shadow */}
-                  <div className="w-full border border-gray-200 shadow-md">
+                <div className="flex flex-col bg-white rounded-xl overflow-hidden w-full max-w-[500px] h-[430px] shadow-lg mx-auto">
+                  
+                  {/* Image inside card */}
+                  <div className="w-full p-4  border-gray-200 bg-gray-50 flex justify-center items-center">
                     <Image
                       src={item.image}
                       alt={`Testimonial ${index + 1}`}
-                      className="w-full h-[200px] object-cover"
+                      className="w-auto h-auto max-w-full max-h-[200px] object-contain"
                       width={500}
                       height={200}
                     />
                   </div>
 
-                  {/* Description without shadow */}
-                  <div className="p-3 text-center text-[#003F5C] font-lato text-sm md:text-base font-medium flex-grow flex items-center">
+                  {/* Description inside card with reduced bottom padding */}
+                  <div className="font-lato font-normal text-[18px] px-5 pt-10 text-center text-[#003F5C]">
                     {item.description}
                   </div>
                 </div>
