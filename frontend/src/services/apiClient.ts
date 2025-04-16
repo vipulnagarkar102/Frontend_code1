@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: 'https://backend-code-cusr.onrender.com/api',
+  baseURL: process.env.NEXT_PUBLIC_USER_API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
