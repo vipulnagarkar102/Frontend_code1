@@ -20,13 +20,13 @@ const FaqAccordion: React.FC = () => {
       "id": 1,
       "category": "getting-started",
       "question": "What is Vtex.ai?",
-      "answer": "Vtex.ai is a go-to platform for expert-led video subscriptions in emerging tech, healthcare AI, and enterprise solutions. We provide in-depth resources crafted by industry specialists for individual learners, healthcare professionals, and organizations interested in advancing their knowledge. Vtex.ai provides in-depth resources crafted by industry specialists."
+      "answer": "Vtex.ai is your premier destination for expert-driven video solutions and subscription plans across Emerging Tech, HealthTech AI, and customizable enterprise offerings. Our platform features a diverse range of learning formats—from structured subscription tracks to flexible, independent video purchases through FlexPick. Designed by industry experts, our solutions empower individual learners, healthcare professionals, and organizations to deepen their expertise and stay ahead in innovation. Additional options like Pay-Per-Code, Commercial Licensing, and Consulting Services ensure that every user—from solo practitioners to large enterprises—can access tailored, high-impact resources to meet their goals."
     },
     {
       "id": 2,
       "category": "getting-started",
       "question": "What subscription plans does Vtex.ai offer?",
-      "answer": "We offer three distinct subscription plans: <br><br/>1) Emerging Tech Plan: Covering cutting-edge topics across technology, AI, Generative AI and their applications.<br><br/> 2) Healthcare AI Plan: Specialized content in AI applications for healthcare, perfect for healthcare professionals and enthusiasts. <br><br/>3) Enterprise Plan: Comprehensive resources suited for teams and organizations seeking deeper insights and scalable solutions."
+      "answer": "Vtex.ai offers a range of subscription and one-time purchase options tailored to individual users and enterprises, available on a monthly or annual auto-renewal basis, unless cancelled by the user.<br/><br/><b>Subscription Plans:</b><br/>1. Emerging Tech Plan: Explore forward-looking solutions in technology, Artificial Intelligence (AI), Generative AI, and their practical applications.<br/>2. Healthcare AI Plan: Access specialized content focused on AI in healthcare—ideal for medical professionals, researchers, and tech-savvy healthcare enthusiasts.<br/><br/>In addition to subscription plans, users can opt for the FlexPick Plan, which allows one-time purchases of individual solutions based on their interests.<br/><br/><b>Additional Offerings:</b><br/>• Pay-Per-Code: Users can instantly purchase solution code independently of their subscription, providing faster access without the need to complete associated video content or quizzes.<br/>• Enterprise Plan: Designed for organizations seeking to integrate Vtex.ai’s digital assets—including videos and solution code—into their own LMS, or to build white-labeled learning platforms.<br/>• Commercial License: Enterprises may acquire licensing rights to resell or commercially distribute Vtex.ai’s solutions.<br/>• Consulting Services: Enterprises can also collaborate with Vtex.ai through consulting engagements, leveraging our expertise to design, customize, or scale their learning and AI implementation strategies."
     },
     {
       "id": 3,
@@ -38,13 +38,13 @@ const FaqAccordion: React.FC = () => {
       "id": 4,
       "category": "getting-started",
       "question": "How do I get started with Vtex.ai?",
-      "answer":  "To access our full library, register on our website. Once registered, you can select a subscription plan that best suits your needs. Plans are billed monthly, and each offers access to:<br/><br/>1) New videos and updates published regularly<br/><br/>2) Video content with hands-on Python demos tailored to healthcare and AI contexts<br/><br/>3) Easy access to our extensive code library with a focus on practical, real-world applications"
+      "answer": "To access our full library, register on our website. Once registered, you can select a subscription plan that best suits your needs. Plans are billed monthly, and each offers access to:<br/><br/>1) New videos and updates published regularly<br/>2) Video content with hands-on Python demos tailored to healthcare and AI contexts<br/>3) Gain access to solution code designed for real-world, practical implementation."
     },
     {
       "id": 5,
       "category": "getting-started",
       "question": "Is there a money-back guarantee?",
-      "answer": "Yes, we offer a 7-day money-back guarantee on all individual plans. Cancel within the first 7 days, and you'll receive a full refund, minus any applicable payment processing fees."
+      "answer": "We’re confident you’ll find value in our content from day one. While we do not offer a money-back guarantee, we encourage you to explore our free videos available on the platform to experience the quality and depth of our solutions before making a purchase."
     },
     {
       "id": 6,
@@ -64,7 +64,7 @@ const FaqAccordion: React.FC = () => {
       "id": 8,
       "category": "account-related",
       "question": "How do I register for a Vtex.ai account?",
-      "answer": "To get started with Vtex.ai, simply visit our Registration page, fill in your details, and choose a password. You'll receive a confirmation email with a link to activate your account."
+      "answer": "To get started with Vtex.ai, simply visit our Registration page, fill in your details, and choose a password. You'll receive a confirmation email with an OTP to activate your account."
     },
     {
       "id": 9,
@@ -76,19 +76,19 @@ const FaqAccordion: React.FC = () => {
       "id": 10,
       "category": "account-related",
       "question": "How do I choose a subscription plan?",
-      "answer": "When you're ready to subscribe, visit our Pricing Page to select the plan that best suits your needs. All plans are billed monthly and provide access to a continually updated library of video content. Additionally, we offer on-demand access to demonstration code, with eligibility to access the code for one video every two weeks—up to two video codes per month. For complete details, please review our Terms and Conditions."
+      "answer": "When you're ready to subscribe, visit our Offerings page to choose the plan that best matches your learning goals. All plans are available on a monthly or annual auto-renewal basis and provide access to a continually growing library of expert-led solution content.<br/><br/>Subscribers are eligible to receive one solution code approximately every 35 days, upon successful completion of the corresponding quiz. For those who wish to access an additional code sooner, our Pay-Per-Code option allows existing customers to purchase one extra solution code ahead of the 35-day entitlement reset.<br/><br/>Please note that Pay-Per-Code purchases are charged separately and are not deductible from the cost of any active subscription or FlexPick video purchase—even if the code relates to content already covered under your plan.<br/><br/>For full program details and policies, please review our <a href='/terms-and-conditions'><b><u>Terms and Conditions</u></b></a>"
     },
     {
       "id": 11,
       "category": "account-related",
       "question": "How does billing work for subscriptions?",
-      "answer": "All subscriptions are charged on a monthly basis. You can update your payment details at any time from your Account Settings under Billing Information."
+      "answer": "All subscription plans are billed on a monthly or annual basis. You may update your payment information at any time by navigating to the Billing Information section within your Account Settings."
     },
     {
       "id": 12,
       "category": "account-related",
       "question": "What is your refund policy?",
-      "answer": "We provide a 7-day money-back guarantee for all new subscribers. If you're not fully satisfied, you can cancel within the first 7 days to receive a full refund, minus applicable payment processing fees. For further details, please refer to our Terms and Conditions. After the initial 7-day period, your subscription will automatically renew on a monthly basis, with the flexibility to cancel anytime before the start of the next billing cycle."
+      "answer": "We encourage you to explore our free expert-led videos to help you make an informed decision before subscribing. Because we provide ample opportunity to evaluate the content upfront, we do not offer refunds once a subscription has been purchased. All subscriptions automatically renew on a monthly or annual basis, with the flexibility to cancel anytime before the next billing cycle. For full details, please review our <a href='/terms-and-conditions'><b><u>Terms and Conditions</u></b></a>."
     },
     {
       "id": 13,
@@ -100,13 +100,13 @@ const FaqAccordion: React.FC = () => {
       "id": 14,
       "category": "account-related",
       "question": "How do I cancel my subscription?",
-      "answer": "If you decide to cancel your subscription, follow these steps:<br/><br/>1) Go to Account Settings and select Manage Subscription.<br/><br/>2) Choose Cancel Subscription. Your access will remain active until the end of your billing period.<br/><br/>3) You will not be charged for the following month."
+      "answer": "If you wish to cancel your subscription, please follow these steps:<br/><br/>1. Navigate to your Customer Dashboard and select Manage Subscription.<br/>2. Click on Cancel Subscription. Your access will remain active until the end of your current billing cycle.<br/>3. You will not be charged for the next billing period—whether monthly or annual—based on your current plan."
     },
     {
       "id": 15,
       "category": "account-related",
       "question": "How do I update my profile information?",
-      "answer": "You can edit your profile details (such as name, email, and password) anytime under Account Settings > Profile."
+      "answer": "You can edit your profile details (such as name, email, and password) anytime under Customer dashboard."
     },
     {
       "id": 16,
@@ -132,25 +132,19 @@ const FaqAccordion: React.FC = () => {
       "id": 19,
       "category": "general",
       "question": "How long does a Vtex subscription last?",
-      "answer": "Vtex.ai subscriptions are billed on a monthly basis. Your subscription will renew automatically each month until you choose to cancel it. You can cancel anytime, and if you do so within the first 30 days, you're eligible for a full refund."
-    },
-    {
-      "id": 20,
-      "category": "general",
-      "question": "How does a Vtex subscription work?",
-      "answer": "Our subscriptions are designed to offer maximum flexibility and value. Choose from three plans—Emerging Tech, Healthcare AI, and Enterprise—that give you access to a continuously updated video library with hands-on, Python-based demos. Each plan is billed monthly, and you'll have full access to new videos as they're released."
+      "answer": "Vtex.ai subscriptions are billed either monthly or annually. Your subscription will automatically renew at the start of each billing cycle unless you choose to cancel. You can manage or cancel your subscription at any time via your customer dashboard."
     },
     {
       "id": 21,
       "category": "general",
       "question": "Can I pay by the month?",
-      "answer": "Yes, Vtex.ai offers a monthly billing option for all individual plans. You'll be charged once per month, with the option to cancel anytime. If you cancel within the first 30 days, you'll receive a full refund; otherwise, the subscription will end with the billing cycle."
+      "answer": "Yes, Vtex.ai offers a monthly billing option for all individual plans. You will be billed monthly and have the flexibility to cancel at any time. Please note that cancellations are not eligible for a refund; however, your subscription will remain active until the end of the current billing cycle."
     },
     {
       "id": 22,
       "category": "general",
-      "question": "How can I get notified of new course launches and content updates?",
-      "answer": "To stay updated on new courses and content releases, be sure to enable notifications in your Account Settings. You can also subscribe to our newsletter, where we regularly announce new courses, industry updates, and upcoming features."
+      "question": "How can I get notified of new video or new solution launches and content updates?",
+      "answer": "Stay informed about new videos, solutions, and content releases by subscribing to our newsletter. Simply use the option in the footer of Vtex.ai to receive regular updates on new courses, industry news, and upcoming features."
     },
     {
       "id": 23,
@@ -168,19 +162,19 @@ const FaqAccordion: React.FC = () => {
       "id": 25,
       "category": "general",
       "question": "Can I manage my account settings?",
-      "answer": "Yes! You can manage all your account settings, including profile details, subscription preferences, and billing information, through the Account Settings page."
+      "answer": "Yes! You can manage all your account settings, including profile details, subscription preferences, and billing information, through the Customer dashboard page."
     },
     {
       "id": 26,
       "category": "general",
       "question": "How do I change my profile information?",
-      "answer": "To edit your profile:<br/><br/>1) Go to Account Settings and click Profile.<br/><br/>2) Here, you can update your name, email, and other personal details. Make sure to save your changes before exiting."
+      "answer": "To edit your profile:<br/><br/>1) Go to Customer dashboard<br/>2) Here, you can update your name, email, and other personal details. Make sure to save your changes before exiting."
     },
     {
       "id": 27,
       "category": "general",
       "question": "How do I update my payment information?",
-      "answer": "If you need to change or update your payment details:<br/><br/>1) Go to Account Settings and select Billing Information.<br/><br/>2) Here, you can update your payment method to ensure uninterrupted access."
+      "answer": "If you need to change or update your payment details:<br/><br/>1) Go to Customer dashboard<br/>2) Here, you can update your payment method to ensure uninterrupted access."
     }
   ];
 
