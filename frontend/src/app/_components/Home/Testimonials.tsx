@@ -38,7 +38,7 @@ const testimonialsData = [
   {
     image: image7,
     description:
-      'MTIS delivers custom digital experiences and AI-driven transformation with innovation and agility',
+      'MTIS delivers custom digital experiences and AI-driven transformation with innovation and agility.',
   },
   // Add more items if needed
 ];
