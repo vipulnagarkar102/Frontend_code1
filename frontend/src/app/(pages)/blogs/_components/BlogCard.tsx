@@ -19,12 +19,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
         />
       </div>
       <p
-        className="font-poppins px-4 text-[22px] md:text-[24px] font-medium line-clamp-2"
+        className="font-poppins px-4 text-[22px] md:text-[24px] font-medium line-clamp-1"
         dangerouslySetInnerHTML={{ __html: heading }}
       />
 
       <p
-        className="font-lato px-4 text-[16px] md:text-[18px] font-normal line-clamp-6"
+        className="font-lato px-4 text-[16px] md:text-[18px] font-normal line-clamp-3"
         dangerouslySetInnerHTML={{ __html: subtext }}
       />
       <p className="font-lato px-4 text-[14px] md:text-[16px] underline font-semibold">Read more</p>
