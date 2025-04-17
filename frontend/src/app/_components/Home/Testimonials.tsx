@@ -8,6 +8,8 @@ import image2 from '@/assets/t2.png'
 import image3 from '@/assets/t3.png'
 import image4 from '@/assets/t4.png'
 import image5 from '@/assets/t5.png'
+import image6 from '@/assets/t6.png'
+import image7 from '@/assets/t7.png'
 
 // Your data array
 const testimonialsData = [
@@ -16,8 +18,8 @@ const testimonialsData = [
     description:
       'Officially recognized under the Government of India’s Startup India initiative by DPIIT, this platform reflects a commitment to innovation, emerging technologies, and scalable solutions.',
   },
-  { image: image2, description: 'Certificate of Recognition' },
-  { image: image3, description: 'Certificate of Eligible Business' },
+  { image: image2, description: 'Proudly recognized under by Department for Promotion of Industry and Internal Trade (DPIIT), affirming our innovation-driven approach and enabling access to tax benefits, government grants, and exclusive startup ecosystem opportunities.' },
+  { image: image3, description: 'Recognized as an innovation-driven and scalable venture, gains access to government incentives, regulatory advantages, funding opportunities, and integration into India’s national startup ecosystem' },
   {
     image: image4,
     description:
@@ -28,6 +30,16 @@ const testimonialsData = [
     description:
       'A registered trademark application has been submitted, securing brand identity and reinforcing authenticity, originality, and innovation in offerings.',
   },
+  {
+    image: image6,
+    description:
+      'Essentient delivers innovative tech solutions, driving digital transformation with 20+ years of expertise.',
+  },
+  {
+    image: image7,
+    description:
+      'MTIS delivers custom digital experiences and AI-driven transformation with innovation and agility',
+  },
   // Add more items if needed
 ];
 
@@ -36,7 +48,7 @@ const Testimonials = () => {
   return (
     <div className='my-10 py-10 bg-gradient-to-b from-white to-blue-50'>
       <p className='font-poppins font-semibold text-3xl md:text-[40px] text-center text-[#003F5C] mb-10 px-4'>
-        Our Recognitions & Commitments {/* Changed heading */}
+      Certifications, Accreditations & Expert Testimonials {/* Changed heading */}
       </p>
       <div className='w-full flex items-center justify-center px-4'> 
 
