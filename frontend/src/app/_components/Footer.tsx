@@ -45,8 +45,6 @@ const Footer = () => {
         <div className='flex flex-col gap-6'>
           <div className="text-[20px] sm:text-[24px] [@media(min-width:1750px)]:text-[30px] font-poppins font-medium leading-[100%]">Subscribe for updates</div>
 
-          <div className='text-[#FFFFFF80] font-lato text-[16px] sm:text-[18px] [@media(min-width:1750px)]:text-[24px] font-medium'>Subscribe to get new updates</div>
-
           <div>
             <div className="flex bg-[#FFFFFF] rounded-md">
               <input
