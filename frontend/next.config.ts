@@ -34,23 +34,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["vtexai.kinsta.cloud"],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_USER_API_URL}/:path*`,
-      },
-    ];
-  },
-  async redirects() {
-    return [
-      {
-        source: "/old-page", // user accesses this URL
-        destination: "/new-page", // they will be redirected to this
-        permanent: true, // 308 redirect (cached by browsers)
-      },
-    ];
-  },
   headers: securityHeaders,
 };
 
