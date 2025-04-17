@@ -9,8 +9,8 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
   return (
-    <div className="flex flex-col justify-between pb-6 w-[260px] sm:w-[300px] h-[400px] gap-2 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
-      <div className="h-[300px] w-full overflow-hidden">
+    <div className="flex flex-col justify-between pb-6 w-[260px] md:w-[300px] h-[400px] gap-2 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
+      <div className="h-[200px] w-full overflow-hidden">
         <img 
           src={imageSrc} 
           alt="Blog Image"
@@ -23,7 +23,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
       />
 
       <p
-        className="font-lato px-4 text-[16px] md:text-[18px] font-normal line-clamp-2"
+        className="font-lato px-4 text-[16px] md:text-[18px] font-normal line-clamp-3"
         dangerouslySetInnerHTML={{ __html: subtext }}
       />
       <p className="font-lato px-4 text-[14px] md:text-[16px] underline font-semibold">Read more</p>
