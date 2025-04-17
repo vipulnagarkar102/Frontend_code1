@@ -9,9 +9,9 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
   return (
-    <div className="flex flex-col justify-between pb-8 w-[250px] md:w-[300px] h-[400px] gap-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
+    <div className="flex flex-col justify-between pb-8 w-[250px] md:w-[300px] h-[450px] gap-4 border-2 shadow-lg bg-[#FFFFFF] text-[#003F5C] rounded-2xl">
       
-      <div className="h-[360px] w-full overflow-hidden">
+      <div className="h-[300px] w-full overflow-hidden">
         <img 
           src={imageSrc} 
           alt={heading} 
