@@ -34,4 +34,3 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
 
 export default BlogCard;
 
-

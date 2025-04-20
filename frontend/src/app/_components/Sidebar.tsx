@@ -102,8 +102,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isAuthenticated, isAuthInitialized })
           {/* Protected Links - Show only if authenticated */}
           {isAuthenticated && (
             <>
-              <Link href='/all-videos' onClick={handleLinkClick}>
-                <div className={`cursor-pointer py-2 pl-6 ${pathname === '/all-videos' ? "text-teal-400 font-bold" : "text-[#FFFFFF]" } hover:text-teal-300 transition`}>
+              <Link href='/flexpick-plan' onClick={handleLinkClick}>
+                <div className={`cursor-pointer py-2 pl-6 ${pathname === '/flexpick-plan' ? "text-teal-400 font-bold" : "text-[#FFFFFF]" } hover:text-teal-300 transition`}>
                   
                   FlexPick Plan
                 </div>
