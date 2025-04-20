@@ -22,9 +22,9 @@ const Footer = () => {
             />
           {/* Social Media Icons */}
           <div className="flex mt-4 space-x-2 font-lato text-[18px] [@media(min-width:1750px)]:text-[24px]">
-            <a title='social-links' href="https://x.com/vtex_ai" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100"><RiTwitterXFill size={24} color='black' /></a>
-            <a title='social-links' href="https://www.linkedin.com/company/vtex-ai/" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100"><RiLinkedinLine  size={24} color='black' /></a>
-            <a title='social-links' href="https://www.youtube.com/@vtex_ai"  className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100">
+            <a title='social-links' href="https://x.com/vtex_ai" target="_blank" rel="noopener noreferrer" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100"><RiTwitterXFill size={24} color='black' /></a>
+            <a title='social-links' href="https://www.linkedin.com/company/vtex-ai/" target="_blank" rel="noopener noreferrer" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100"><RiLinkedinLine  size={24} color='black' /></a>
+            <a title='social-links' href="https://www.youtube.com/@vtex_ai" target="_blank" rel="noopener noreferrer" className="bg-white text-gray-800 rounded-md p-1 w-6 h-6 [@media(min-width:1750px)]:w-10 [@media(min-width:1750px)]:h-10 flex items-center justify-center hover:bg-gray-100">
             <RiYoutubeLine  size={24} color='black' />
             </a>
           </div>
@@ -44,8 +44,6 @@ const Footer = () => {
 
         <div className='flex flex-col gap-6'>
           <div className="text-[20px] sm:text-[24px] [@media(min-width:1750px)]:text-[30px] font-poppins font-medium leading-[100%]">Subscribe for updates</div>
-
-          <div className='text-[#FFFFFF80] font-lato text-[16px] sm:text-[18px] [@media(min-width:1750px)]:text-[24px] font-medium'>Subscribe to get new updates</div>
 
           <div>
             <div className="flex bg-[#FFFFFF] rounded-md">
