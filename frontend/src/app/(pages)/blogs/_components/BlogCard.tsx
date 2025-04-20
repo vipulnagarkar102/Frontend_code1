@@ -27,12 +27,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ heading, subtext, imageSrc }) => {
         dangerouslySetInnerHTML={{ __html: subtext }}
       />
       <p className="font-lato px-4 text-[14px] md:text-[16px] underline font-semibold">Read more</p>
-      
 
     </div>
   );
 };
 
 export default BlogCard;
-
 
