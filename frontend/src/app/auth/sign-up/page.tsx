@@ -34,9 +34,59 @@ const SignUp = () => {
     const recaptchaRef = useRef<ReCAPTCHA>(null); // Ref for ReCAPTCHA component
     const [captchaToken, setCaptchaToken] = useState<string | null>(null); // State to store the token
 
+<<<<<<< HEAD
     useEffect(() => {
         if (isAuthInitialized && isAuthenticated) {
             router.push('/customer-dashboard');
+=======
+
+useEffect(() => {
+    // Only redirect if auth check is complete AND user is authenticated
+    if (isAuthInitialized && isAuthenticated) {
+      console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+      router.push('/customer-dashboard');
+    }
+  }, [isAuthenticated, isAuthInitialized, router]);
+
+  
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
+
+  const industries = ['Hospitals & Health Systems', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development ','EdTech',' HealthTech','Others'];
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    clearError(); // Clear store error on input change
+    setFormErrors({}); // Clear local errors on input change
+
+
+    if (name.includes('.')) {
+      const [parent, child] = name.split('.') as ['address', string]; // Only address is nested text input
+
+      if (parent === 'address') {
+          setFormData(prev => ({
+            ...prev,
+            address: {
+              // Ensure address exists, though it always should based on initial state
+              ...(prev.address ?? { state: '', country: ''}),
+              [child]: value
+            }
+          }));
+      }
+    } else {
+        // Handle industry specifically if value is empty string
+        if (name === 'industry' && value === '') {
+             setFormData(prev => ({
+                ...prev,
+                industry: '' // Keep empty string in state for select
+             }));
+        } else {
+            setFormData(prev => ({
+                ...prev,
+                [name]: value
+            }));
+>>>>>>> a5151143ca17756b02252ec55e283766f73102c8
         }
     }, [isAuthenticated, isAuthInitialized, router]);
 
@@ -326,6 +376,40 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+
+            {/* Notification Preferences */}
+            <div className="flex items-center">
+              <input
+                type="checkbox" id="notification_opt_in" name="notification_opt_in"
+                className="h-5 w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF]"
+                checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange}
+              />
+              <label htmlFor="notification_opt_in" className="ml-2 block text-[16px] text-gray-700 font-lato">
+              I agree to the Terms and Conditions 
+              </label>
+            </div>
+
+            {/* Submit Button */}
+            <Button
+                type='submit'
+                className='w-full font-poppins py-5 font-semibold text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed'
+                disabled={isLoading}
+            >
+                 {isLoading ? 'Signing Up...' : 'Sign Up'}
+            </Button>
+          </form>
+
+          <div className="text-center mt-6">
+            <p className="text-[20px] font-lato font-normal">
+              Already have an account?{' '}
+              <Link href="/auth/login" className="text-[#00A5CF] font-medium hover:underline">
+                Login Here
+              </Link>
+            </p>
+          </div>
+>>>>>>> a5151143ca17756b02252ec55e283766f73102c8
         </div>
     );
 };

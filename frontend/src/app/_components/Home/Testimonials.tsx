@@ -18,8 +18,8 @@ const testimonialsData = [
     description:
       'Officially recognized under the Government of India’s Startup India initiative by DPIIT, this platform reflects a commitment to innovation, emerging technologies, and scalable solutions.',
   },
-  { image: image2, description: 'Proudly recognized under by Department for Promotion of Industry and Internal Trade (DPIIT), affirming our innovation-driven approach and enabling access to tax benefits, government grants, and exclusive startup ecosystem opportunities.' },
-  { image: image3, description: 'Recognized as an innovation-driven and scalable venture, gains access to government incentives, regulatory advantages, funding opportunities, and integration into India’s national startup ecosystem' },
+  // { image: image2, description: 'Proudly recognized under by Department for Promotion of Industry and Internal Trade (DPIIT), affirming our innovation-driven approach and enabling access to tax benefits, government grants, and exclusive startup ecosystem opportunities.' },
+  // { image: image3, description: 'Recognized as an innovation-driven and scalable venture, gains access to government incentives, regulatory advantages, funding opportunities, and integration into India’s national startup ecosystem' },
   {
     image: image4,
     description:
@@ -48,7 +48,7 @@ const Testimonials = () => {
   return (
     <div className='my-10 py-10 bg-gradient-to-b from-white to-blue-50'>
       <p className='font-poppins font-semibold text-3xl md:text-[40px] text-center text-[#003F5C] mb-10 px-4'>
-      Certifications, Accreditations & Expert Testimonials {/* Changed heading */}
+      Accreditations & Expert Testimonials {/* Changed heading */}
       </p>
       <div className='w-full flex items-center justify-center px-4'> 
 
