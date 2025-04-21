@@ -52,7 +52,7 @@ useEffect(() => {
   const [showPassword, setShowPassword] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
 
-  const industries = ['Healthcare', 'Digital Engineering', 'Life science', 'Pharmacy'];
+  const industries = ['Hospitals & Health Systems', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development ','EdTech',' HealthTech','Others'];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
