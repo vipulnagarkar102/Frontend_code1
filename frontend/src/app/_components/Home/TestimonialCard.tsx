@@ -26,7 +26,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({imageSrc,description }
       <div className=" bg-gray-100 p-2 rounded-2xl">
         <Image width={500} height={200} src={imageSrc} alt="testimonial image" className="object-content"/>
       </div>
-      <p className="p-4 font-lato font-normal text-[16px] md:text-[18px]  [@media(min-width:1800px)]:text-[26px]">{description}</p>
+      <p className="p-4 font-lato font-normal text-[16px] md:text-[18px]  [@media(min-width:1800px)]:text-[26px] line-clamp-7">{description}</p>
       
     </div>
   );

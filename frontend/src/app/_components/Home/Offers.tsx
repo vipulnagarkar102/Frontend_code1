@@ -43,7 +43,7 @@ const Offers = () => {
                                 </div>
                 </div>
 
-                <div className="w-[290px] h-[475px] [@media(min-width:1750px)]:w-[380px] [@media(min-width:1750px)]:h-[600px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6  hover:scale-105 duration-200 bg-gradient-to-b from-[#1FD2FF]/30 via-[#1FD2FF]/15 to-[#1FD2FF]/5">
+                <div className="w-[290px] h-[475px] [@media(min-width:1750px)]:w-[380px] [@media(min-width:1750px)]:h-[600px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6  hover:scale-105 duration-200 bg-gradient-to-b from-[#00A5CF]/30 via-[#00A5CF]/15 to-[#00A5CF]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <Settings size={30} color='#1FD2FF'/>
@@ -51,7 +51,7 @@ const Offers = () => {
 
                         {/* Heading */}
                         <div>
-                                <p className="font-poppins text-[22px] [@media(min-width:1750px)]:text-[32px] font-semibold text-[#1FD2FF]"
+                                <p className="font-poppins text-[22px] [@media(min-width:1750px)]:text-[32px] font-semibold text-[#0093B8]"
                                 >
                                 Emerging Technology Plan
                                 </p>
@@ -97,7 +97,7 @@ const Offers = () => {
                                 </div>
                 </div>
 
-                <div className="w-[290px] h-[475px] [@media(min-width:1750px)]:w-[380px] [@media(min-width:1750px)]:h-[600px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6  hover:scale-105 duration-200 bg-gradient-to-b from-[#70E2FF]/30 via-[#70E2FF]/15 to-[#70E2FF]/5">
+                <div className="w-[290px] h-[475px] [@media(min-width:1750px)]:w-[380px] [@media(min-width:1750px)]:h-[600px] rounded-[30px] opacity-75 flex flex-col justify-between p-8 gap-6  hover:scale-105 duration-200 bg-gradient-to-b from-[#00A5CF]/30 via-[#00A5CF]/15 to-[#00A5CF]/5">
                         {/* Icon Container */}
                         <div className="rounded-full h-11 w-11 bg-white flex items-center justify-center">
                                 <Component size={30} color='#70E2FF'/>
@@ -105,7 +105,7 @@ const Offers = () => {
 
                         {/* Heading */}
                         <div>
-                                <p className="font-poppins text-[22px] [@media(min-width:1750px)]:text-[32px] font-semibold text-[#70E2FF]"
+                                <p className="font-poppins text-[22px] [@media(min-width:1750px)]:text-[32px] font-semibold text-[#0093B8]"
                                 >
                                 Enterprise Plan
                                 </p>

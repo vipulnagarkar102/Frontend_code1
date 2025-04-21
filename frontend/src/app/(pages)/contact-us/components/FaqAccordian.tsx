@@ -196,7 +196,7 @@ const FaqAccordion: React.FC = () => {
       <div className="flex flex-col sm:flex-row justify-center mb-8 border-b border-gray-200">
         <button
           onClick={() => handleTabChange('getting-started')}
-          className={`py-3 px-6 font-poppins text-lg sm:text-xl transition-all duration-300 cursor-pointer ${
+          className={`py-3 px-6 font-poppins text-lg sm:text-xl [@media(min-width:1750px)]:text-[28px] transition-all duration-300 cursor-pointer ${
             activeTab === 'getting-started'
               ? 'border-b-2 border-[#00A5CF] text-[#00A5CF] font-medium'
               : 'text-[#003F5C] hover:text-[#00A5CF]'
@@ -206,7 +206,7 @@ const FaqAccordion: React.FC = () => {
         </button>
         <button
           onClick={() => handleTabChange('account-related')}
-          className={`py-3 px-6 font-poppins text-lg sm:text-xl transition-all duration-300 cursor-pointer ${
+          className={`py-3 px-6 font-poppins text-lg sm:text-xl [@media(min-width:1750px)]:text-[28px] transition-all duration-300 cursor-pointer ${
             activeTab === 'account-related'
               ? 'border-b-2 border-[#00A5CF] text-[#00A5CF] font-medium'
               : 'text-[#003F5C] hover:text-[#00A5CF]'
@@ -216,7 +216,7 @@ const FaqAccordion: React.FC = () => {
         </button>
         <button
           onClick={() => handleTabChange('general')}
-          className={`py-3 px-6 font-poppins text-lg sm:text-xl transition-all duration-300 cursor-pointer ${
+          className={`py-3 px-6 font-poppins text-lg sm:text-xl [@media(min-width:1750px)]:text-[28px] transition-all duration-300 cursor-pointer ${
             activeTab === 'general'
               ? 'border-b-2 border-[#00A5CF] text-[#00A5CF] font-medium'
               : 'text-[#003F5C] hover:text-[#00A5CF]'
@@ -243,7 +243,7 @@ const FaqAccordion: React.FC = () => {
                 onClick={() => handleToggle(index)}
                 className="flex justify-between items-center w-full text-left py-4 hover:cursor-pointer"
               >
-                <span className="text-[#003F5C] font-normal font-poppins text-[20px] md:text-[22px]">
+                <span className="text-[#003F5C] font-normal font-poppins text-[20px] md:text-[22px] [@media(min-width:1750px)]:text-[28px]">
                   {item.question}
                 </span>
                 {isOpen ? (
@@ -259,7 +259,7 @@ const FaqAccordion: React.FC = () => {
                   ${isOpen ? 'opacity-100' : 'max-h-0 opacity-0'}
                 `}
               >
-                <div className="pb-2 text-[18px] md:text-[20px] font-lato font-normal">
+                <div className="pb-2 text-[18px] md:text-[20px] font-lato font-normal [@media(min-width:1750px)]:text-[28px]">
                 <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
                 </div>
               </div>

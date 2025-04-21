@@ -3,7 +3,7 @@ import React from 'react'
 import UpsellImage from '@/assets/upsell4.png'
 import UpsellImage5 from '@/assets/upsell5.png'
 import { Button } from '@/components/ui/button'
-import { ArrowDown, BarChart2, BookOpen, FileText, GitFork, Github, CheckCircle, Lightbulb, Globe, Laptop, Monitor, Package, Settings, UsersRound, ThumbsUp, } from 'lucide-react'
+import { ArrowDown, CheckCircle, Lightbulb, Globe, Laptop, Monitor, Package, Settings, UsersRound, ThumbsUp, } from 'lucide-react'
 import FeatureCard from '../../customer-dashboard/_components/FeatureCard'
 import Footer from '@/app/_components/Footer'
 
@@ -96,7 +96,7 @@ const Partners = () => {
 
 
         <div className='md:w-[55%] '>
-          <p className='font-lato font-extrabold  pl-8 text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Partners Program</p>
+          <p className='font-lato font-extrabold  pl-8 text-[36px] md:text-[50px] leading-[55px] [@media(min-width:1750px)]:text-[64px] tracking-[1%]'>Partners Program</p>
         </div>
 
         {/* right div */}
@@ -114,7 +114,7 @@ const Partners = () => {
       </div>
 
       <div className='mt-10 m-4 text-center px-4 md:px-32'>
-        <p className='font-extrabold text-[36px] md:text-[50px] mb-4'>Achieve More, Together</p>
+        <p className='font-extrabold text-[36px] md:text-[50px] [@media(min-width:1750px)]:text-[56px] mb-4'>Achieve More, Together</p>
       </div>
       {/* Feature Cards */}
       <div className="md:mt-10 mt-16 mb-16 mx-auto px-10 place-items-center grid grid-cols-1 md:grid-cols-2 [@media(min-width:1200px)]:grid-cols-3 gap-6">
@@ -134,8 +134,8 @@ const Partners = () => {
 
 
           <div className='md:w-[60%] flex flex-col gap-10'>
-            <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] tracking-[1%]'>Ways to partner</p>
-            <p className='text-[18px] md:text-[20px] font-normal'>
+            <p className='font-poppins font-semibold text-[36px] md:text-[50px] leading-[55px] [@media(min-width:1750px)]:text-[56px] tracking-[1%]'>Ways to partner</p>
+            <p className='text-[18px] md:text-[20px] [@media(min-width:1750px)]:text-[26px] font-normal'>
               Vtex.ai partners across healthcare, sales, technology, and corporate training to drive AI innovation. From enhancing patient care and sales performance to co-developing AI solutions and transforming learning, we empower organizations with intelligent, scalable AI-driven solutions. Partner with Vtex.ai to shape the future of AI.
             </p>
             <div>
@@ -168,8 +168,8 @@ const Partners = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#E0F7FA]">
             {partnerships.map((partnership, index) => (
               <div key={index} className="bg-white p-6 rounded-3xl ">
-                <h3 className="text-[20px] md:text-[22px] font-semibold mb-4 font-poppins ">{partnership.title}</h3>
-                <ul className=" font-lato space-y-4 text-[16px] md:text-[18px] font-normal">
+                <h3 className="text-[20px] md:text-[22px] [@media(min-width:1750px)]:text-[30px] font-semibold mb-4 font-poppins ">{partnership.title}</h3>
+                <ul className=" font-lato space-y-4 text-[16px] md:text-[18px] [@media(min-width:1750px)]:text-[24px] font-normal">
                   {partnership.points.map((point, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-gray-700 ">
                       <CheckCircle className=" text-white fill-[#00A897]" size={20} /> {point}
@@ -180,7 +180,7 @@ const Partners = () => {
             ))}
           </div>
           <div className= 'text-center mt-10'>
-            <Button className=' font-lato py-4 font-semibold text-[16px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] '>CONTACT US<span className='rotate-225'><ArrowDown size={30} /></span></Button>
+            <Button className=' font-lato py-4 font-semibold text-[16px] [@media(min-width:1750px)]:text-[24px] cursor-pointer bg-[#00A5CF] hover:bg-[#00A5CF] text-[#FFFFFF] leading-[100%] '>CONTACT US<span className='rotate-225'><ArrowDown size={30} /></span></Button>
           </div>
         </div>
       </div>
