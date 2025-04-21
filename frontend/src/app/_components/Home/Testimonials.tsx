@@ -2,7 +2,7 @@
 import React from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import TestimonialCard from './TestimonialCard';
+import TestimonialCard from './TestimonialCard1';
 import image1 from '@/assets/t1.png'
 import image2 from '@/assets/t2.png'
 import image3 from '@/assets/t3.png'
