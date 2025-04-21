@@ -52,7 +52,7 @@ useEffect(() => {
   const [showPassword, setShowPassword] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
 
-  const industries = ['Healthcare', 'Digital Engineering', 'Life science', 'Pharmacy'];
+  const industries = ['Hospitals & Health Systems', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development ','EdTech',' HealthTech','Others'];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -336,7 +336,7 @@ useEffect(() => {
                 checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange}
               />
               <label htmlFor="notification_opt_in" className="ml-2 block text-[16px] text-gray-700 font-lato">
-                I agree to receive notifications and updates
+              I agree to the Terms and Conditions 
               </label>
             </div>
 

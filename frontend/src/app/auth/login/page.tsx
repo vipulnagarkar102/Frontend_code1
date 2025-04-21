@@ -4,33 +4,33 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import LoginImg from '@/assets/pay-per-code.png'; 
+import LoginImg from '@/assets/pay-per-code.png';
 import { FaEye, FaEyeSlash, FaLock, FaEnvelope } from 'react-icons/fa';
-import { Button } from '@/components/ui/button'; 
-import { useAuthStore } from '@/store/authStore'; 
-import { LoginPayload } from '@/store/authTypes'; 
+import { Button } from '@/components/ui/button';
+import { useAuthStore } from '@/store/authStore';
+import { LoginPayload } from '@/store/authTypes';
 
 const Login = () => {
   const [formData, setFormData] = useState<LoginPayload>({
     email: '',
-    password: ''
+    password: '',
   });
 
   // Get store state and actions
-  const { login, isLoading, error: storeError, isAuthenticated,isAuthInitialized, clearError } = useAuthStore();
+  const { login, isLoading, error: storeError, isAuthenticated, isAuthInitialized, clearError } = useAuthStore();
   const router = useRouter();
 
   const [formErrors, setFormErrors] = useState<Record<string, string>>({}); // Local form validation errors
   const [showPassword, setShowPassword] = useState(false);
 
-  
+
   useEffect(() => {
-      // Only redirect if auth check is complete AND user is authenticated
-      if (isAuthInitialized && isAuthenticated) {
-        console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
-        router.push('/customer-dashboard');
-      }
-    }, [isAuthenticated, isAuthInitialized, router]);
+    // Only redirect if auth check is complete AND user is authenticated
+    if (isAuthInitialized && isAuthenticated) {
+      console.log(`User authenticated on ${window.location.pathname}, redirecting to dashboard...`);
+      router.push('/customer-dashboard');
+    }
+  }, [isAuthenticated, isAuthInitialized, router]);
 
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -60,8 +60,8 @@ const Login = () => {
     }
 
     if (Object.keys(newErrors).length > 0) {
-        setFormErrors(newErrors);
-        return; // Stop submission if basic frontend errors exist
+      setFormErrors(newErrors);
+      return; // Stop submission if basic frontend errors exist
     }
 
     try {
@@ -76,7 +76,7 @@ const Login = () => {
     } catch (err) {
       // Error is already set in the store by the login action's catch block
       console.error("Login failed in component:", err);
-       // The UI will display the error from `storeError`
+      // The UI will display the error from `storeError`
     }
   };
 
@@ -98,16 +98,16 @@ const Login = () => {
       {/* Right side - Login form */}
       <div className="w-full lg:w-3/5 flex items-center justify-center p-6">
         <div className="w-full max-w-[600px] bg-white rounded-xl shadow-lg p-8">
-        <div className="mb-8">
-            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome to Vtex.AI! 👋</h1>
+          <div className="mb-8">
+            <h1 className="text-[40px] font-bold text-center font-poppins">Hi, Welcome to Vtex.Ai</h1>
           </div>
 
           {/* Display Store Error */}
-           {storeError && (
-              <div className="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded">
-                {storeError}
-              </div>
-            )}
+          {storeError && (
+            <div className="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded">
+              {storeError}
+            </div>
+          )}
 
           <form onSubmit={handleSubmit}>
             {/* Email Field */}
@@ -156,36 +156,37 @@ const Login = () => {
               </div>
               {formErrors.password && <p className="text-red-500 font-normal font-lato text-sm mt-1">{formErrors.password}</p>}
             </div>
+            
 
 
-            {/* Submit Button */}
-            <Button
-                type='submit'
-                className='w-full font-poppins py-5 font-semibold text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed'
-                disabled={isLoading} // Disable button when loading
-            >
-                {isLoading ? 'Logging In...' : 'Login'}
-            </Button>
+        {/* Submit Button */}
+        <Button
+          type='submit'
+          className='w-full font-poppins py-5 font-semibold text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed'
+          disabled={isLoading} // Disable button when loading
+        >
+          {isLoading ? 'Logging In...' : 'Login'}
+        </Button>
 
-          </form>
+      </form>
 
-          <div className="text-center mt-6">
-            <p className="text-[20px] font-lato font-normal">
-              Don't have an account?{' '}
-              <Link href="/auth/sign-up" className="text-[#00A5CF] font-medium hover:underline">
-                Register Now
-              </Link>
-            </p>
-             {/* Optional: Add Forgot Password Link */}
-             {/* <p className="text-sm mt-2">
+      <div className="text-center mt-6">
+        <p className="text-[20px] font-lato font-normal">
+          Don't have an account?{' '}
+          <Link href="/auth/sign-up" className="text-[#00A5CF] font-medium hover:underline">
+            Register Now
+          </Link>
+        </p>
+        {/* Optional: Add Forgot Password Link */}
+        {/* <p className="text-sm mt-2">
                 <Link href="/auth/forgot-password" className="text-blue-600 hover:underline">
                     Forgot Password?
                 </Link>
              </p> */}
-          </div>
-        </div>
       </div>
     </div>
+      </div >
+    </div >
   );
 };
 
