@@ -41,12 +41,12 @@ const FaqAccordion: React.FC = () => {
     {
       id: 6,
       question: 'Do I need any prior knowledge to benefit from Vtex.ai\'s videos?',
-      answer: 'No prior knowledge is required! Our content is structured to accommodate various skill levels, from beginners to advanced users. We provide clear explanations and progressive learning paths.',
+      answer: 'Prior exposure to the healthcare industry and technology is recommended, as it will help you grasp the concepts more effectively. While we provide clear explanations, a foundational understanding will enhance your learning experience.',
     },
     {
       id: 7,
       question: 'How often does Vtex.ai publish new videos?',
-      answer: 'We release new content weekly, ensuring you always have access to the latest information and technologies. Our content calendar is published in advance so you can plan your learning journey.',
+      answer: 'We release new content approximately every 2 to 4 weeks, ensuring you stay up to date with the latest information and technologies.',
     },
     {
       id: 8,

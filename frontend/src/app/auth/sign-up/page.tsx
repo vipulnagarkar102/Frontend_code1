@@ -336,7 +336,7 @@ useEffect(() => {
                 checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange}
               />
               <label htmlFor="notification_opt_in" className="ml-2 block text-[16px] text-gray-700 font-lato">
-                I agree to receive notifications and updates
+              I agree to the Terms and Conditions 
               </label>
             </div>
 
