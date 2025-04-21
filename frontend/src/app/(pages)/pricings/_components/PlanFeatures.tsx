@@ -122,7 +122,7 @@ const PlanFeatures: React.FC = () => {
   ];
 
   return (
-    <div className="max-w-[1360px] my-4 mx-auto font-poppins font-medium text-[14px] sm:text-[18px] border-2 border-dashed border-gray-400 rounded-lg">
+    <div className="max-w-[1360px] [@media(min-width:1750px)]:max-w-[1700px] my-4 mx-auto font-poppins font-medium text-[14px] sm:text-[18px] [@media(min-width:1750px)]:text-[24px] border-2 border-dashed border-gray-400 rounded-lg">
       {/* Desktop Version */}
       <div className="hidden lg:block overflow-x-auto">
         {/* Full table from the previous component */}

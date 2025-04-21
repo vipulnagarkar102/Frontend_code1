@@ -66,7 +66,7 @@ const FaqAccordion: React.FC = () => {
 
   return (
     <div className="p-4 md:p-8 bg-[#E0F7FA] text-[#003F5C] my-20">
-      <h2 className="text-center text-3xl font-bold mb-8 text-[#003F5C]">Pricing FAQ's</h2>
+      <h2 className="text-center text-3xl [@media(min-width:1750px)]:text-[56px] font-bold mb-8 text-[#003F5C]">Pricing FAQ's</h2>
       
       <div className="space-y-4">
         {faqData.map((item, index) => {
@@ -84,7 +84,7 @@ const FaqAccordion: React.FC = () => {
                 onClick={() => handleToggle(index)}
                 className="flex justify-between items-center w-full text-left py-4 hover:cursor-pointer"
               >
-                <span className="text-[#003F5C] font-normal font-poppins text-[20px] md:text-[22px]">
+                <span className="text-[#003F5C] font-normal font-poppins text-[20px] md:text-[22px] [@media(min-width:1750px)]:text-[28px]">
                   {item.question}
                 </span>
                 {isOpen ? (
@@ -100,7 +100,7 @@ const FaqAccordion: React.FC = () => {
                   ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
                 `}
               >
-                <div className="pb-2 text-[18px] md:text-[20px] font-lato font-normal">
+                <div className="pb-2 text-[18px] md:text-[20px] [@media(min-width:1750px)]:text-[28px] font-lato font-normal">
                   <p>{item.answer}</p>
                 </div>
               </div>

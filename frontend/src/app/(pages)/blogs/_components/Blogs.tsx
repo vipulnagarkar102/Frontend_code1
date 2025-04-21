@@ -42,7 +42,7 @@ const Blogs = () => {
 
   return (
     <div className='my-10 mb-20'>
-      <div className='xl:w-[1400px] lg:w-[1000px] md:w-[800px] w-[320px] mx-auto flex items-center justify-center max-h-screen mt-10'>
+      <div className='xl:w-[1400px] [@media(min-width:1750px)]:w-[1800px] [@media(min-width:2000px)]:w-[2100px] lg:w-[1000px] md:w-[800px] w-[320px] mx-auto flex items-center justify-center max-h-screen mt-10'>
 
         {loading ? (
           <div className="flex flex-col items-center justify-center w-full py-12">
@@ -63,7 +63,7 @@ const Blogs = () => {
                 return (
                   <CarouselItem
                     key={blog.id}
-                    className="md:basis-1/2 xl:basis-1/3 flex items-center justify-center"
+                    className="md:basis-1/2 xl:basis-1/3 [@media(min-width:1750px)]:basis-1/4 flex items-center justify-center"
                   >
                     <Link href={`/blogs/${blog.slug}`}>
                       <BlogCard

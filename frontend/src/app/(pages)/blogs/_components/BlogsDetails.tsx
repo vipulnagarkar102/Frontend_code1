@@ -69,7 +69,7 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
   }
 
   return (
-    <div className="mt-26 font-lato text-[#003F5C]">
+    <div className="mt-26 [@media(min-width:1750px)]:mt-30 font-lato text-[#003F5C]">
       {blog.featured_media_url && (
         <img
           src={blog.featured_media_url}
@@ -80,11 +80,11 @@ export const BlogsDetails = ({ blogId }: { blogId: string }) => {
       <div className="px-6 md:px-10 py-10">
         <div className="flex flex-col gap-8">
           <h1
-            className="text-4xl md:text-5xl font-poppins font-semibold"
+            className="text-4xl md:text-5xl [@media(min-width:1750px)]:text-[56px] font-poppins font-semibold"
             dangerouslySetInnerHTML={{ __html: blog.title.rendered }}
           />
           <div
-            className="text-[18px] font-lato font-normal leading-relaxed"
+            className="text-[18px] [@media(min-width:1750px)]:text-[22px] font-lato font-normal leading-relaxed"
             dangerouslySetInnerHTML={{ __html: blog.content.rendered }}
           />
         </div>
