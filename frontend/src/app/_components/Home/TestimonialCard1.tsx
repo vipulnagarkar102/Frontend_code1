@@ -3,7 +3,7 @@ import React from "react";
 
 interface TestimonialCardProps {
   imageSrc: string | StaticImageData;
-  description: string;
+  description: React.ReactNode;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ imageSrc, description }) => {
