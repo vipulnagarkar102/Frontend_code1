@@ -6,7 +6,7 @@ import image2 from '@/assets/t2.png';
 import image3 from '@/assets/t3.png';
 
 // Testimonial data
-const testimonialsData = [
+const CertificationsData = [
   {
     image: image2,
     description:
@@ -19,7 +19,7 @@ const testimonialsData = [
   },
 ];
 
-const Testimonials = () => {
+const Certifications = () => {
   return (
     <div className="my-10 py-10 bg-gradient-to-b from-white to-blue-50">
       <p className="font-poppins font-semibold text-3xl md:text-[40px] text-center text-[#003F5C] mb-10 px-4">
@@ -27,7 +27,7 @@ const Testimonials = () => {
       </p>
 
       <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch px-4 max-w-7xl mx-auto mb-10">
-        {testimonialsData.map((item, index) => (
+        {CertificationsData.map((item, index) => (
           <div key={index} className="flex-1">
             <TestimonialCard
               imageSrc={item.image}
@@ -40,4 +40,4 @@ const Testimonials = () => {
   );
 };
 
-export default Testimonials;
+export default Certifications;
