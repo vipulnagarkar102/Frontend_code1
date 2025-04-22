@@ -21,9 +21,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ imageSrc, description
       </div>
 
       {/* Description below */}
-      <p className="font-lato font-normal text-[16px] md:text-[18px] text-center [@media(min-width:1800px)]:text-[24px]">
+      <div className="font-lato font-normal text-[16px] md:text-[18px] text-center [@media(min-width:1800px)]:text-[24px]">
         {description}
-      </p>
+      </div>
     </div>
   );
 };
