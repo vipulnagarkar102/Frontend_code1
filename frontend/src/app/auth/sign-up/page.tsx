@@ -1,20 +1,18 @@
 'use client';
 
-import React, { useEffect, useState, useRef, FormEvent, ChangeEvent } from 'react'; // Added useRef
+import React, { useEffect, useState, useRef, FormEvent, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import ReCAPTCHA from "react-google-recaptcha"; // Import v2 component
+import ReCAPTCHA from "react-google-recaptcha";
 
-import SignUpImg from '@/assets/pay-per-code.png';
+import SignUpImg from '@/assets/pay-per-code.png'; // Adjust path if needed
 import { FaEye, FaEyeSlash, FaLock, FaEnvelope, FaUser, FaCalendar, FaIndustry, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
-import { Button } from '@/components/ui/button';
-import { useAuthStore } from '@/store/authStore';
-// Import base type and extend it
-import { RegisterPayload as BaseRegisterPayload } from '@/store/authTypes';
+import { Button } from '@/components/ui/button'; // Adjust path if needed
+import { useAuthStore } from '@/store/authStore'; // Adjust path if needed
+import { RegisterPayload as BaseRegisterPayload } from '@/store/authTypes'; // Adjust path if needed
 
-// Extend the type for the component payload
-type RegisterPayload = BaseRegisterPayload & { captcha?: string | null }; // Captcha token from v2
+type RegisterPayload = BaseRegisterPayload & { captcha?: string | null };
 
 type SignUpFormData = Omit<RegisterPayload, 'industry' | 'preferences' | 'captcha'> & {
     industry: BaseRegisterPayload['industry'] | '';
@@ -29,16 +27,23 @@ const SignUp = () => {
         preferences: { notification_opt_in: false }
     });
 
-    const { register, isLoading, error: storeError, isAuthInitialized, isAuthenticated, clearError } = useAuthStore();
+    const { register, isLoading, error: storeError, isAuthInitialized, isAuthenticated, clearError, requiresVerification } = useAuthStore();
     const router = useRouter();
-    const recaptchaRef = useRef<ReCAPTCHA>(null); // Ref for ReCAPTCHA component
-    const [captchaToken, setCaptchaToken] = useState<string | null>(null); // State to store the token
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
+    const [captchaToken, setCaptchaToken] = useState<string | null>(null); // State for v2 token
 
     useEffect(() => {
         if (isAuthInitialized && isAuthenticated) {
-            router.push('/customer-dashboard');
+            router.push('/customer-dashboard'); // Adjust redirect path if needed
         }
     }, [isAuthenticated, isAuthInitialized, router]);
+
+    // Clear errors when component unmounts (optional cleanup)
+    useEffect(() => {
+        return () => {
+            clearError();
+        };
+    }, [clearError]);
 
     const [showPassword, setShowPassword] = useState(false);
     const [formErrors, setFormErrors] = useState<Record<string, string>>({});
@@ -46,8 +51,13 @@ const SignUp = () => {
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        clearError();
-        setFormErrors(prev => ({ ...prev, [name]: '', captcha: prev.captcha })); // Clear specific field error, keep captcha error if any
+        clearError(); // Clear backend error on input change
+        // Clear the specific frontend validation error for this field
+        setFormErrors(prev => {
+            const { [name]: _, ...rest } = prev; // Remove error for current field
+            return { ...rest, captcha: prev.captcha }; // Keep captcha error if it exists
+        });
+
 
         if (name.includes('.')) {
             const [parent, child] = name.split('.') as ['address', string];
@@ -55,11 +65,7 @@ const SignUp = () => {
                 setFormData(prev => ({ ...prev, address: { ...(prev.address ?? { state: '', country: '' }), [child]: value } }));
             }
         } else {
-            if (name === 'industry' && value === '') {
-                setFormData(prev => ({ ...prev, industry: '' }));
-            } else {
-                setFormData(prev => ({ ...prev, [name]: value }));
-            }
+             setFormData(prev => ({ ...prev, [name]: value }));
         }
     };
 
@@ -72,100 +78,112 @@ const SignUp = () => {
 
     // --- ReCAPTCHA v2 onChange Handler ---
     const handleCaptchaChange = (token: string | null) => {
-        console.log("Captcha Token:", token);
-        setCaptchaToken(token);
+        console.log("v2 Captcha Token received:", token); // Log received token (string or null)
+
+        setCaptchaToken(token); // Update the state with the token or null
+
         if (token) {
-            setFormErrors(prev => ({ ...prev, captcha: '' })); // Clear captcha error if user solves it
+            // If we get a valid token, clear any previous CAPTCHA validation error
+            setFormErrors(prev => ({ ...prev, captcha: '' }));
+        } else {
+            // If token is null, it means the CAPTCHA was either expired or reset by the user
+             console.log("v2 Captcha expired or challenge reset by user/widget.");
         }
     };
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        clearError();
-        setFormErrors({});
+        clearError(); // Clear previous backend errors
+        setFormErrors({}); // Clear previous frontend validation errors
 
         // --- Frontend Validation ---
         const newErrors: Record<string, string> = {};
-        if (!formData.first_name) newErrors.first_name = 'First name is required';
-        if (!formData.last_name) newErrors.last_name = 'Last name is required';
-        if (!formData.email) newErrors.email = 'Email is required';
+        if (!formData.first_name.trim()) newErrors.first_name = 'First name is required';
+        if (!formData.last_name.trim()) newErrors.last_name = 'Last name is required';
+        if (!formData.email.trim()) newErrors.email = 'Email is required';
         else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
         if (!formData.password) newErrors.password = 'Password is required';
         else if (formData.password.length < 6) newErrors.password = 'Password must be at least 6 characters';
         if (!formData.industry) newErrors.industry = 'Industry is required';
-        if (formData.address?.country && formData.address.country.length !== 0 && formData.address.country.length !== 2) {
+        if (formData.address?.country && formData.address.country.trim().length > 0 && formData.address.country.trim().length !== 2) {
             newErrors['address.country'] = 'Country must be a 2-letter code (e.g., US)';
         }
-        // --- Add CAPTCHA Validation ---
+
         if (!captchaToken) {
             newErrors.captcha = 'Please complete the CAPTCHA verification.';
         }
-        // --- End CAPTCHA Validation ---
+
 
         if (Object.keys(newErrors).length > 0) {
             setFormErrors(newErrors);
-            // Reset ReCAPTCHA if other errors occurred, forcing user to solve again
-            if (!newErrors.captcha && recaptchaRef.current) {
+        
+            if (!newErrors.captcha && captchaToken && recaptchaRef.current) {
+                 console.log("Resetting CAPTCHA due to other form errors.");
                  recaptchaRef.current.reset();
-                 setCaptchaToken(null);
+                 setCaptchaToken(null); // Clear the stale token state
             }
-            return;
+            return; // Stop submission
         }
         // --- End Frontend Validation ---
 
-        // Prepare payload including captcha token
+        // Prepare payload - At this point, captchaToken is guaranteed to be a non-null string
         const payload: RegisterPayload = {
-            first_name: formData.first_name,
-            last_name: formData.last_name,
+            first_name: formData.first_name.trim(),
+            last_name: formData.last_name.trim(),
             DoB: formData.DoB || null,
-            industry: formData.industry || undefined,
-            email: formData.email,
+            industry: formData.industry && industries.includes(formData.industry) ? formData.industry : undefined,
+            email: formData.email.trim(),
             password: formData.password,
-            phone_number: formData.phone_number || null,
+            phone_number: formData.phone_number?.trim() || null,
             address: {
-                state: formData.address?.state || null,
-                country: formData.address?.country || null,
+                state: formData.address?.state?.trim() || null,
+                country: formData.address?.country?.trim().toUpperCase() || null,
             },
             preferences: {
                 notification_opt_in: formData.preferences.notification_opt_in
             },
-            captcha: captchaToken ?? undefined // Convert null to undefined
+            captcha: captchaToken as string // Pass the validated v2 token
         };
 
         try {
             await register(payload); // Call store action
-            const state = useAuthStore.getState();
-            if (state.requiresVerification) {
+
+            const state = useAuthStore.getState(); // Get latest state after async call
+            if (state.requiresVerification && state.userIdForVerification) {
+                console.log('Registration successful, redirecting to verification...');
                 router.push('/auth/verify-email');
-            } else {
-                console.warn("Registration succeeded but verification flag not set.");
-                // Maybe redirect to login or show a specific message
+            } else if (!state.error) {
+                console.warn("Registration succeeded but verification flag not set or userId missing. Redirecting to login.");
+                router.push('/auth/login'); // Fallback
             }
+            // If state.error exists, the catch block below will handle it
+
         } catch (err: any) {
             console.error("Registration failed in component:", err);
-             // Reset ReCAPTCHA on backend failure, forcing user to solve again
+            // Reset ReCAPTCHA v2 on ANY backend submission failure.
             if (recaptchaRef.current) {
                  recaptchaRef.current.reset();
-                 setCaptchaToken(null);
+                 setCaptchaToken(null); // Clear the token state
             }
-             // Display backend error (storeError will be set by the action)
-             // Optionally check if the error is captcha-related and update formErrors.captcha
+            // The error message should be set in the store by the `register` action's catch block.
+            // We can optionally add a specific form error if the backend error is CAPTCHA-related.
             if (err.message && (err.message.toLowerCase().includes('captcha') || err.message.toLowerCase().includes('recaptcha'))) {
                  setFormErrors(prev => ({ ...prev, captcha: `CAPTCHA Error: ${err.message}` }));
             }
+             // The general error display section below will show the storeError
         }
     };
 
-    // --- Render Form ---
+    // --- Get V2 Site Key ---
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
     if (!siteKey) {
         console.error("ReCAPTCHA v2 Site Key not found in env variables (NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY)");
-        // Optionally return an error message for the user
-        return <div className='p-4 text-red-600'>ReCAPTCHA configuration error. Cannot display form.</div>;
+        return <div className='p-4 text-red-600 text-center min-h-screen flex items-center justify-center'>ReCAPTCHA configuration error. Cannot display form.</div>;
     }
 
+    // --- Render Form ---
     return (
-        <div className="flex min-h-screen w-full flex-col lg:flex-row text-[#003F5C]"> {/* Use flex-col for mobile stacking */}
+        <div className="flex min-h-screen w-full flex-col lg:flex-row text-[#003F5C]">
             {/* Left side Image */}
              <div className="hidden lg:block lg:w-[40%] flex-shrink-0">
                 <div className="h-full w-full relative">
@@ -174,44 +192,42 @@ const SignUp = () => {
             </div>
 
             {/* Right side Form */}
-            <div className="w-full lg:w-[60%] flex items-center justify-center p-4 md:p-6 mt-[72px] lg:mt-0"> {/* Adjust top margin for mobile if needed */}
+            <div className="w-full lg:w-[60%] flex items-center justify-center p-4 md:p-6 mt-[72px] lg:mt-0">
                 <div className="w-full max-w-[600px] bg-white rounded-xl shadow-lg p-6 md:p-8">
-                    <div className="mb-8">
+                    <div className="mb-6 md:mb-8">
                         <h1 className="text-3xl md:text-[40px] font-bold text-center font-poppins">Create an Account 🚀</h1>
                     </div>
 
-                    {/* Display Errors */}
-                    {storeError && !formErrors.captcha && (
-                        <div className="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded text-sm">
-                            {storeError}
+                     {/* Display Combined Errors Area */}
+                     {(storeError || Object.keys(formErrors).length > 0) && (
+                        <div className="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded text-sm space-y-1">
+                            {/* Display backend error from store (if not handled by specific form error) */}
+                            {storeError && !formErrors.captcha && <p>{storeError}</p>}
+                            {/* Display frontend validation errors */}
+                            {Object.entries(formErrors).map(([key, error]) => (
+                                error && <p key={key}>{error}</p> // Display specific field errors
+                            ))}
                         </div>
                     )}
-                    {/* Display specific form validation errors including captcha */}
-                    {Object.values(formErrors).map((error, index) => (
-                         error && <p key={index} className="text-red-500 text-xs md:text-sm mt-1 mb-2">{error}</p>
-                    ))}
-
 
                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-                        {/* --- Form Fields --- */}
+                        {/* --- Form Fields (No changes here) --- */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             {/* First Name */}
                             <div>
                                 <label htmlFor="first_name" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">First Name*</label>
                                 <div className="relative">
                                     <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                    <input type="text" id="first_name" name="first_name" placeholder="John" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.first_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.first_name} onChange={handleChange} />
+                                    <input type="text" id="first_name" name="first_name" placeholder="John" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.first_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.first_name} onChange={handleChange} required />
                                 </div>
-                                {/* Error moved above form */}
                             </div>
                             {/* Last Name */}
                             <div>
                                 <label htmlFor="last_name" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Last Name*</label>
                                 <div className="relative">
                                      <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                    <input type="text" id="last_name" name="last_name" placeholder="Doe" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.last_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.last_name} onChange={handleChange} />
+                                    <input type="text" id="last_name" name="last_name" placeholder="Doe" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.last_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.last_name} onChange={handleChange} required/>
                                 </div>
-                                {/* Error moved above form */}
                             </div>
                         </div>
                          {/* DoB */}
@@ -219,24 +235,24 @@ const SignUp = () => {
                             <label htmlFor="DoB" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Date of Birth</label>
                             <div className="relative">
                                 <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <input type="date" id="DoB" name="DoB" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.DoB ? 'border-red-500' : 'border-gray-300'}`} value={formData.DoB ?? ''} onChange={handleChange} />
+                                <input type="date" id="DoB" name="DoB" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] text-gray-500 ${formErrors.DoB ? 'border-red-500' : 'border-gray-300'}`} value={formData.DoB ?? ''} onChange={handleChange} />
                             </div>
-                            {/* Error moved above form */}
                         </div>
                          {/* Industry */}
                         <div>
                             <label htmlFor="industry" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Industry*</label>
                             <div className="relative">
                                 <FaIndustry className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <select id="industry" name="industry" className={`w-full text-sm md:text-base pl-10 pr-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] bg-white appearance-none ${formErrors.industry ? 'border-red-500' : 'border-gray-300'}`} value={formData.industry} onChange={handleChange}>
-                                    <option value="">Select your industry</option>
+                                <select id="industry" name="industry" className={`w-full text-sm md:text-base pl-10 pr-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] bg-white appearance-none ${formErrors.industry ? 'border-red-500' : 'border-gray-300'} ${!formData.industry ? 'text-gray-500' : ''}`} value={formData.industry} onChange={handleChange} required>
+                                    <option value="" disabled>Select your industry</option>
                                     {industries.map((industry) => (<option key={industry} value={industry}>{industry}</option>))}
                                 </select>
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                    <FaMapMarkerAlt className="text-gray-400 h-4 w-4" />
+                                     <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                                    </svg>
                                  </div>
                             </div>
-                             {/* Error moved above form */}
                         </div>
                         {/* Address Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -246,15 +262,13 @@ const SignUp = () => {
                                     <FaMapMarkerAlt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                     <input type="text" id="address.state" name="address.state" placeholder="California" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors['address.state'] ? 'border-red-500' : 'border-gray-300'}`} value={formData.address?.state ?? ''} onChange={handleChange} />
                                 </div>
-                                 {/* Error moved above form */}
                             </div>
                             <div>
                                 <label htmlFor="address.country" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Country (2-letter code)</label>
                                 <div className="relative">
                                     <FaMapMarkerAlt className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                    <input type="text" id="address.country" name="address.country" placeholder="US" maxLength={2} className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors['address.country'] ? 'border-red-500' : 'border-gray-300'}`} value={formData.address?.country ?? ''} onChange={handleChange} />
+                                    <input type="text" id="address.country" name="address.country" placeholder="US" maxLength={2} className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] uppercase ${formErrors['address.country'] ? 'border-red-500' : 'border-gray-300'}`} value={formData.address?.country ?? ''} onChange={handleChange} />
                                 </div>
-                                 {/* Error moved above form */}
                             </div>
                         </div>
                          {/* Email */}
@@ -262,21 +276,19 @@ const SignUp = () => {
                             <label htmlFor="email" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Email Address*</label>
                             <div className="relative">
                                 <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <input type="email" id="email" name="email" placeholder="your@email.com" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.email ? 'border-red-500' : 'border-gray-300'}`} value={formData.email} onChange={handleChange} />
+                                <input type="email" id="email" name="email" placeholder="your@email.com" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.email ? 'border-red-500' : 'border-gray-300'}`} value={formData.email} onChange={handleChange} required/>
                             </div>
-                             {/* Error moved above form */}
                         </div>
                         {/* Password */}
                         <div>
                             <label htmlFor="password" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Password*</label>
                             <div className="relative">
                                 <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className={`w-full text-sm md:text-base pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.password ? 'border-red-500' : 'border-gray-300'}`} value={formData.password} onChange={handleChange} />
-                                <button type="button" className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+                                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="••••••••" className={`w-full text-sm md:text-base pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.password ? 'border-red-500' : 'border-gray-300'}`} value={formData.password} onChange={handleChange} required/>
+                                <button type="button" aria-label={showPassword ? "Hide password" : "Show password"} className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
                                     {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
                                 </button>
                             </div>
-                             {/* Error moved above form */}
                         </div>
                          {/* Phone */}
                          <div>
@@ -285,7 +297,6 @@ const SignUp = () => {
                                 <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                 <input type="tel" id="phone_number" name="phone_number" placeholder="+12095178912" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.phone_number ? 'border-red-500' : 'border-gray-300'}`} value={formData.phone_number ?? ''} onChange={handleChange} />
                             </div>
-                             {/* Error moved above form */}
                         </div>
                          {/* Preferences */}
                           <div className="flex items-center pt-2">
@@ -295,22 +306,20 @@ const SignUp = () => {
                         {/* --- End Form Fields --- */}
 
                         {/* --- ReCAPTCHA v2 Component --- */}
-                        <div className="flex justify-center pt-2"> {/* Center the captcha */}
+                        <div className="flex justify-center pt-2">
                            <ReCAPTCHA
                                 ref={recaptchaRef}
-                                sitekey={siteKey} // Use the site key from env variable
-                                onChange={handleCaptchaChange}
-                                // Optional: Add theme, size props if needed
-                                // theme="light"
-                                // size="normal"
+                                sitekey={siteKey} // Your V2 Site Key
+                                onChange={handleCaptchaChange} // Calls handler with token or null
                             />
                         </div>
-                        {/* --- End ReCAPTCHA --- */}
+                        {/* The error message for captcha ('Please complete...') will appear in the main error area above if validation fails */}
+                        {/* --- End ReCAPTCHA v2 --- */}
 
                         {/* Submit Button */}
                         <Button
                             type='submit'
-                            className='w-full font-poppins py-3 md:py-4 font-semibold text-base md:text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed mt-4' // Adjusted padding/margin
+                            className='w-full font-poppins py-3 md:py-4 mt-4 font-semibold text-base md:text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed'
                             disabled={isLoading}
                         >
                             {isLoading ? 'Signing Up...' : 'Sign Up'}
@@ -319,7 +328,7 @@ const SignUp = () => {
 
                     {/* Login Link */}
                     <div className="text-center mt-6">
-                        <p className="text-base md:text-[18px] font-lato font-normal"> {/* Adjusted size */}
+                        <p className="text-base md:text-[18px] font-lato font-normal">
                             Already have an account?{' '}
                             <Link href="/auth/login" className="text-[#00A5CF] font-medium hover:underline">Login Here</Link>
                         </p>
@@ -330,9 +339,9 @@ const SignUp = () => {
     );
 };
 
-// --- Wrapper Component (No change needed from v3 wrapper) ---
+// --- Wrapper Component (Checks for Site Key) ---
 const SignUpPage = () => {
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY; // Use the V2 Key variable name
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
 
     if (!siteKey) {
         console.error("ReCAPTCHA V2 Site Key is not defined (NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY)");
@@ -346,10 +355,7 @@ const SignUpPage = () => {
             </div>
         );
     }
-
-    // NOTE: ReCAPTCHA v2 doesn't need the Provider wrapper component
-    // Render the SignUpcomponent directly
-    return <SignUp/>;
+    return <SignUp />; // Render the main component
 };
 
-export default SignUpPage; // Export the wrapper
+export default SignUpPage;

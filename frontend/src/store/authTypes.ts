@@ -1,4 +1,3 @@
-// src/store/authTypes.ts
 
 export interface User {
   id: string;
@@ -44,7 +43,6 @@ export interface VerifyEmailResponse {
     message: string;
 }
 
-// UPDATED: Added captchaToken field
 export interface LoginPayload {
   email: string;
   password: string;
@@ -54,7 +52,7 @@ export interface LoginPayload {
 export interface LoginResponse {
   status: string;
   message: string;
-  data: User; // Contains id and status
+  data: User; 
   token: string;
 }
 
