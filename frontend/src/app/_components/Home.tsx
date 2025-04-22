@@ -8,7 +8,7 @@ import image from '@/assets/home.png'
 import Testimonials from './Home/Testimonials'
 
 import Footer from './Footer'
-import Testimonials1 from './Home/Testimonials1'
+import Certifications from './Home/Certifications'
 
 const Home = () => {
   return (
@@ -49,7 +49,7 @@ const Home = () => {
         </div>
       </div>
       {/* Testimonials */}
-     <Testimonials1/>
+     <Certifications/>
       {/* Testimonials */}
       <Testimonials />
 

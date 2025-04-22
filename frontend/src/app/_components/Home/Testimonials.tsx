@@ -1,4 +1,3 @@
-// Testimonials.tsx
 'use client';
 import React from 'react';
 import {
@@ -65,9 +64,9 @@ const Testimonials = () => (
             const descContent = isLastTwo ? (
               <div className="relative p-6 italic text-[#003F5C]">
                 <span className="absolute top-0 left-0 text-4xl">“</span>
-                <p className="text-[16px] md:text-[18px] [@media(min-width:1800px)]:text-[24px]">
+                <div className="text-[16px] md:text-[18px] [@media(min-width:1800px)]:text-[24px]">
                   {item.description}
-                </p>
+                </div>
                 <span className="absolute bottom-0 right-0 text-4xl">”</span>
               </div>
             ) : (
