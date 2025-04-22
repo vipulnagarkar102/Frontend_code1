@@ -1,8 +1,6 @@
-// src/store/authStore.ts
-
 import { create } from 'zustand';
 import { AuthState, RegisterPayload, LoginPayload, User, RegisterResponse, VerifyEmailResponse, LoginResponse, LogoutResponse, ResendOtpResponse } from './authTypes'; // Ensure paths are correct
-import apiClient from '../services/apiClient'; // Ensure paths are correct
+import apiClient from '../services/apiClient'; 
 
 const getErrorMessage = (error: any): string => {
   if (error.response && error.response.data) {
@@ -53,7 +51,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   register: async (payload: RegisterPayload) => { // Type already includes captcha?
     set({ isLoading: true, isResendingOtp: false, error: null, requiresVerification: false, userIdForVerification: null });
     try {
-      // The payload received here should already contain the captcha token from the component
       if (!payload.captcha) {
          // This check might be redundant if component ensures captcha exists, but good defense
          throw new Error('CAPTCHA token is missing in payload');
@@ -125,7 +122,6 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       }
       const response = await apiClient.post<LoginResponse>('/auth/login', payload);
       const { data: userData, token } = response.data;
-      // Ensure userData includes necessary fields based on User type
       const user: User = {
           id: userData.id,
           status: userData.status,
