@@ -47,7 +47,7 @@ const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-    const industries = ['Hospitals & Health Systems ', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development','EdTech','HealthTech','Others'];
+    const industries = ['Hospitals & Health Systems ', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development', 'EdTech', 'HealthTech', 'Others'];
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -65,7 +65,7 @@ const SignUp = () => {
                 setFormData(prev => ({ ...prev, address: { ...(prev.address ?? { state: '', country: '' }), [child]: value } }));
             }
         } else {
-             setFormData(prev => ({ ...prev, [name]: value }));
+            setFormData(prev => ({ ...prev, [name]: value }));
         }
     };
 
@@ -87,7 +87,7 @@ const SignUp = () => {
             setFormErrors(prev => ({ ...prev, captcha: '' }));
         } else {
             // If token is null, it means the CAPTCHA was either expired or reset by the user
-             console.log("v2 Captcha expired or challenge reset by user/widget.");
+            console.log("v2 Captcha expired or challenge reset by user/widget.");
         }
     };
 
@@ -116,11 +116,11 @@ const SignUp = () => {
 
         if (Object.keys(newErrors).length > 0) {
             setFormErrors(newErrors);
-        
+
             if (!newErrors.captcha && captchaToken && recaptchaRef.current) {
-                 console.log("Resetting CAPTCHA due to other form errors.");
-                 recaptchaRef.current.reset();
-                 setCaptchaToken(null); // Clear the stale token state
+                console.log("Resetting CAPTCHA due to other form errors.");
+                recaptchaRef.current.reset();
+                setCaptchaToken(null); // Clear the stale token state
             }
             return; // Stop submission
         }
@@ -162,15 +162,15 @@ const SignUp = () => {
             console.error("Registration failed in component:", err);
             // Reset ReCAPTCHA v2 on ANY backend submission failure.
             if (recaptchaRef.current) {
-                 recaptchaRef.current.reset();
-                 setCaptchaToken(null); // Clear the token state
+                recaptchaRef.current.reset();
+                setCaptchaToken(null); // Clear the token state
             }
             // The error message should be set in the store by the `register` action's catch block.
             // We can optionally add a specific form error if the backend error is CAPTCHA-related.
             if (err.message && (err.message.toLowerCase().includes('captcha') || err.message.toLowerCase().includes('recaptcha'))) {
-                 setFormErrors(prev => ({ ...prev, captcha: `CAPTCHA Error: ${err.message}` }));
+                setFormErrors(prev => ({ ...prev, captcha: `CAPTCHA Error: ${err.message}` }));
             }
-             // The general error display section below will show the storeError
+            // The general error display section below will show the storeError
         }
     };
 
@@ -185,7 +185,7 @@ const SignUp = () => {
     return (
         <div className="flex min-h-screen w-full flex-col lg:flex-row text-[#003F5C]">
             {/* Left side Image */}
-             <div className="hidden lg:block lg:w-[40%] flex-shrink-0">
+            <div className="hidden lg:block lg:w-[40%] flex-shrink-0">
                 <div className="h-full w-full relative">
                     <Image src={SignUpImg} alt="Sign Up" layout="fill" objectFit="cover" priority />
                 </div>
@@ -198,8 +198,8 @@ const SignUp = () => {
                         <h1 className="text-3xl md:text-[40px] font-bold text-center font-poppins">Create an Account 🚀</h1>
                     </div>
 
-                     {/* Display Combined Errors Area */}
-                     {(storeError || Object.keys(formErrors).length > 0) && (
+                    {/* Display Combined Errors Area */}
+                    {(storeError || Object.keys(formErrors).length > 0) && (
                         <div className="mb-4 p-3 bg-red-100 text-red-700 border border-red-400 rounded text-sm space-y-1">
                             {/* Display backend error from store (if not handled by specific form error) */}
                             {storeError && !formErrors.captcha && <p>{storeError}</p>}
@@ -225,20 +225,20 @@ const SignUp = () => {
                             <div>
                                 <label htmlFor="last_name" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Last Name*</label>
                                 <div className="relative">
-                                     <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                    <input type="text" id="last_name" name="last_name" placeholder="Doe" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.last_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.last_name} onChange={handleChange} required/>
+                                    <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
+                                    <input type="text" id="last_name" name="last_name" placeholder="Doe" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.last_name ? 'border-red-500' : 'border-gray-300'}`} value={formData.last_name} onChange={handleChange} required />
                                 </div>
                             </div>
                         </div>
-                         {/* DoB */}
-                         <div>
+                        {/* DoB */}
+                        <div>
                             <label htmlFor="DoB" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Date of Birth</label>
                             <div className="relative">
                                 <FaCalendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                 <input type="date" id="DoB" name="DoB" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] text-gray-500 ${formErrors.DoB ? 'border-red-500' : 'border-gray-300'}`} value={formData.DoB ?? ''} onChange={handleChange} />
                             </div>
                         </div>
-                         {/* Industry */}
+                        {/* Industry */}
                         <div>
                             <label htmlFor="industry" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Industry*</label>
                             <div className="relative">
@@ -248,10 +248,10 @@ const SignUp = () => {
                                     {industries.map((industry) => (<option key={industry} value={industry}>{industry}</option>))}
                                 </select>
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                                     <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                    <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                         <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
                                     </svg>
-                                 </div>
+                                </div>
                             </div>
                         </div>
                         {/* Address Fields */}
@@ -271,12 +271,12 @@ const SignUp = () => {
                                 </div>
                             </div>
                         </div>
-                         {/* Email */}
-                         <div>
+                        {/* Email */}
+                        <div>
                             <label htmlFor="email" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Email Address*</label>
                             <div className="relative">
                                 <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <input type="email" id="email" name="email" placeholder="your@email.com" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.email ? 'border-red-500' : 'border-gray-300'}`} value={formData.email} onChange={handleChange} required/>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.email ? 'border-red-500' : 'border-gray-300'}`} value={formData.email} onChange={handleChange} required />
                             </div>
                         </div>
                         {/* Password */}
@@ -284,52 +284,52 @@ const SignUp = () => {
                             <label htmlFor="password" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Password*</label>
                             <div className="relative">
                                 <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
-                                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="••••••••" className={`w-full text-sm md:text-base pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.password ? 'border-red-500' : 'border-gray-300'}`} value={formData.password} onChange={handleChange} required/>
+                                <input type={showPassword ? "text" : "password"} id="password" name="password" placeholder="••••••••" className={`w-full text-sm md:text-base pl-10 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.password ? 'border-red-500' : 'border-gray-300'}`} value={formData.password} onChange={handleChange} required />
                                 <button type="button" aria-label={showPassword ? "Hide password" : "Show password"} className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
                                     {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
                                 </button>
                             </div>
                         </div>
-                         {/* Phone */}
-                         <div>
+                        {/* Phone */}
+                        <div>
                             <label htmlFor="phone_number" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Phone Number</label>
                             <div className="relative">
                                 <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                 <input type="tel" id="phone_number" name="phone_number" placeholder="+12095178912" className={`w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] ${formErrors.phone_number ? 'border-red-500' : 'border-gray-300'}`} value={formData.phone_number ?? ''} onChange={handleChange} />
                             </div>
                         </div>
-                         {/* Preferences */}
-                          {/* <div className="flex items-center pt-2">
+                        {/* Preferences */}
+                        {/* <div className="flex items-center pt-2">
                             <input type="checkbox" id="notification_opt_in" name="notification_opt_in" className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300" checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange} />
                             <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">I agree to the Terms and Conditions </label>
                         </div> */}
                         <div className="flex items-center pt-2">
-  <input
-    type="checkbox"
-    id="notification_opt_in"
-    name="notification_opt_in"
-    className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300"
-    checked={formData.preferences.notification_opt_in}
-    onChange={handleCheckboxChange}
-  />
-  <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">
-    I agree to the{" "}
-    <a
-      href="/terms-and-conditions" // Replace with your actual terms page URL
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-[#00A5CF] underline hover:text-[#007ba1]"
-    >
-      Terms and Conditions
-    </a>
-  </label>
-</div>
+                            <input
+                                type="checkbox"
+                                id="notification_opt_in"
+                                name="notification_opt_in"
+                                className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300"
+                                checked={formData.preferences.notification_opt_in}
+                                onChange={handleCheckboxChange}
+                            />
+                            <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">
+                                I agree to the{" "}
+                                <a
+                                    href="/terms-and-conditions" // Replace with your actual terms page URL
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[#00A5CF] underline hover:text-[#007ba1]"
+                                >
+                                    Terms and Conditions
+                                </a>
+                            </label>
+                        </div>
 
                         {/* --- End Form Fields --- */}
 
                         {/* --- ReCAPTCHA v2 Component --- */}
                         <div className="flex justify-center pt-2">
-                           <ReCAPTCHA
+                            <ReCAPTCHA
                                 ref={recaptchaRef}
                                 sitekey={siteKey} // Your V2 Site Key
                                 onChange={handleCaptchaChange} // Calls handler with token or null
@@ -369,11 +369,11 @@ const SignUpPage = () => {
         console.error("ReCAPTCHA V2 Site Key is not defined (NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY)");
         return (
             <div className="flex items-center justify-center min-h-screen p-4">
-                 <div className="p-4 md:p-6 bg-red-100 text-red-700 rounded border border-red-400 text-center">
-                     <h3 className="font-bold mb-2">Configuration Error</h3>
-                     <p>The application is missing the required ReCAPTCHA configuration.</p>
-                     <p>Please contact the site administrator.</p>
-                 </div>
+                <div className="p-4 md:p-6 bg-red-100 text-red-700 rounded border border-red-400 text-center">
+                    <h3 className="font-bold mb-2">Configuration Error</h3>
+                    <p>The application is missing the required ReCAPTCHA configuration.</p>
+                    <p>Please contact the site administrator.</p>
+                </div>
             </div>
         );
     }
