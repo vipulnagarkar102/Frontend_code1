@@ -299,10 +299,32 @@ const SignUp = () => {
                             </div>
                         </div>
                          {/* Preferences */}
-                          <div className="flex items-center pt-2">
+                          {/* <div className="flex items-center pt-2">
                             <input type="checkbox" id="notification_opt_in" name="notification_opt_in" className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300" checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange} />
                             <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">I agree to the Terms and Conditions </label>
-                        </div>
+                        </div> */}
+                        <div className="flex items-center pt-2">
+  <input
+    type="checkbox"
+    id="notification_opt_in"
+    name="notification_opt_in"
+    className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300"
+    checked={formData.preferences.notification_opt_in}
+    onChange={handleCheckboxChange}
+  />
+  <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">
+    I agree to the{" "}
+    <a
+      href="/terms-and-conditions" // Replace with your actual terms page URL
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-[#00A5CF] underline hover:text-[#007ba1]"
+    >
+      Terms and Conditions
+    </a>
+  </label>
+</div>
+
                         {/* --- End Form Fields --- */}
 
                         {/* --- ReCAPTCHA v2 Component --- */}
