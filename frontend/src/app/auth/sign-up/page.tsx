@@ -47,7 +47,7 @@ const SignUp = () => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-    const industries = ['Healthcare', 'Digital Engineering', 'Life science', 'Pharmacy'];
+    const industries = ['Hospitals & Health Systems ', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development','EdTech','HealthTech','Others'];
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -301,7 +301,7 @@ const SignUp = () => {
                          {/* Preferences */}
                           <div className="flex items-center pt-2">
                             <input type="checkbox" id="notification_opt_in" name="notification_opt_in" className="h-4 w-4 md:h-5 md:w-5 text-[#00A5CF] rounded focus:ring-[#00A5CF] border-gray-300" checked={formData.preferences.notification_opt_in} onChange={handleCheckboxChange} />
-                            <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">I agree to receive notifications and updates</label>
+                            <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato">I agree to the Terms and Conditions </label>
                         </div>
                         {/* --- End Form Fields --- */}
 
