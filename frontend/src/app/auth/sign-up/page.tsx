@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import ReCAPTCHA from "react-google-recaptcha";
-import toast, { Toaster } from 'react-hot-toast'; // Import toast and Toaster
+import toast, { Toaster } from 'react-hot-toast';
 
 import SignUpImg from '@/assets/pay-per-code.png';
 import { FaEye, FaEyeSlash, FaLock, FaEnvelope, FaUser, FaCalendar, FaIndustry, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
@@ -20,14 +20,13 @@ type SignUpFormData = Omit<RegisterPayload, 'industry' | 'preferences' | 'captch
     preferences: { notification_opt_in: boolean };
 };
 
-// --- Toast Style Options ---
 const toastErrorStyle = {
     style: {
-        border: '1px solid #EF4444', // Red-500
+        border: '1px solid #EF4444',
         padding: '12px',
-        color: '#B91C1C', // Red-700
-        background: '#FEF2F2', // Red-50
-        fontSize: '16px', 
+        color: '#B91C1C',
+        background: '#FEF2F2',
+        fontSize: '14px',
     },
     iconTheme: {
         primary: '#EF4444',
@@ -37,28 +36,29 @@ const toastErrorStyle = {
 
 const toastSuccessStyle = {
     style: {
-        border: '1px solid #10B981', // Emerald-500
+        border: '1px solid #10B981',
         padding: '12px',
-        color: '#047857', // Emerald-700
-        background: '#ECFDF5', // Emerald-50
-        fontSize: '16px', 
+        color: '#047857',
+        background: '#ECFDF5',
+        fontSize: '14px',
     },
     iconTheme: {
         primary: '#10B981',
         secondary: '#ECFDF5',
     },
 };
-// --- End Toast Style Options ---
+
+// Regex for password validation (matches backend Joi)
+const passwordRegex = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{6,}$');
+
 
 const SignUp = () => {
     const [formData, setFormData] = useState<SignUpFormData>({
         first_name: '', last_name: '', DoB: '', industry: '', email: '',
         password: '', phone_number: '',
         address: { state: '', country: '' },
-        preferences: { notification_opt_in: false } // Default terms not agreed
+        preferences: { notification_opt_in: false }
     });
-
-    // Removed formErrors state as we now use toasts directly
 
     const { register, isLoading, error: storeError, isAuthInitialized, isAuthenticated, clearError, requiresVerification } = useAuthStore();
     const router = useRouter();
@@ -76,11 +76,23 @@ const SignUp = () => {
     }, [clearError]);
 
     const [showPassword, setShowPassword] = useState(false);
-    const industries = ['Hospitals & Health Systems', 'Pharmaceutical Companies', 'Health Insurance / Payers', 'Software Development','EdTech','HealthTech','Others']; // Added space back
+    // **FIXED:** Industries array now matches backend Joi schema
+    const industries = [
+        'Healthcare',
+        'Digital Engineering',
+        'Life science',
+        'Pharmaceutical Companies',
+        'Health Insurance',
+        'Software Development',
+        'Ed Tech', // Note the space
+        'Hospitals & Health Systems', // Added from Joi
+        'Others'
+    ];
+
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        clearError(); // Clear backend error on any input change
+        clearError();
         setFormData(prev => {
             if (name.includes('.')) {
                 const [parent, child] = name.split('.') as ['address', string];
@@ -107,21 +119,35 @@ const SignUp = () => {
         e.preventDefault();
         clearError();
 
-        // --- Terms Check First ---
         if (!formData.preferences.notification_opt_in) {
             toast.error('Please agree to the Terms and Conditions to continue.', toastErrorStyle);
             return;
         }
 
-        // --- Frontend Validation (Collect messages for toasts) ---
         const validationErrors: string[] = [];
         if (!formData.first_name.trim()) validationErrors.push('First name is required');
         if (!formData.last_name.trim()) validationErrors.push('Last name is required');
         if (!formData.email.trim()) validationErrors.push('Email is required');
         else if (!/\S+@\S+\.\S+/.test(formData.email)) validationErrors.push('Email is invalid');
-        if (!formData.password) validationErrors.push('Password is required');
-        else if (formData.password.length < 6) validationErrors.push('Password must be at least 6 characters');
+
+        if (!formData.password) {
+            validationErrors.push('Password is required');
+        } else {
+             if (formData.password.length < 6) {
+                validationErrors.push('Password must be at least 6 characters long');
+             }
+             // **ADDED:** Frontend check for password pattern
+             if (!passwordRegex.test(formData.password)) {
+                validationErrors.push('Password needs uppercase, lowercase, number, & special char');
+             }
+        }
+
         if (!formData.industry) validationErrors.push('Industry is required');
+        // Ensure selected industry is valid (should match backend now)
+        else if (!industries.includes(formData.industry)) {
+             validationErrors.push('Invalid industry selected.'); // Should not happen if list matches
+        }
+
         if (formData.address?.country && formData.address.country.trim().length > 0 && formData.address.country.trim().length !== 2) {
             validationErrors.push('Country must be a 2-letter code (e.g., US)');
         }
@@ -130,21 +156,24 @@ const SignUp = () => {
         }
 
         if (validationErrors.length > 0) {
-            // Show all validation errors as toasts
             validationErrors.forEach(msg => toast.error(msg, toastErrorStyle));
-            // Reset captcha only if captcha itself wasn't the error
             if (!validationErrors.includes('Please complete the CAPTCHA verification.') && captchaToken && recaptchaRef.current) {
                 recaptchaRef.current.reset();
                 setCaptchaToken(null);
             }
-            return; // Stop submission
+            return;
         }
+
+        // Use optional chaining and nullish coalescing for potentially undefined industry
+        const selectedIndustry = formData.industry && industries.includes(formData.industry)
+                                 ? formData.industry
+                                 : undefined;
 
         const payload: RegisterPayload = {
             first_name: formData.first_name.trim(),
             last_name: formData.last_name.trim(),
             DoB: formData.DoB || null,
-            industry: formData.industry && industries.includes(formData.industry) ? formData.industry : undefined,
+            industry: selectedIndustry, // Send selected or undefined
             email: formData.email.trim(),
             password: formData.password,
             phone_number: formData.phone_number?.trim() || null,
@@ -164,14 +193,13 @@ const SignUp = () => {
             if (state.requiresVerification && state.userIdForVerification) {
                 toast.success('Registration successful! Please check your email for verification.', toastSuccessStyle);
                 router.push('/auth/verify-email');
-            } else if (!state.error) { // Fallback scenario
+            } else if (!state.error) {
                 toast.success('Registration successful!', toastSuccessStyle);
                 router.push('/auth/login');
             }
-             // If state.error exists, the catch block handles it
 
         } catch (err: any) {
-            const latestError = useAuthStore.getState().error; // Get error from store
+            const latestError = useAuthStore.getState().error;
             toast.error(latestError || 'Registration failed. Please try again.', toastErrorStyle);
 
             if (recaptchaRef.current) {
@@ -200,12 +228,8 @@ const SignUp = () => {
                         <h1 className="text-3xl md:text-[40px] font-bold text-center font-poppins">Create an Account 🚀</h1>
                     </div>
 
-                    {/* Error box removed */}
-
                     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-                        {/* Form Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                           {/* First Name */}
                            <div>
                                 <label htmlFor="first_name" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">First Name*</label>
                                 <div className="relative">
@@ -213,7 +237,6 @@ const SignUp = () => {
                                     <input type="text" id="first_name" name="first_name" placeholder="John" className="w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] border-gray-300" value={formData.first_name} onChange={handleChange} required />
                                 </div>
                             </div>
-                             {/* Last Name */}
                              <div>
                                 <label htmlFor="last_name" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Last Name*</label>
                                 <div className="relative">
@@ -222,7 +245,6 @@ const SignUp = () => {
                                 </div>
                             </div>
                         </div>
-                         {/* DoB */}
                          <div>
                             <label htmlFor="DoB" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Date of Birth</label>
                             <div className="relative">
@@ -230,13 +252,13 @@ const SignUp = () => {
                                 <input type="date" id="DoB" name="DoB" className="w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] text-gray-500 border-gray-300" value={formData.DoB ?? ''} onChange={handleChange} />
                             </div>
                         </div>
-                         {/* Industry */}
                         <div>
                             <label htmlFor="industry" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Industry*</label>
                             <div className="relative">
                                 <FaIndustry className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none" />
                                 <select id="industry" name="industry" className={`w-full text-sm md:text-base pl-10 pr-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] bg-white appearance-none border-gray-300 ${!formData.industry ? 'text-gray-500' : ''}`} value={formData.industry} onChange={handleChange} required>
                                     <option value="" disabled>Select your industry</option>
+                                    {/* Updated options to match backend */}
                                     {industries.map((industry) => (<option key={industry} value={industry}>{industry}</option>))}
                                 </select>
                                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -246,9 +268,7 @@ const SignUp = () => {
                                  </div>
                             </div>
                         </div>
-                        {/* Address Fields */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                           {/* State */}
                            <div>
                                 <label htmlFor="address.state" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">State</label>
                                 <div className="relative">
@@ -256,7 +276,6 @@ const SignUp = () => {
                                     <input type="text" id="address.state" name="address.state" placeholder="California" className="w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] border-gray-300" value={formData.address?.state ?? ''} onChange={handleChange} />
                                 </div>
                             </div>
-                             {/* Country */}
                              <div>
                                 <label htmlFor="address.country" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Country (2-letter code)</label>
                                 <div className="relative">
@@ -265,7 +284,6 @@ const SignUp = () => {
                                 </div>
                             </div>
                         </div>
-                         {/* Email */}
                          <div>
                             <label htmlFor="email" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Email Address*</label>
                             <div className="relative">
@@ -273,7 +291,6 @@ const SignUp = () => {
                                 <input type="email" id="email" name="email" placeholder="your@email.com" className="w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] border-gray-300" value={formData.email} onChange={handleChange} required/>
                             </div>
                         </div>
-                        {/* Password */}
                         <div>
                             <label htmlFor="password" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Password*</label>
                             <div className="relative">
@@ -283,8 +300,9 @@ const SignUp = () => {
                                     {showPassword ? <FaEyeSlash className="h-5 w-5" /> : <FaEye className="h-5 w-5" />}
                                 </button>
                             </div>
+                            {/* Optional: Add a hint for password requirements */}
+                            {/* <p className="text-xs text-gray-500 mt-1">Must include uppercase, lowercase, number, special char (@$!%*?&).</p> */}
                         </div>
-                         {/* Phone */}
                          <div>
                             <label htmlFor="phone_number" className="block text-sm md:text-[16px] text-gray-700 font-lato font-bold mb-1">Phone Number</label>
                             <div className="relative">
@@ -292,7 +310,6 @@ const SignUp = () => {
                                 <input type="tel" id="phone_number" name="phone_number" placeholder="+12095178912" className="w-full text-sm md:text-base pl-10 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A5CF] border-gray-300" value={formData.phone_number ?? ''} onChange={handleChange} />
                             </div>
                         </div>
-                         {/* Preferences */}
                         <div className="flex items-center pt-2">
                           <input
                             type="checkbox"
@@ -305,7 +322,7 @@ const SignUp = () => {
                           <label htmlFor="notification_opt_in" className="ml-2 block text-sm md:text-[16px] text-gray-700 font-lato cursor-pointer">
                             I agree to the{" "}
                             <a
-                              href="/terms-and-conditions" // Adjust link
+                              href="/terms-and-conditions"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-[#00A5CF] underline hover:text-[#007ba1]"
@@ -316,7 +333,6 @@ const SignUp = () => {
                           </label>
                         </div>
 
-                        {/* ReCAPTCHA */}
                         <div className="flex justify-center pt-2">
                            <ReCAPTCHA
                                 ref={recaptchaRef}
@@ -325,17 +341,15 @@ const SignUp = () => {
                             />
                         </div>
 
-                        {/* Submit Button */}
                         <Button
                             type='submit'
                             className='w-full font-poppins py-3 md:py-4 mt-4 font-semibold text-base md:text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed'
-                            disabled={isLoading || !formData.preferences.notification_opt_in} // Disable if loading OR terms not checked
+                            disabled={isLoading || !formData.preferences.notification_opt_in}
                         >
                             {isLoading ? 'Signing Up...' : 'Sign Up'}
                         </Button>
                     </form>
 
-                    {/* Login Link */}
                     <div className="text-center mt-6">
                         <p className="text-base md:text-[18px] font-lato font-normal">
                             Already have an account?{' '}
@@ -348,7 +362,6 @@ const SignUp = () => {
     );
 };
 
-// --- Wrapper Component ---
 const SignUpPage = () => {
     const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_V2_SITE_KEY;
 
@@ -364,11 +377,10 @@ const SignUpPage = () => {
     }
     return (
         <>
-            {/* Central Toaster Component */}
             <Toaster
                 position="top-right"
                 reverseOrder={false}
-                toastOptions={{ duration: 4000 }} // Default duration
+                toastOptions={{ duration: 4000 }}
              />
             <SignUp />
         </>
