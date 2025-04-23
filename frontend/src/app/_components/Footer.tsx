@@ -37,7 +37,7 @@ const Footer = () => {
             </Link>
 
             <Link href='/terms-and-conditions'>
-              <div className='cursor-pointer'>Terms & Conditions</div>
+              <div className='cursor-pointer'>Terms & Conditionss</div>
             </Link>
           </div>
         </div>
