@@ -43,7 +43,7 @@ const testimonialsData = [
     description:
       'By sharing impactful health videos, you\'re driving awareness, empowering healthier choices, and making a meaningful difference in your community. Keep up the great work!',
   },
-  
+
 ];
 
 const Testimonials = () => (
@@ -63,12 +63,24 @@ const Testimonials = () => (
             const isLastTwo = idx >= testimonialsData.length - 2;
             const descContent = isLastTwo ? (
               <div className="relative p-6 italic text-[#003F5C]">
-                <span className="absolute top-0 left-0 text-4xl">“</span>
-                <div className="text-[16px] md:text-[18px] [@media(min-width:1800px)]:text-[24px]">
+              <img
+                  src="q1.png"
+                  alt="Quote"
+                  className="absolute top-0 left-0 w-12 h-12 md:w-16 md:h-16"
+                />
+                <div className="text-[16px] md:text-[18px] [@media(min-width:1800px)]:text-[24px] ">
                   {item.description}
                 </div>
-                <span className="absolute bottom-0 right-0 text-4xl">”</span>
+                {/* <span className="absolute bottom-0 right-0 text-4xl  font-bold text-[#00A897]">”</span> */}
+                <img
+                  src="q2.png"
+                  alt="Quote"
+                  className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16"
+                />
+
+
               </div>
+
             ) : (
               item.description
             );
