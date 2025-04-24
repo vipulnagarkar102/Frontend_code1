@@ -66,7 +66,7 @@ const Testimonials = () => (
               <img
                   src="q1.png"
                   alt="Quote"
-                  className="absolute top-0 left-0 w-12 h-12 md:w-16 md:h-16"
+                  className="absolute top-0 left-0 w-12 h-12 md:w-12 md:h-12"
                 />
                 <div className="text-[16px] md:text-[18px] [@media(min-width:1800px)]:text-[24px] ">
                   {item.description}
@@ -75,7 +75,7 @@ const Testimonials = () => (
                 <img
                   src="q2.png"
                   alt="Quote"
-                  className="absolute bottom-0 right-0 w-12 h-12 md:w-16 md:h-16"
+                  className="absolute bottom-0 right-0 w-12 h-12 md:w-12 md:h-12"
                 />
 
 
