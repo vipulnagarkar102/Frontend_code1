@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ["vtexai.kinsta.cloud"],
+    domains: ["vtexai.kinsta.cloud",'h2p.c25.myftpupload.com'],
   },
   headers: securityHeaders,
 };
