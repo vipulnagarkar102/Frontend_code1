@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 import { ArrowDown } from 'lucide-react';
 
 interface PricingsPlanProps {
@@ -10,8 +11,15 @@ interface PricingsPlanProps {
 }
 
 const PricingsPlan: React.FC<PricingsPlanProps> = ({ title, price, isAnnual }) => {
+  const router = useRouter();
   // Format the numeric price as dollars
   const formattedPrice = `$${price.toFixed(2)}`;
+
+  const handleClick = () => {
+    if (title === 'FlexPick') {
+      router.push('/flexpick-plan'); // Only redirect if plan is FlexPick
+    }
+  };
 
   return (
     <div
@@ -41,7 +49,7 @@ const PricingsPlan: React.FC<PricingsPlanProps> = ({ title, price, isAnnual }) =
 
       {/* 3) Call-to-Action Button */}
       <div>
-        <Button className="w-full bg-[#00A5CF] hover:bg-[#00A5CF] text-white font-lato py-4 font-semibold">
+        <Button onClick={handleClick} className="w-full bg-[#00A5CF] hover:bg-[#00A5CF] text-white font-lato py-4 font-semibold cursor-pointer">
           START SUBSCRIPTION <ArrowDown size={24} className="inline-block rotate-225" />
         </Button>
       </div>
