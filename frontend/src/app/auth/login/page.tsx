@@ -12,7 +12,6 @@ import LoginImg from '@/assets/pay-per-code.png';
 import { Button } from '@/components/ui/button';
 import { useAuthStore } from '@/store/authStore';
 import { LoginPayload as BaseLoginPayload } from '@/store/authTypes';
-
 type LoginPayload = BaseLoginPayload;
 
 const toastErrorStyle = {
@@ -109,7 +108,7 @@ const Login = () => {
 
 
   return (
-    <div className="flex min-h-screen w-full flex-col lg:flex-row text-[#003F5C]">
+    <div className="mt-26 flex min-h-screen w-full flex-col lg:flex-row text-[#003F5C]">
       <div className="hidden lg:block lg:w-[40%] flex-shrink-0">
         <div className="h-full w-full relative">
           <Image src={LoginImg} alt="Login" layout="fill" objectFit="cover" priority />
@@ -161,7 +160,7 @@ const Login = () => {
                     <div className="absolute inset-0 flex items-center" aria-hidden="true"> <div className="w-full border-t border-gray-300" /> </div>
                     <div className="relative flex justify-center"> <span className="bg-white px-2 text-sm text-gray-500">OR CONTINUE WITH</span> </div>
                 </div>
-                <div className="mt-4 grid grid-cols-1 gap-3">
+                <div className="mt-4 flex flex-col md:flex-row gap-3">
                     <a href={`${API_BASE_URL}/auth/google`} className="inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50">
                          <span className="sr-only">Continue with Google</span>
                          <FaGoogle className="h-5 w-5 text-red-500" aria-hidden="true" />

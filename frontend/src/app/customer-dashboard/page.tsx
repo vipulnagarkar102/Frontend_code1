@@ -18,25 +18,30 @@ const Dashboard = () => {
 
   // Protection Effect: Redirect if not authenticated after initialization
   useEffect(() => {
-    // Don't run checks until auth initialization is complete
-    if (!isAuthInitialized) {
-      return;
-    }
-
-    // If initialized but NOT authenticated, redirect to login
-    if (!isAuthenticated) {
-      console.log("Dashboard: Not authenticated, redirecting to login...");
-      router.replace('/auth/login');
-      return; // Stop further execution in this effect
-    }
-
-    // If authenticated AND profile data is not yet loaded, fetch it
-    if (isAuthenticated && !profile && !isLoadingProfile && !userProfileError) {
-       console.log("Dashboard: Authenticated, fetching user profile...");
-       getUserProfile();
-    }
-
-  }, [isAuthenticated, isAuthInitialized, profile, isLoadingProfile, userProfileError, getUserProfile, router]);
+    const checkAuth = async () => {
+      await initializeAuth();
+      if (!isAuthenticated && isAuthInitialized) {
+        router.push('/auth/login');
+      }
+    };
+    checkAuth();
+  }, [isAuthenticated, isAuthInitialized]);
+  
+  if (!isAuthInitialized) {
+    return (
+      <div className="flex min-h-screen w-full bg-gray-100">
+        <Sidebar/>
+        <div className="flex ml-16 md:ml-64 flex-col w-full items-center justify-center min-h-screen">
+          <div className="w-12 h-12 border-4 border-t-[#003F5C] border-r-transparent border-b-[#003F5C] border-l-transparent rounded-full animate-spin"></div>
+            <p className="mt-4 text-[20px] font-lato font-semibold text-[#003F5C]">Loading...</p>
+          </div>
+      </div>
+    );
+  }
+  
+  if (!isAuthenticated) {
+    return null; 
+  }
 
   
 
@@ -47,17 +52,7 @@ const Dashboard = () => {
     { icon: <FiGrid size={24} />, count: 10, label: 'Quiz Attempts' },
   ];
 
-  if (!isAuthInitialized || (isAuthenticated && (!profile || isLoadingProfile) && !userProfileError)) {
-      return (
-        <div className="flex min-h-screen w-full bg-gray-100">
-          <Sidebar/>
-          <div className="flex ml-16 md:ml-64 flex-col w-full items-center justify-center min-h-screen">
-            <div className="w-12 h-12 border-4 border-t-[#003F5C] border-r-transparent border-b-[#003F5C] border-l-transparent rounded-full animate-spin"></div>
-              <p className="mt-4 text-[20px] font-lato font-semibold text-[#003F5C]">Loading...</p>
-            </div>
-        </div>
-      );
-  }
+
 
   // --- Handle Profile Fetch Error ---
    // If auth is initialized and user is authenticated, but there was an error fetching the profile

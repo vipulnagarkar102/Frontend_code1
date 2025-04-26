@@ -73,6 +73,7 @@ export interface ResendOtpResponse {
 export interface AuthState {
   user: User | null;
   token: string | null;
+  setToken: (token: string) => void;
   isAuthenticated: boolean;
   isLoading: boolean;
   isResendingOtp: boolean;
@@ -87,6 +88,6 @@ export interface AuthState {
   resendOtp: () => Promise<{ success: boolean; message: string; remaining?: number }>;
   login: (payload: LoginPayload) => Promise<void>; // Includes captchaToken
   logout: () => Promise<void>;
-  initializeAuth: () => void;
+  initializeAuth: () => Promise<void>;
   clearError: () => void;
 }
