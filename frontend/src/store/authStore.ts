@@ -155,36 +155,72 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   initializeAuth: async () => {
-     if (get().isAuthInitialized) return;
-     console.log("Initializing authentication...");
-     const token = localStorage.getItem('authToken');
-     if (token) {
-        console.log("Token found. Verifying...");
-        apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        try {
-            // Adjust User type here if first_name is expected
-            const response = await apiClient.get<{status: string; data: User & {first_name?: string} }>('/users/getUserProfile');
-            const userProfile = response.data.data;
-            if (userProfile && userProfile.status === 'active') {
-                console.log("Token verified, user profile fetched:", userProfile);
-                // Store necessary user info
-                const user: User = { id: userProfile.id, status: userProfile.status, first_name: userProfile.first_name };
-                set({ user, token, isAuthenticated: true, isAuthInitialized: true, isLoading: false, error: null });
-            } else {
-                 console.warn("Token valid but user not active or profile invalid. Logging out.");
-                 clearAuthState(set);
-            }
-        } catch (error: any) {
-            const errorMessage = getErrorMessage(error);
-            console.warn("Token verification failed:", error.response?.status, errorMessage);
-            clearAuthState(set);
+    // Only initialize once
+    if (get().isAuthInitialized) return;
+  
+    console.log("Initializing authentication...");
+    set({ isLoading: true });
+  
+    try {
+      // Check both permanent and temporary tokens
+      const token = localStorage.getItem('authToken') || 
+                   localStorage.getItem('tempAuthToken');
+  
+      if (!token) {
+        console.log("No token found - not authenticated");
+        set({ isAuthInitialized: true, isLoading: false });
+        return;
+      }
+  
+      console.log("Token found. Verifying...");
+      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  
+      const response = await apiClient.get('/users/getUserProfile');
+      const userProfile = response.data.data;
+  
+      if (userProfile?.status === 'active') {
+        console.log("Authentication successful");
+        const user: User = {
+          id: userProfile.id,
+          status: userProfile.status,
+          first_name: userProfile.first_name
+        };
+  
+        // Promote temp token to permanent if needed
+        if (localStorage.getItem('tempAuthToken')) {
+          localStorage.setItem('authToken', token);
+          localStorage.removeItem('tempAuthToken');
         }
-     } else {
-        console.log("No token found.");
-        clearAuthState(set);
-     }
+  
+        set({
+          user,
+          token,
+          isAuthenticated: true,
+          isAuthInitialized: true,
+          isLoading: false
+        });
+      } else {
+        throw new Error('Account not active');
+      }
+    } catch (error) {
+      console.error("Auth initialization failed:", error);
+      clearAuthState(set);
+      set({ isAuthInitialized: true });
+      throw error;
+    }
   },
 
   clearError: () => { set({ error: null }); },
+
+  setToken: (token: string | null) => {
+    if (token) {
+      localStorage.setItem('authToken', token);
+      apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    } else {
+      localStorage.removeItem('authToken');
+      delete apiClient.defaults.headers.common['Authorization'];
+    }
+    set({ token });
+  },
 
 }));
