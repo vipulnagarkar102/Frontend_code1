@@ -1,9 +1,11 @@
 'use client';
-import { useEffect } from 'react';
+export const dynamic = 'force-dynamic';
+
+import { Suspense, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuthStore } from '@/store/authStore';
 
-export default function AuthSuccessPage() {
+function AuthSuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { initializeAuth, isAuthenticated } = useAuthStore();
@@ -11,7 +13,9 @@ export default function AuthSuccessPage() {
   useEffect(() => {
     const token = searchParams.get('token');
     if (token) {
-      localStorage.setItem('tempAuthToken', token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('tempAuthToken', token);
+      }
       initializeAuth()
         .then(() => router.push('/customer-dashboard'))
         .catch(() => router.push('/login?error=auth_failed'));
@@ -20,10 +24,11 @@ export default function AuthSuccessPage() {
     }
   }, [router, searchParams, initializeAuth]);
 
-  if (isAuthenticated) {
-    router.push('/customer-dashboard');
-    return null;
-  }
+  useEffect(() => {
+    if (isAuthenticated) {
+      router.push('/customer-dashboard');
+    }
+  }, [isAuthenticated, router]);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -32,5 +37,13 @@ export default function AuthSuccessPage() {
         <p>Please wait while we verify your account...</p>
       </div>
     </div>
+  );
+}
+
+export default function AuthSuccessPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <AuthSuccessContent />
+    </Suspense>
   );
 }
