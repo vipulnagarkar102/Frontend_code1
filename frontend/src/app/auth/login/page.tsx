@@ -143,7 +143,7 @@ const Login = () => {
                 <ReCAPTCHA ref={recaptchaRef} sitekey={siteKey} onChange={handleCaptchaChange} />
              </div>
             <Button type='submit' className='w-full font-poppins py-3 md:py-4 mt-4 font-semibold text-base md:text-[18px] cursor-pointer bg-[#00A5CF] hover:bg-[#008CBA] text-[#FFFFFF] disabled:opacity-50 disabled:cursor-not-allowed' disabled={isLoading}>
-              {isLoading ? 'Logging In...' : 'Login'}
+              {isLoading ? 'Logging In..' : 'Login'}
             </Button>
           </form>
 
