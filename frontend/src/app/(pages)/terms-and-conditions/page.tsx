@@ -42,7 +42,7 @@ export default function TermsAndConditionsPage() {
               <span>Trade Mark Takedown Notice Form</span>
               <ArrowDown size={16} className="ml-1" />
             </a>
-            <a href="#" className="font-normal text-[18px] [@media(min-width:1750px)]:text-[22px] hover:underline flex items-center">
+            <a href="/Trade Mark Takedown Notice Form.docx" download className="font-normal text-[18px] [@media(min-width:1750px)]:text-[22px] hover:underline flex items-center">
               <span>Copyright Takedown Notice Form</span>
               <ArrowDown size={16} className="ml-1" />
             </a>
