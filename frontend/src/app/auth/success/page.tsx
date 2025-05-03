@@ -1,4 +1,6 @@
-'use client';
+'use client'
+
+import AuthSuccessPage from './AuthSuccessPage'
 export const dynamic = 'force-dynamic';
 
 import { Suspense, useEffect } from 'react';
@@ -30,7 +32,15 @@ function AuthSuccessContent() {
     }
   }, [isAuthenticated, router]);
 
+
+export default function Page() {
   return (
+
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthSuccessPage />
+    </Suspense>
+  )
+
     <div className="flex items-center justify-center min-h-screen">
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-4">Processing Authentication</h1>

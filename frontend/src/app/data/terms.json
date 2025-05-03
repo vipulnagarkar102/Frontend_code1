@@ -566,21 +566,6 @@
     "icon": "CreditCard"
   },
   {
-    "id": "trademark-takedown-notice-form",
-    "title": "Trade Mark Takedown Notice form",
-    "introductoryLines": [
-    ],
-    "sections": [
-      {
-        "sectionTitle": "",
-        "content": [
-          ""
-        ]
-      }
-    ],
-    "icon": "Flag"
-  },
-  {
     "id": "third-party-affiliation-terms-and-conditions",
     "title": "Third Party Affiliation Terms and Conditions",
     "introductoryLines": [
@@ -1217,16 +1202,6 @@
         ]
       }
     ],
-    "icon": "Copyright"
-  },
-  {
-    "id": "copyright-takedown-notice-form",
-    "title": "Copyright Takedown Notice form",
-    "introductoryLines" : [],
-    "sections":[{
-      "sectionTitle" : "",
-      "content" : []
-    }],
     "icon": "Copyright"
   }
 ]
