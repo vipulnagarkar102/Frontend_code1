@@ -6,7 +6,7 @@ import AuthSuccessPage from './AuthSuccessPage';
 
 export default function Page() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading</div>}>
       <AuthSuccessPage />
     </Suspense>
   );
