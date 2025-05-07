@@ -39,7 +39,7 @@ export default function ClientPricing({
   useEffect(() => {
     async function fetchPlans() {
       const priceType = isAnnual ? 'Annual' : 'Monthly';
-      const res = await fetch(`https://paymentapi-7cpi.onrender.com/api/prices?priceType=${priceType}`);
+      const res = await fetch(`https://paymentapi-95i1.onrender.com/api/prices?priceType=${priceType}`);
       const json: RawApiResponse = await res.json();
 
       const flat = Object.values(json.data)
