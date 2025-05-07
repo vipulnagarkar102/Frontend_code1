@@ -34,7 +34,7 @@ const Home = () => {
       <Offers />
 
       {/* Watch Free Videos */}
-      {/* <WatchFree /> */}
+      <WatchFree />
 
       {/* Ai Solution */}
       <AiSolution />
