@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { ArrowDown, ChevronRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import Card from './_components/TermsCard'
 import termsData from '@/app/data/terms.json';
 import Footer from '@/app/_components/Footer';
@@ -26,8 +26,7 @@ export default function TermsAndConditionsPage() {
               href={`/terms-and-conditions/${item.id}`}
               key={item.id}>
               <Card 
-                
-                icon={item.icon}
+                icon={item.icon ?? "DefaultIcon"}
                 title={item.title}
               />
             </Link>
